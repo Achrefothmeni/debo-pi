@@ -17,6 +17,7 @@
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="AppBundle">AppBundle\AppBundle</parameter>
+      <parameter key="ClientBundle">ClientBundle\ClientBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -63,6 +64,11 @@
         <parameter key="parent">null</parameter>
         <parameter key="path">C:\wamp64\www\debo-pi-master\src\AppBundle</parameter>
         <parameter key="namespace">AppBundle</parameter>
+      </parameter>
+      <parameter key="ClientBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">C:\wamp64\www\debo-pi-master\src\ClientBundle</parameter>
+        <parameter key="namespace">ClientBundle</parameter>
       </parameter>
       <parameter key="DebugBundle" type="collection">
         <parameter key="parent">null</parameter>
@@ -2700,6 +2706,14 @@
         <argument>!Doctrine</argument>
       </call>
       <call method="addPath">
+        <argument>C:\wamp64\www\debo-pi-master\src\ClientBundle/Resources/views</argument>
+        <argument>Client</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp64\www\debo-pi-master\src\ClientBundle/Resources/views</argument>
+        <argument>!Client</argument>
+      </call>
+      <call method="addPath">
         <argument>C:\wamp64\www\debo-pi-master\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
@@ -3132,11 +3146,11 @@
     <service id="doctrine.dbal.default_connection" class="Doctrine\DBAL\Connection" public="true">
       <argument type="collection">
         <argument key="driver">pdo_mysql</argument>
-        <argument key="host">127.0.0.1</argument>
-        <argument key="port">null</argument>
-        <argument key="dbname">symfony</argument>
-        <argument key="user">root</argument>
-        <argument key="password">null</argument>
+        <argument key="host">remotemysql.com</argument>
+        <argument key="port" type="string">3306</argument>
+        <argument key="dbname">bIFzVxGi4r</argument>
+        <argument key="user">bIFzVxGi4r</argument>
+        <argument key="password">yVbH4enfyQ</argument>
         <argument key="charset">UTF8</argument>
         <argument key="driverOptions" type="collection"/>
         <argument key="defaultTableOptions" type="collection"/>
@@ -3286,7 +3300,9 @@
     </service>
     <service id="doctrine.orm.default_configuration" class="Doctrine\ORM\Configuration" public="false">
       <call method="setEntityNamespaces">
-        <argument type="collection"/>
+        <argument type="collection">
+          <argument key="ClientBundle">ClientBundle\Entity</argument>
+        </argument>
       </call>
       <call method="setMetadataCacheImpl">
         <argument type="service" id="doctrine_cache.providers.doctrine.orm.default_metadata_cache"/>
@@ -3328,7 +3344,18 @@
         <argument type="service" id="doctrine.orm.container_repository_factory"/>
       </call>
     </service>
-    <service id="doctrine.orm.default_metadata_driver" class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false"/>
+    <service id="doctrine.orm.default_annotation_metadata_driver" class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+      <argument type="service" id="annotations.cached_reader"/>
+      <argument type="collection">
+        <argument>C:\wamp64\www\debo-pi-master\src\ClientBundle\Entity</argument>
+      </argument>
+    </service>
+    <service id="doctrine.orm.default_metadata_driver" class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false">
+      <call method="addDriver">
+        <argument type="service" id="doctrine.orm.default_annotation_metadata_driver"/>
+        <argument>ClientBundle\Entity</argument>
+      </call>
+    </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_metadata_cache" class="Doctrine\Common\Cache\ArrayCache" public="true">
       <call method="setNamespace">
         <argument>sf_orm_default_ee19459780b171ef78a25ecc026a726511e638cd447a8bf1e1612bb221a1367c</argument>
