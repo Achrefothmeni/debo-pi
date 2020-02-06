@@ -1,9 +1,9 @@
 <?php
 
-namespace ClientBundle;
+namespace ArticleBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class ClientBundle extends Bundle
+class ArticleBundle extends Bundle
 {
 }

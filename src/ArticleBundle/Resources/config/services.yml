@@ -1,4 +1,4 @@
 services:
-#    client.example:
-#        class: ClientBundle\Example
+#    article.example:
+#        class: ArticleBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
