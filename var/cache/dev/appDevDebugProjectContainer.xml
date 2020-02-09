@@ -19,6 +19,7 @@
       <parameter key="AppBundle">AppBundle\AppBundle</parameter>
       <parameter key="ArticleBundle">ArticleBundle\ArticleBundle</parameter>
       <parameter key="FOSUserBundle">FOS\UserBundle\FOSUserBundle</parameter>
+      <parameter key="AuthBundle">AuthBundle\AuthBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -76,6 +77,11 @@
         <parameter key="path">C:\wamp64\www\debo-pi-master\vendor\friendsofsymfony\user-bundle</parameter>
         <parameter key="namespace">FOS\UserBundle</parameter>
       </parameter>
+      <parameter key="AuthBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">C:\wamp64\www\debo-pi-master\src\AuthBundle</parameter>
+        <parameter key="namespace">AuthBundle</parameter>
+      </parameter>
       <parameter key="DebugBundle" type="collection">
         <parameter key="parent">null</parameter>
         <parameter key="path">C:\wamp64\www\debo-pi-master\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle</parameter>
@@ -108,7 +114,7 @@
     <parameter key="container.dumper.inline_class_loader">true</parameter>
     <parameter key="database_host">127.0.0.1</parameter>
     <parameter key="database_port">null</parameter>
-    <parameter key="database_name">symfony</parameter>
+    <parameter key="database_name">debo_db</parameter>
     <parameter key="database_user">root</parameter>
     <parameter key="database_password">null</parameter>
     <parameter key="mailer_transport">smtp</parameter>
@@ -3602,6 +3608,14 @@
         <argument>!FOSUser</argument>
       </call>
       <call method="addPath">
+        <argument>C:\wamp64\www\debo-pi-master\src\AuthBundle/Resources/views</argument>
+        <argument>Auth</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp64\www\debo-pi-master\src\AuthBundle/Resources/views</argument>
+        <argument>!Auth</argument>
+      </call>
+      <call method="addPath">
         <argument>C:\wamp64\www\debo-pi-master\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
@@ -4037,11 +4051,11 @@
     <service id="doctrine.dbal.default_connection" class="Doctrine\DBAL\Connection" public="true">
       <argument type="collection">
         <argument key="driver">pdo_mysql</argument>
-        <argument key="host">remotemysql.com</argument>
-        <argument key="port" type="string">3306</argument>
-        <argument key="dbname">bIFzVxGi4r</argument>
-        <argument key="user">bIFzVxGi4r</argument>
-        <argument key="password">yVbH4enfyQ</argument>
+        <argument key="host">127.0.0.1</argument>
+        <argument key="port">null</argument>
+        <argument key="dbname">debo_db</argument>
+        <argument key="user">root</argument>
+        <argument key="password">null</argument>
         <argument key="charset">UTF8</argument>
         <argument key="driverOptions" type="collection"/>
         <argument key="defaultTableOptions" type="collection"/>
