@@ -1,6 +1,6 @@
 auth:
     resource: "@AuthBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /auth
 
 article:
     resource: "@ArticleBundle/Resources/config/routing.yml"
