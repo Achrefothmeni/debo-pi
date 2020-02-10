@@ -1,10 +1,10 @@
 auth:
     resource: "@AuthBundle/Resources/config/routing.yml"
-    prefix:   /auth
+    prefix:   /
 
 article:
     resource: "@ArticleBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /article
 
 app:
     resource: '@AppBundle/Controller/'
