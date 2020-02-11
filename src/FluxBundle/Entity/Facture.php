@@ -13,20 +13,13 @@ use Doctrine\ORM\Mapping as ORM;
 class Facture
 {
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="string")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="prix", type="float")
-     */
-    private $prix;
 
     /**
      * @var float
@@ -36,47 +29,15 @@ class Facture
     private $prixtotal;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="quantite", type="integer")
-     */
-    private $quantite;
-
-
-    /**
      * Get id
      *
-     * @return integer
+     * @return string
      */
     public function getId()
     {
         return $this->id;
     }
 
-
-    /**
-     * Set prix
-     *
-     * @param float $prix
-     *
-     * @return Facture
-     */
-    public function setPrixu($prix)
-    {
-        $this->prix = $prix;
-    
-        return $this;
-    }
-
-    /**
-     * Get prix
-     *
-     * @return float
-     */
-    public function getPrix()
-    {
-        return $this->prix;
-    }
 
     /**
      * Set prixtotal
@@ -102,28 +63,5 @@ class Facture
         return $this->prixtotal;
     }
 
-    /**
-     * Set quantite
-     *
-     * @param integer $quantite
-     *
-     * @return Facture
-     */
-    public function setQuantite($quantite)
-    {
-        $this->quantite = $quantite;
-    
-        return $this;
-    }
-
-    /**
-     * Get quantite
-     *
-     * @return integer
-     */
-    public function getQuantite()
-    {
-        return $this->quantite;
-    }
 }
 
