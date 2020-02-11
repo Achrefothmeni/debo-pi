@@ -1,0 +1,24 @@
+appel_d_offre_index:
+    path:     /
+    defaults: { _controller: "ReclamationBundle:Appel_d_offre:index" }
+    methods:  GET
+
+appel_d_offre_show:
+    path:     /{id}/show
+    defaults: { _controller: "ReclamationBundle:Appel_d_offre:show" }
+    methods:  GET
+
+appel_d_offre_new:
+    path:     /new
+    defaults: { _controller: "ReclamationBundle:Appel_d_offre:new" }
+    methods:  [GET, POST]
+
+appel_d_offre_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ReclamationBundle:Appel_d_offre:edit" }
+    methods:  [GET, POST]
+
+appel_d_offre_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ReclamationBundle:Appel_d_offre:delete" }
+    methods:  DELETE
