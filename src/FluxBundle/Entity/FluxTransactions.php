@@ -54,6 +54,14 @@ class FluxTransactions
     }
 
 
+    public function __construct($nature, $somme)
+    {
+        $this->nature = $nature;
+        $this->somme = $somme;
+        $this->date =  new \DateTime();
+    }
+
+
 
     /**
      * Set somme
