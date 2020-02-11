@@ -19,8 +19,8 @@ class ArticleController extends Controller
         $form = $this->createFormBuilder($article)
             ->add('name', TextType::class)
             ->add('prix', TextType::class)
-            ->add('quantity', TextareaType::class)
-            ->add('description', TextType::class)
+            ->add('quantity', TextType::class )
+            ->add('description', TextareaType::class)
             ->add('libelle', TextType::class)
             ->add('save', SubmitType::class, array('label' => 'New Article'))
             ->getForm();
