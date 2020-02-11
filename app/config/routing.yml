@@ -1,3 +1,11 @@
+dashboard:
+    resource: "@DashboardBundle/Resources/config/routing.yml"
+    prefix:   /dashboard
+
+livraison:
+    resource: "@LivraisonBundle/Resources/config/routing.yml"
+    prefix:   /livraison
+
 auth:
     resource: "@AuthBundle/Resources/config/routing.yml"
     prefix:   /
