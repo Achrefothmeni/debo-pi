@@ -1,0 +1,20 @@
+<table border="2">
+    <tr>
+        <th>id_magazin</th>
+        <th>capacity</th>
+        <th>location</th>
+        <th>category</th>
+        <th>supprimer</th>
+        <th>modifier</th>
+
+    </tr>
+    {% for m in magazin %}
+    <tr>
+        <td>{{ m.idMag }}</td>
+        <td>{{ m.capacity }}</td>
+        <td>{{ m.location }}</td>
+        <td>{{ m.category }}</td>
+        <td><a href="{{ path('magazin_supp',{ 'id_mag' : m.idMag }) }}">supprimer</a></td>
+        <td><a href="{{ path('magazin_modif',{ 'id_mag' : m.idMag }) }}">modifier</a></td>
+    </tr>
+{% endfor %}
