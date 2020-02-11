@@ -20,12 +20,10 @@ class AppKernel extends Kernel
             new ArticleBundle\ArticleBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new AuthBundle\AuthBundle(),
-<<<<<<< HEAD
             new LivraisonBundle\LivraisonBundle(),
             new DashboardBundle\DashboardBundle(),
-=======
+
             new FluxBundle\FluxBundle(),
->>>>>>> 58b3e1c90f158cc285da88a9ee613acef5bc5248
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
