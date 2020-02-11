@@ -1,14 +1,10 @@
-<<<<<<< Updated upstream
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
-=======
+
 reclamation:
     resource: "@ReclamationBundle/Resources/config/routing.yml"
     prefix:   /reclamation
-
-
-
->>>>>>> Stashed changes
 
 resources:
     resource: "@ResourcesBundle/Resources/config/routing.yml"

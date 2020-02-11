@@ -118,8 +118,5 @@ class LigneFacture
         $this->idfacture = $idfacture;
     }
 
-
-
-
 }
 

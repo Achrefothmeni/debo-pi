@@ -1,0 +1,16 @@
+<p>Liste des factures</p>
+<table width="50%" border="2">
+    <tr>
+        <th>id</th>
+        <th>quantite</th>
+
+    </tr>
+    {% for facture in factures %}
+        <tr>
+            <td>P{{ facture.id }}</td>
+            <td>{{ facture.quantite }}</td>
+        </tr>
+
+    {% endfor %}
+</table>
+

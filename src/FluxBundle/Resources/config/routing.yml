@@ -1,3 +1,8 @@
 flux_homepage:
     path:     /
     defaults: { _controller: FluxBundle:Default:index }
+
+
+ajouter_facture:
+    path:     /ajouter_factures
+    defaults: { _controller:FluxBundle:Facture:ajouter }

@@ -4,8 +4,6 @@ namespace FluxBundle\Controller;
 
 use FluxBundle\Entity\Facture;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 /**
  * Facture controller.
@@ -31,16 +29,10 @@ class FactureController extends Controller
         ));
     }
 
-    /**
-     * Finds and displays a facture entity.
-     *
-     * @Route("/{id}", name="facture_show")
-     * @Method("GET")
-     */
-    public function showAction(Facture $facture)
+    public function afficherAction(Facture $facture)
     {
 
-        return $this->render('facture/show.html.twig', array(
+        return $this->render('facture/afficher.html.twig', array(
             'facture' => $facture,
         ));
     }
