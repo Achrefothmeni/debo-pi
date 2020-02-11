@@ -1,40 +1,42 @@
+{% extends "dashboard_base.html.twig" %}
 
-<style>
-    th, td {
-        padding: 10px;
-    }
-    th {
-        text-align: right;
-    }
-</style>
+{% block title %}View article {% endblock %}
 
-<h1>Article Created or Modified</h1>
+{% block body %}
+<div class="main-panel ps-container ps-theme-default ps-active-y">
+    <div class="card card-user">
+        <div class="card-header">
+    <h1 class="card-title">View article {{ article.name }}</h1>
 
-<table>
-    <tbody>
-    <tr>
-        <th>Name:</th>
-        <td>{{ article.name }}</td>
-    </tr>
-    <tr>
-        <th>Price:</th>
-        <td>{{ article.prix }}</td>
-    </tr>
-    <tr>
-        <th>quantity:</th>
-        <td>{{ article.quantity }}</td>
-    </tr>
-    <tr>
-        <th>Label:</th>
-        <td>{{ article.libelle }}</td>
-    </tr>
-    <tr>
-        <th>Description:</th>
-        <td>{{ article.description }}</td>
-    </tr>
-    </tbody>
-</table>
+    <table>
+        <tbody>
+        <tr>
+            <th>Name:</th>
+            <td>{{ article.name }}</td>
+        </tr>
+        <tr>
+            <th>Price:</th>
+            <td>{{ article.prix }}</td>
+        </tr>
+        <tr>
+            <th>quantity:</th>
+            <td>{{ article.quantity }}</td>
+        </tr>
+        <tr>
+            <th>Label:</th>
+            <td>{{ article.libelle }}</td>
+        </tr>
+        <tr>
+            <th>Description:</th>
+            <td>{{ article.description }}</td>
+        </tr>
+        </tbody>
+    </table>
 
-<br/>
-<a href="/show-articles">View All</a> -
-<a href="/update-article/{{ article.id_article}}">Modify</a>
+    <br/>
+    <a href="/show-articles">View All</a> -
+        </div>
+    </div>
+</div>
+{% endblock %}
+

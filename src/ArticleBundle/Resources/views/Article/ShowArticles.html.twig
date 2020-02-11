@@ -3,10 +3,10 @@
 {% block title %}ArticleBundle:Article:Ajout{% endblock %}
 
 {% block body %}
-
-    <h1>All Articles</h1>
+<div class="main-panel ps-container ps-theme-default ps-active-y">
+    <h1 class="card-title">All Articles</h1>
     {% if articles is not empty %}
-        <table style="    margin: auto;">
+        <table style="margin: auto;">
             <thead>
             <tr>
                 <th>Articles ID</th>
@@ -36,5 +36,6 @@
     {% endif %}
 
     <br/>
-    <a href="/create-article">Create New</a>
+    <a href="/create-article" target="_blank" class="simple-text logo-normal">Create New</a>
+</div>
 {% endblock %}
