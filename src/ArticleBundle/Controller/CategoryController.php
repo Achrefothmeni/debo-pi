@@ -7,6 +7,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\FrameworkBundle\Tests\Fixtures\Validation;
 use Symfony\Bundle\FrameworkBundle\Tests\Fixtures\Validation\NotExistingInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
+
 class CategoryController extends Controller
 {
     public function createAction(Request $request) {
@@ -28,12 +34,12 @@ class CategoryController extends Controller
             $em->persist($category);
             $em->flush();
 
-            return $this->redirect('/view-category/' . $category->getId());
+            return $this->redirect('show-category' . $category->getId());
 
         }
 
         return $this->render(
-            'category/edit.html.twig',
+            '@Article/Category/EditCategory.html.twig',
             array('form' => $form->createView())
         );
 
@@ -64,7 +70,7 @@ class CategoryController extends Controller
             ->findAll();
 
         return $this->render(
-            'Category/ShowCategory.html.twig', array('category' => $category));
+            '@Article/Category/ShowCategory.html.twig', array('category' => $category));
     }
     //---------------------------
     public function updateAction(Request $request, $id) {
@@ -95,7 +101,7 @@ class CategoryController extends Controller
         }
 
         return $this->render(
-            'Category/EditCategory.html.twig',
+            '@Article/Category/EditCategory.html.twig',
             array('form' => $form->createView())
         );
 
@@ -117,7 +123,7 @@ class CategoryController extends Controller
         }
 
         return $this->render(
-            'Category/viewCategories.html.twig',
+            '@Article/Category/viewCategories.html.twig',
             array('category' => $category)
         );
 

@@ -7,36 +7,28 @@
     }
 </style>
 
-<h1>All Articles</h1>
-{% if articles is not empty %}
+<h1>All Categories</h1>
+{% if category is not empty %}
     <table>
         <thead>
         <tr>
-            <th>Articles ID</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Lablel</th>
-            <th>Article Description</th>
+            <th>category ID</th>
+            <th>Label</th>
         </tr>
         </thead>
         <tbody>
-        {% for article in articles %}
-            <tr>id_article	name	prix			libelle
+        {% for category in categorys %}
+            <tr>
 
-                <td>{{ article.id_article }}</td>
-                <td>{{ article.name }}</td>
-                <td>{{ article.prix  }}</td>
-                <td>{{ article.quantity }}</td>
-                <td>{{ article.quantity }}</td>
-                <td>{{ article.description }}</td>
+                <td>{{ categorys.id_category }}</td>
+                <td>{{ categorys.label }}</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 {% else %}
-    <p>No article found.</p>
+    <p>No categories found.</p>
 {% endif %}
 
 <br/>
-<a href="/create-article">Create New</a>
+<a href="/create-category">Create New</a>

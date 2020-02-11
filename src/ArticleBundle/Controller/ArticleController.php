@@ -3,6 +3,12 @@
 namespace ArticleBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use ArticleBundle\Entity\Article;
 
 class ArticleController extends Controller
 {
@@ -29,12 +35,12 @@ class ArticleController extends Controller
             $em->persist($article);
             $em->flush();
 
-            return $this->redirect('/view-article/' . $article->getId());
+            return $this->redirect('article_homepage' . $article->getId());
 
         }
 
         return $this->render(
-            'article/edit.html.twig',
+            '@Article/Article/EditArticle.html.twig',
             array('form' => $form->createView())
         );
 
@@ -63,7 +69,8 @@ class ArticleController extends Controller
             ->findAll();
 
         return $this->render(
-            'article/ShowArticles.html.twig',
+            '@Article/Article/ShowArticles.html.twig',
+
             array('articles' => $articles)
         );
 
@@ -100,7 +107,7 @@ class ArticleController extends Controller
         }
 
         return $this->render(
-            'article/EditArticle.html.twig',
+            '@Article/Article/EditArticle.html.twig',
             array('form' => $form->createView())
         );
 
@@ -118,7 +125,7 @@ class ArticleController extends Controller
         }
 
         return $this->render(
-            'article/view.html.twig',
+            '@Article/Article/view.html.twig',
             array('article' => $article)
         );
 
