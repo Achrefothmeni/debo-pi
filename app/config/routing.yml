@@ -10,7 +10,6 @@ resources:
     resource: "@ResourcesBundle/Resources/config/routing.yml"
     prefix:   /resources
 
-
 dashboard:
     resource: "@DashboardBundle/Resources/config/routing.yml"
     prefix:   /dashboard

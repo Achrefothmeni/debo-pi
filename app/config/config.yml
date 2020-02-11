@@ -4,6 +4,11 @@ imports:
     - { resource: services.yml }
     - { resource: "@ArticleBundle/Resources/config/services.yml" }
     - { resource: "@AuthBundle/Resources/config/services.yml" }
+
+    - { resource: "@LivraisonBundle/Resources/config/services.yml" }
+    - { resource: "@DashboardBundle/Resources/config/services.yml" }
+    - { resource: "@FluxBundle/Resources/config/services.yml" }
+
     - { resource: "@ResourcesBundle/Resources/config/services.yml" }
 
     - { resource: "@LivraisonBundle/Resources/config/services.yml" }
