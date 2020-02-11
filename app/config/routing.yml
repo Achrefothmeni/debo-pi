@@ -1,14 +1,28 @@
+<<<<<<< HEAD
 resources:
     resource: "@ResourcesBundle/Resources/config/routing.yml"
     prefix:   /
+=======
+
+dashboard:
+    resource: "@DashboardBundle/Resources/config/routing.yml"
+    prefix:   /dashboard
+
+livraison:
+    resource: "@LivraisonBundle/Resources/config/routing.yml"
+    prefix:   /livraison
+flux:
+    resource: "@FluxBundle/Resources/config/routing.yml"
+    prefix:   /flux
+>>>>>>> ebe2568183c40a33ef7fbb3725f3edb48015cfb3
 
 auth:
     resource: "@AuthBundle/Resources/config/routing.yml"
-    prefix:   /auth
+    prefix:   /
 
 article:
     resource: "@ArticleBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /article
 
 app:
     resource: '@AppBundle/Controller/'
