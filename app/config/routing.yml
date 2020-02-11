@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 dashboard:
     resource: "@DashboardBundle/Resources/config/routing.yml"
     prefix:   /dashboard
@@ -5,6 +6,11 @@ dashboard:
 livraison:
     resource: "@LivraisonBundle/Resources/config/routing.yml"
     prefix:   /livraison
+=======
+flux:
+    resource: "@FluxBundle/Resources/config/routing.yml"
+    prefix:   /
+>>>>>>> 58b3e1c90f158cc285da88a9ee613acef5bc5248
 
 auth:
     resource: "@AuthBundle/Resources/config/routing.yml"

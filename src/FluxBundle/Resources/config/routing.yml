@@ -1,0 +1,3 @@
+flux_homepage:
+    path:     /
+    defaults: { _controller: FluxBundle:Default:index }
