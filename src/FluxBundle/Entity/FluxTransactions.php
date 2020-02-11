@@ -29,9 +29,9 @@ class FluxTransactions
     private $somme;
 
     /**
-     * @var float
+     * @var string
      *
-     * @ORM\Column(name="nature", type="float")
+     * @ORM\Column(name="nature", type="string", length=2)
      */
     private $nature;
 

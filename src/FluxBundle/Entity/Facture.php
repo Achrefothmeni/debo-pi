@@ -28,6 +28,12 @@ class Facture
      */
     private $prixtotal;
 
+    public function __construct($prixTotal)
+    {
+        $this->prixtotal = $prixTotal;
+    }
+
+
     /**
      * Get id
      *

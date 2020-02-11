@@ -6,3 +6,8 @@ flux_homepage:
 ajouter_facture:
     path:     /ajouter_factures
     defaults: { _controller:FluxBundle:Facture:ajouter }
+
+
+afficher_transactions:
+    path:     /afficher_transactions
+    defaults: { _controller:FluxBundle:FluxTransaction:afficherTransaction }

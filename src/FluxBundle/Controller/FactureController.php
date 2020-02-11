@@ -3,6 +3,7 @@
 namespace FluxBundle\Controller;
 
 use FluxBundle\Entity\Facture;
+use FluxBundle\Entity\FluxTransactions;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
@@ -18,22 +19,33 @@ class FactureController extends Controller
      * @Route("/", name="facture_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function afficherFactureAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $factures = $em->getRepository('FluxBundle:Facture')->findAll();
+        $factures = $em->getRepository(Facture::class)->findAll();
 
         return $this->render('facture/index.html.twig', array(
             'factures' => $factures,
         ));
     }
 
-    public function afficherAction(Facture $facture)
-    {
+    /**
+     * Lists all facture entities.
+     *
+     * @Route("/generer_facture", name="genererfacture")
+     * @Method("GET")
+     */
 
-        return $this->render('facture/afficher.html.twig', array(
-            'facture' => $facture,
-        ));
+    public function genererFactureAction($prixTotal)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $facture = new FluxTransactions($prixTotal);
+        $em->persist($facture);
+        $em->flush();
+        return new Response('Facture générée avec succées');
+
     }
+
+
 }
