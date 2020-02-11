@@ -72,7 +72,11 @@ class Category
 
         return $this;
     }
-
+    /**
+     * @var
+     * @ORM\ManyToOne(targetEntity="ArticleBundle\Entity\Article")
+     * @ORM\JoinColumn(name="libelle",referencedColumnName="libelle")
+     */
     /**
      * Get libelle
      *

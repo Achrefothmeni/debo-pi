@@ -36,7 +36,6 @@ class ArticleController extends Controller
             $em->flush();
 
             return $this->redirect('article_homepage' . $article->getId());
-
         }
 
         return $this->render(
