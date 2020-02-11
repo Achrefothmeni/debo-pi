@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Appel_d_offres list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for appel_d_offre in appel_d_offres %}
+            <tr>
+                <td><a href="{{ path('appel_d_offre_show', { 'id': appel_d_offre.id }) }}">{{ appel_d_offre.id }}</a></td>
+                <td>{{ appel_d_offre.status }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('appel_d_offre_show', { 'id': appel_d_offre.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('appel_d_offre_edit', { 'id': appel_d_offre.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('appel_d_offre_new') }}">Create a new appel_d_offre</a>
+        </li>
+    </ul>
+{% endblock %}

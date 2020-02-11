@@ -27,7 +27,7 @@ class AppKernel extends Kernel
             new DashboardBundle\DashboardBundle(),
 
             new FluxBundle\FluxBundle(),
-
+            new ReclamationBundle\ReclamationBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
