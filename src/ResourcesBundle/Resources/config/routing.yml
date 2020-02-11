@@ -1,0 +1,27 @@
+resources_homepage:
+    path:     /
+    defaults: { _controller: ResourcesBundle:Default:index }
+afficherFleet:
+    path:     /afficherFleet
+    defaults: { _controller: ResourcesBundle:Fleet:afficherTableFleet }
+fleet_supp:
+    path:     /supprimerFleet/{matriculation}
+    defaults: { _controller: ResourcesBundle:Fleet:supprimer }
+fleet_modif:
+    path:     /modifierFleet/{matriculation}
+    defaults: { _controller: ResourcesBundle:Fleet:ModifierFleet }
+ajouterFleet:
+    path:     /ajouterFleet
+    defaults: { _controller: ResourcesBundle:Fleet:ajouterFleet }
+afficherMagazin:
+    path:     /afficherMagazin
+    defaults: { _controller: ResourcesBundle:Magazin:afficherTableMagazin }
+magazin_supp:
+    path:     /supprimerMagazin/{id_mag}
+    defaults: { _controller: ResourcesBundle:Magazin:supprimer }
+ajouterMagazin:
+    path:     /ajouterMagazin
+    defaults: { _controller: ResourcesBundle:Magazin:ajouterMagazin }
+magazin_modif:
+    path:     /modifierMagazin/{id_mag}
+    defaults: { _controller: ResourcesBundle:Magazin:ModifierMagazin }

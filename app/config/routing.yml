@@ -1,3 +1,10 @@
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+resources:
+    resource: "@ResourcesBundle/Resources/config/routing.yml"
+    prefix:   /resources
+
 dashboard:
     resource: "@DashboardBundle/Resources/config/routing.yml"
     prefix:   /dashboard
@@ -7,7 +14,7 @@ livraison:
     prefix:   /livraison
 flux:
     resource: "@FluxBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /flux
 
 auth:
     resource: "@AuthBundle/Resources/config/routing.yml"

@@ -17,7 +17,7 @@ class Article
     /**
      * @var int
      *
-     * @ORM\Column(name="id_article", type="string", length=255, unique=true)
+     * @ORM\Column(name="id_article", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -61,15 +61,6 @@ class Article
     private $libelle;
 
 
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set name
@@ -82,7 +73,6 @@ class Article
     {
         $this->name = $name;
 
-        return $this;
     }
 
     /**
@@ -106,7 +96,6 @@ class Article
     {
         $this->idArticle = $idArticle;
 
-        return $this;
     }
 
     /**
@@ -130,7 +119,7 @@ class Article
     {
         $this->prix = $prix;
 
-        return $this;
+
     }
 
     /**
@@ -154,7 +143,7 @@ class Article
     {
         $this->quantity = $quantity;
 
-        return $this;
+
     }
 
     /**

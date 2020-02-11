@@ -34,7 +34,7 @@ class CategoryController extends Controller
             $em->persist($category);
             $em->flush();
 
-            return $this->redirect('show-category' . $category->getId());
+            return $this->redirect('show-category' . $category->getIdCategory());
 
         }
 

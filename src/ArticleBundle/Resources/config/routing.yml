@@ -19,7 +19,7 @@ update-article:
     defaults: { _controller: ArticleBundle:Article:update }
 
 view-article:
-    path:     /view-category/{id}
+    path:     /view-article/{id}
     defaults: { _controller: ArticleBundle:Article:view }
 # ---------------------------------------------------------------
 create_category:

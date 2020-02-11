@@ -15,7 +15,7 @@ class Category
     /**
      * @var int
      *
-     * @ORM\Column(name="id_category", type="string", length=255)
+     * @ORM\Column(name="id_category", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -50,14 +50,18 @@ class Category
     }
 
     /**
+     * @return int
+     */
+    public function getIdCategory()
+    {
+        return $this->id_category;
+    }
+
+    /**
      * Get idCategory
      *
      * @return string
      */
-    public function getIdCategory()
-    {
-        return $this->idCategory;
-    }
 
     /**
      * Set libelle
