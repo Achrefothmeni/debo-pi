@@ -2,73 +2,44 @@
 
 namespace ReclamationBundle\Controller;
 
+use Doctrine\DBAL\Types\TextType;
 use ReclamationBundle\Entity\Reclamation;
+use ReclamationBundle\Form\ReclamationType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
-/**
- * Reclamation controller.
- *
- */
+
 class ReclamationController extends Controller
 {
-    /**
-     * Lists all reclamation entities.
-     *
-     */
-    public function indexAction()
+
+    public function showReclamationAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $reclamations = $em->getRepository('ReclamationBundle:Reclamation')->findAll();
-
-        return $this->render('reclamation/index.html.twig', array(
+        return $this->render('@Reclamation/Reclamations/afficherReclamation.html.twig', array(
             'reclamations' => $reclamations,
         ));
     }
 
-    /**
-     * Creates a new reclamation entity.
-     *
-     */
-    public function newAction(Request $request)
+    public function createReclamationAction(Request $request)
     {
         $reclamation = new Reclamation();
-        $form = $this->createForm('ReclamationBundle\Form\ReclamationType', $reclamation);
+        $form = $this->createForm(ReclamationType::class,$reclamation);
+        $form->add('Envoyer', SubmitType::class);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($reclamation);
             $em->flush();
-
-            return $this->redirectToRoute('reclamation_show', array('id' => $reclamation->getId()));
+            return $this->redirectToRoute('reclamation_create');
         }
-
-        return $this->render('reclamation/new.html.twig', array(
+        return $this->render('@Reclamation/Reclamations/createReclamation.html.twig', array(
             'reclamation' => $reclamation,
             'form' => $form->createView(),
         ));
     }
 
-    /**
-     * Finds and displays a reclamation entity.
-     *
-     */
-    public function showAction(Reclamation $reclamation)
-    {
-        $deleteForm = $this->createDeleteForm($reclamation);
-
-        return $this->render('reclamation/show.html.twig', array(
-            'reclamation' => $reclamation,
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
-    /**
-     * Displays a form to edit an existing reclamation entity.
-     *
-     */
     public function editAction(Request $request, Reclamation $reclamation)
     {
         $deleteForm = $this->createDeleteForm($reclamation);
@@ -88,37 +59,4 @@ class ReclamationController extends Controller
         ));
     }
 
-    /**
-     * Deletes a reclamation entity.
-     *
-     */
-    public function deleteAction(Request $request, Reclamation $reclamation)
-    {
-        $form = $this->createDeleteForm($reclamation);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($reclamation);
-            $em->flush();
-        }
-
-        return $this->redirectToRoute('reclamation_index');
-    }
-
-    /**
-     * Creates a form to delete a reclamation entity.
-     *
-     * @param Reclamation $reclamation The reclamation entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(Reclamation $reclamation)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('reclamation_delete', array('id' => $reclamation->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
-    }
 }

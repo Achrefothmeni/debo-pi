@@ -1,0 +1,14 @@
+<table border="2">
+    <tr>
+        <th>Id</th>
+        <th>Status</th>
+        <th>Modifier</th>
+
+    </tr>
+    {% for t in appel_d_offre %}
+    <tr>
+        <td>{{ t.id }}</td>
+        <td>{{ t.status }}</td>
+        <td>{{  }}</td>
+    </tr>
+{% endfor %}

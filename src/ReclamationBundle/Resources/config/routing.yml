@@ -5,3 +5,44 @@ reclamation_reclamation:
 reclamation_homepage:
     path:     /
     defaults: { _controller: ReclamationBundle:Default:index }
+
+reclamation_show:
+        path:     /show
+        defaults: { _controller: "ReclamationBundle:Reclamation:showReclamation" }
+
+reclamation_create:
+    path:     /createReclamation
+    defaults: { _controller: "ReclamationBundle:Reclamation:createReclamation" }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+appel_d_offre_index:
+    path:     /
+    defaults: { _controller: "ReclamationBundle:Appel_d_offre:index" }
+
+appel_d_offre_show:
+    path:     /{id}/show
+    defaults: { _controller: "ReclamationBundle:Appel_d_offre:show" }
+
+appel_d_offre_new:
+    path:     /new
+    defaults: { _controller: "ReclamationBundle:Appel_d_offre:new" }
+
+appel_d_offre_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ReclamationBundle:Appel_d_offre:edit" }
+
+appel_d_offre_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ReclamationBundle:Appel_d_offre:delete" }
