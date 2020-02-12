@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1>Reclamation creation</h1>
+<fieldSet>
+    <legend>Envoyer Reclamation</legend>
+    {{ form(form) }}
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+
+        <ul>
+            <li>
+                <a href="{{ path('reclamation_index') }}">Back to the list</a>
+            </li>
+        </ul>
+    {% endblock %}

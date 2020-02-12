@@ -3,38 +3,31 @@
 namespace ReclamationBundle\Controller;
 
 use ReclamationBundle\Entity\Appel_d_offre;
+use ReclamationBundle\Form\Appel_d_offreType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
-/**
- * Appel_d_offre controller.
- *
- */
+
 class Appel_d_offreController extends Controller
 {
-    /**
-     * Lists all appel_d_offre entities.
-     *
-     */
-    public function indexAction()
+
+    public function showTendersAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $appel_d_offres = $em->getRepository('ReclamationBundle:Appel_d_offre')->findAll();
-
-        return $this->render('appel_d_offre/index.html.twig', array(
+        return $this->render('@Resources/Tenders/afficherTenders.html.twig', array(
             'appel_d_offres' => $appel_d_offres,
         ));
     }
 
-    /**
-     * Creates a new appel_d_offre entity.
-     *
-     */
-    public function newAction(Request $request)
+
+    public function createTendersAction(Request $request)
     {
         $appel_d_offre = new Appel_d_offre();
-        $form = $this->createForm('ReclamationBundle\Form\Appel_d_offreType', $appel_d_offre);
+        $form = $this->createForm(Appel_d_offreType::class,$appel_d_offre);
+        $form->add('Publier', SubmitType::class);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -45,80 +38,37 @@ class Appel_d_offreController extends Controller
             return $this->redirectToRoute('appel_d_offre_show', array('id' => $appel_d_offre->getId()));
         }
 
-        return $this->render('appel_d_offre/new.html.twig', array(
+        return $this->render('@Resources/Tenders/afficherTenders.html.twig', array(
             'appel_d_offre' => $appel_d_offre,
             'form' => $form->createView(),
         ));
     }
-
-    /**
-     * Finds and displays a appel_d_offre entity.
-     *
-     */
-    public function showAction(Appel_d_offre $appel_d_offre)
+    public function editTendersAction($id,Request $request)
     {
-        $deleteForm = $this->createDeleteForm($appel_d_offre);
-
-        return $this->render('appel_d_offre/show.html.twig', array(
-            'appel_d_offre' => $appel_d_offre,
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
-    /**
-     * Displays a form to edit an existing appel_d_offre entity.
-     *
-     */
-    public function editAction(Request $request, Appel_d_offre $appel_d_offre)
-    {
-        $deleteForm = $this->createDeleteForm($appel_d_offre);
-        $editForm = $this->createForm('ReclamationBundle\Form\Appel_d_offreType', $appel_d_offre);
-        $editForm->handleRequest($request);
-
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('appel_d_offre_edit', array('id' => $appel_d_offre->getId()));
-        }
-
-        return $this->render('appel_d_offre/edit.html.twig', array(
-            'appel_d_offre' => $appel_d_offre,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
-    /**
-     * Deletes a appel_d_offre entity.
-     *
-     */
-    public function deleteAction(Request $request, Appel_d_offre $appel_d_offre)
-    {
-        $form = $this->createDeleteForm($appel_d_offre);
+        $em= $this->getDoctrine()->getManager();
+        $appel_d_offre= $em->getRepository(Appel_d_offre::class)->find($id);
+        $form = $this->createForm(Appel_d_offreType::class,$appel_d_offre);
+        $form->add('Modifier', SubmitType::class);
         $form->handleRequest($request);
 
+
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($appel_d_offre);
-            $em->flush();
+            $this->getDoctrine()->getManager()->flush();
+            return $this->redirectToRoute('appel_d_offre_show');
         }
-
-        return $this->redirectToRoute('appel_d_offre_index');
+        return $this->render('@Resources/Tenders/editTender.html.twig', array(
+            'form' => $form->createView(),
+        ));
     }
 
-    /**
-     * Creates a form to delete a appel_d_offre entity.
-     *
-     * @param Appel_d_offre $appel_d_offre The appel_d_offre entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(Appel_d_offre $appel_d_offre)
+
+    public function deleteTenderAction($id)
     {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('appel_d_offre_delete', array('id' => $appel_d_offre->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
+        $em=$this->getDoctrine()->getManager();
+        $fleet = $em->getRepository(Appel_d_offre::class)->find($id);
+        $em->remove($fleet);
+        $em->flush();
+        return $this->redirectToRoute('afficher_Tenders');
     }
+
 }
