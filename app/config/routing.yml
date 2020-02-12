@@ -1,7 +1,7 @@
 
 resources:
     resource: "@ResourcesBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /resources
 
 
 dashboard:

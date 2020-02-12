@@ -37,6 +37,7 @@ class FleetController extends Controller
            $em->flush();
            return $this->redirectToRoute('afficherFleet');
         }
+
         return $this->render('@Resources/Fleet/ajouterFleet.html.twig',
         array('form' => $Form->createView()));
 }
