@@ -10,4 +10,5 @@ namespace FluxBundle\Repository;
  */
 class FluxTransactionsRepository extends \Doctrine\ORM\EntityRepository
 {
+
 }

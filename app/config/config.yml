@@ -4,13 +4,18 @@ imports:
     - { resource: services.yml }
     - { resource: "@ArticleBundle/Resources/config/services.yml" }
     - { resource: "@AuthBundle/Resources/config/services.yml" }
+
+    - { resource: "@LivraisonBundle/Resources/config/services.yml" }
+    - { resource: "@DashboardBundle/Resources/config/services.yml" }
+    - { resource: "@FluxBundle/Resources/config/services.yml" }
+
     - { resource: "@ResourcesBundle/Resources/config/services.yml" }
 
     - { resource: "@LivraisonBundle/Resources/config/services.yml" }
     - { resource: "@DashboardBundle/Resources/config/services.yml" }
 
     - { resource: "@FluxBundle/Resources/config/services.yml" }
-
+    - { resource: "@ReclamationBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -82,7 +87,7 @@ sensio_framework_extra:
 fos_user:
     db_driver: orm # other valid values are 'mongodb' and 'couchdb'
     firewall_name: main
-    user_class: AppBundle\Entity\User
+    user_class: AuthBundle\Entity\User
     service:                               # this lines
         mailer: fos_user.mailer.twig_swift # this lines
     from_email:

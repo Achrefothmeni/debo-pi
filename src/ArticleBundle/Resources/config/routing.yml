@@ -1,3 +1,43 @@
+
 article_homepage:
     path:     /
     defaults: { _controller: ArticleBundle:Default:index }
+create_article:
+    path:     /create-article
+    defaults: { _controller: ArticleBundle:Article:create }
+
+delete_article:
+    path:     /Delete-article/{id}
+    defaults: { _controller: ArticleBundle:Article:delete }
+
+show-articles:
+    path:     /show-articles
+    defaults: { _controller: ArticleBundle:Article:show }
+
+update-article:
+    path:     /update-article/{id}
+    defaults: { _controller: ArticleBundle:Article:update }
+
+view-article:
+    path:     /view-article/{id}
+    defaults: { _controller: ArticleBundle:Article:view }
+# ---------------------------------------------------------------
+create_category:
+    path:     /create-category
+    defaults: { _controller: ArticleBundle:Category:create }
+
+delete_category:
+    path:     /Delete-category/{id}
+    defaults: { _controller: ArticleBundle:Category:delete }
+
+show-category:
+    path:     /show-category
+    defaults: { _controller: ArticleBundle:Category:show }
+
+update-category:
+    path:     /update-category/{id}
+    defaults: { _controller: ArticleBundle:Category:update }
+
+view-category:
+    path:     /view-category/{id}
+    defaults: { _controller: ArticleBundle:Article:view }
