@@ -29,9 +29,9 @@ class FluxTransactions
     private $somme;
 
     /**
-     * @var float
+     * @var string
      *
-     * @ORM\Column(name="nature", type="float")
+     * @ORM\Column(name="nature", type="string", length=2)
      */
     private $nature;
 
@@ -51,6 +51,14 @@ class FluxTransactions
     public function getId()
     {
         return $this->id;
+    }
+
+
+    public function __construct($nature, $somme)
+    {
+        $this->nature = $nature;
+        $this->somme = $somme;
+        $this->date =  new \DateTime();
     }
 
 

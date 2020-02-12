@@ -1,3 +1,9 @@
 livraison_homepage:
     path:     /
     defaults: { _controller: LivraisonBundle:Default:index }
+
+liste_livraison:
+    path:     /liste-livraison
+    defaults: { _controller: LivraisonBundle:Livraison:listeLivraison }
+
+

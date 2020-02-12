@@ -1,0 +1,14 @@
+<table border="2">
+    <tr>
+        <th>Id</th>
+        <th>Message</th>
+        <th>Type</th>
+
+    </tr>
+    {% for r in reclamations %}
+    <tr>
+        <td>{{ r.id }}</td>
+        <td>{{ r.message }}</td>
+        <td>{{ r.type }}</td>
+    </tr>
+{% endfor %}

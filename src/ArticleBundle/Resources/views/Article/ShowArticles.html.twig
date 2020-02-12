@@ -1,49 +1,42 @@
-{% extends "dashboard_base.html.twig" %}
+<style>
+    th, td {
+        padding: 10px;
+    }
+    th {
+        text-align: left;
+    }
+</style>
 
-{% block title %}ArticleBundle:Article:Ajout{% endblock %}
+<h1>All Articles</h1>
+{% if articles is not empty %}
+    <table>
+        <thead>
+        <tr>
+            <th>Articles ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Lablel</th>
+            <th>Article Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            <tr>id_article	name	prix			libelle
 
-{% block body %}
-<div class="main-panel ps-container ps-theme-default ps-active-y">
-    <h1 class="card-title">All Articles</h1>
-    <div class="col-md-12">
-        <div class="card card-user">
-    {% if articles is not empty %}
-        <div class="table-responsive table-upgrade">
-        <table class="table" style="margin: auto;">
-            <thead>
-            <tr>
-                <th>Articles ID</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Lablel</th>
-                <th>Article Description</th>
+                <td>{{ article.id_article }}</td>
+                <td>{{ article.name }}</td>
+                <td>{{ article.prix  }}</td>
+                <td>{{ article.quantity }}</td>
+                <td>{{ article.libelle }}</td>
+                <td>{{ article.description }}</td>
             </tr>
-            </thead>
-            <tbody>
-            {% for article in articles %}
-                <tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No article found.</p>
+{% endif %}
 
-                    <td>{{ article.idArticle }}</td>
-                    <td>{{ article.name }}</td>
-                    <td>{{ article.prix  }}</td>
-                    <td>{{ article.quantity }}</td>
-                    <td>{{ article.libelle }}</td>
-                    <td>{{ article.description }}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-
-    {% else %}
-        <p>No article found.</p>
-    {% endif %}
-        <a href="/article/create-article" target="_blank" class="btn btn-primary btn-round">Create New</a>
-    </div>
-    </div>
-    <br/>
-    </div>
-
-
-</div>
-{% endblock %}
+<br/>
+<a href="/create-article">Create New</a>
