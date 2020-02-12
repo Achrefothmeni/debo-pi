@@ -1,0 +1,25 @@
+<table>
+    <thead>
+    <tr>
+        <th>nom</th>
+        <th>prix</th>
+        <th>Quantité</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for commandeligne in commandelignes %}
+        <tr>
+
+
+            <td>{{ commandelignes.article ? commandelignes.article.nom  }}</td>
+            <td>{{ commandelignes.article ? commandelignes.article.prix }}</td>
+            <td>{{ commandeligne.qte }}</td>
+
+
+
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

@@ -34,8 +34,8 @@ class ArticleController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($article);
             $em->flush();
+            return $this->redirectToRoute('view-article',array('id'=>$article->getIdArticle()));
 
-            return $this->redirect('article/view-article/' . $article->getIdArticle());
         }
 
         return $this->render(

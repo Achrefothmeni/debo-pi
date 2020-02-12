@@ -28,6 +28,7 @@ class AppKernel extends Kernel
 
             new FluxBundle\FluxBundle(),
             new ReclamationBundle\ReclamationBundle(),
+            new CommandeBundle\CommandeBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

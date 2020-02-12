@@ -36,5 +36,6 @@
 </table>
 
 <br/>
-<a href="/show-articles">View All</a> -
-<a href="/update-article/{{ article.id_article}}">Modify</a>
+
+<a href="{{ path('show-articles') }}">View All</a> -
+<a href="{{ path('update-article', {'id': article.id_article} )}}">Modify</a>

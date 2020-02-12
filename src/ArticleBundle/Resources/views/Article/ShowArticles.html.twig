@@ -12,24 +12,26 @@
     <table>
         <thead>
         <tr>
-            <th>Articles ID</th>
+
             <th>Name</th>
             <th>Price</th>
             <th>Quantity</th>
             <th>Lablel</th>
             <th>Article Description</th>
+            <th>Panier</th>
         </tr>
         </thead>
         <tbody>
         {% for article in articles %}
             <tr>id_article	name	prix			libelle
 
-                <td>{{ article.id_article }}</td>
+
                 <td>{{ article.name }}</td>
                 <td>{{ article.prix  }}</td>
                 <td>{{ article.quantity }}</td>
                 <td>{{ article.libelle }}</td>
                 <td>{{ article.description }}</td>
+                <td><a href="{{ path('', {'id': article.id } )}}">panier</a></td>
             </tr>
         {% endfor %}
         </tbody>
@@ -39,4 +41,4 @@
 {% endif %}
 
 <br/>
-<a href="/create-article">Create New</a>
+<a href="{{ path('create_article') }}">Create New</a>
