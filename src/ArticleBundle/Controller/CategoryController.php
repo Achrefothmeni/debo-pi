@@ -62,6 +62,7 @@ class CategoryController extends Controller
         return $this->redirect('/view-category/');
 
     }
+    //-------------------------
     public function showAction()
     {
 
