@@ -35,7 +35,7 @@ class ArticleController extends Controller
             $em->persist($article);
             $em->flush();
 
-            return $this->redirect('/view-article/' . $article->getIdArticle());
+            return $this->redirect('/article/view-article/' . $article->getIdArticle());
         }
 
         return $this->render(
@@ -87,7 +87,7 @@ class ArticleController extends Controller
 
         $form = $this->createFormBuilder($article)
             ->add('name', TextType::class)
-            ->add('prix ', TextType::class)
+            ->add('prix', TextType::class)
             ->add('quantity', TextareaType::class)
             ->add('description', TextareaType::class)
             ->add('libelle', TextareaType::class)
@@ -101,7 +101,7 @@ class ArticleController extends Controller
             $article = $form->getData();
             $em->flush();
 
-            return $this->redirect('/article/' . $id);
+            return $this->redirect('/article/view-article/' . $id);
 
         }
 
