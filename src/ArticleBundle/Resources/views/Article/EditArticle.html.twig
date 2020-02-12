@@ -8,10 +8,10 @@
 
 
     {{ form_start(form) }}
-    <div class="col-md-8">
+    <div class="col-md-12">
         <div class="card card-user">
             <div class="card-header">
-                <h5 class="card-title">Create Artical</h5>
+                <h5 class="card-title">Create Article</h5>
             </div>
             <div class="card-body">
                 <form>
@@ -19,19 +19,19 @@
                         <div class="col-md-5 pr-1">
                             <div class="form-group">
                                 <label>Name</label>
-                                {{ form_widget(form.name) }}
+                                {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
                             </div>
                         </div>
                         <div class="col-md-3 px-1">
                             <div class="form-group">
                                 <label>Price</label>
-                                {{ form_widget(form.prix) }}
+                                {{ form_widget(form.prix, {'attr': {'class': 'form-control'}}) }}
                             </div>
                         </div>
                         <div class="col-md-4 pl-1">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Quantity</label>
-                                {{ form_widget(form.quantity) }}
+                                <label for="Quantity">Quantity</label>
+                                {{ form_widget(form.quantity, {'attr': {'class': 'form-control'}}) }}
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Label</label>
-                                {{ form_widget(form.libelle) }}
+                                {{ form_widget(form.libelle, {'attr': {'class': 'form-control'}}) }}
                             </div>
                         </div>
                     </div>
@@ -48,13 +48,15 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Description</label>
-                                {{ form_widget(form.description) }}
+                                {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="update ml-auto mr-auto">
-                            {{ form_widget(form.save) }}
+
+                            {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary btn-round'}}) }}
+
                         </div>
                     </div>
                 </form>

@@ -58,7 +58,7 @@ class ArticleController extends Controller
         $em->remove($article);
         $em->flush();
 
-        return $this->redirect('/articles');
+        return $this->redirect('/article/show-articles');
 
     }
     public function showAction() {

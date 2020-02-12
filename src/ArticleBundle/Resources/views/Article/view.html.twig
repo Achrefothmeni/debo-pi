@@ -4,9 +4,11 @@
 
 {% block body %}
 <div class="main-panel ps-container ps-theme-default ps-active-y">
-    <div class="card card-user">
+    <div class="col-md-12">
+        <h1 class="card-title">View article {{ article.name }}</h1>
+        <div class="card card-user">
         <div class="card-header">
-    <h1 class="card-title">View article {{ article.name }}</h1>
+
 
     <table>
         <tbody>
@@ -34,9 +36,11 @@
     </table>
 
     <br/>
-    <a href="/article/show-articles">View All</a> -
+    <a href="/article/show-articles" class="btn btn-primary btn-round">View All</a><br>
+            <a href="/article/Delete-article/{{ article.idArticle }}" target="_blank" class="btn btn-primary btn-round">delete this Article</a>
         </div>
     </div>
+</div>
 </div>
 {% endblock %}
 
