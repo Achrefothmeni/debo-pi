@@ -1,0 +1,3 @@
+panier:
+    path:     /afficher
+    defaults: { _controller: CommandeBundle:Commande:afficher}
