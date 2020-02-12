@@ -1,0 +1,60 @@
+{% extends 'dashboard_base.html.twig' %}
+{% block onglet %}Gestion livraisons{% endblock %}
+{% block titre %}Debo - Lvraison{% endblock %}
+{% block body %}
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Liste des livraison</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                <th>
+                                    Id
+                                </th>
+                                <th>
+                                    Date de depart
+                                </th>
+                                <th>
+                                    Date d'arrivé
+                                </th>
+
+                                <th >
+                                    Status
+                                </th>
+                                </thead>
+                                <tbody>
+                                {% for livraison in livraisons%}
+                                <tr>
+                                    <td>
+                                        {{livraison.id}}
+                                    </td>
+                                    <td>
+                                        {{livraison.dateDepart|date('Y-m-d H:i:s')}}
+                                    </td>
+                                    <td>
+                                        {{livraison.dateArivee|date('Y-m-d H:i:s')}}
+                                    </td>
+                                    <td>
+                                        {% if livraison.status == "En cours" %}
+                                        <div class="badge badge-warning">{{ livraison.status }}</div>
+                                        {% else %}
+                                        <div class="badge badge-success">{{ livraison.status }}</div>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+
+{% endblock %}

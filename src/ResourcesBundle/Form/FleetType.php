@@ -3,6 +3,7 @@
 namespace ResourcesBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +14,19 @@ class FleetType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('matriculation')->add('nature')->add('capacity')->add('category');
+        $builder->add('matriculation')->add('nature',ChoiceType::class,array(
+            'choices'=>array(
+                'Truck'=>'Truck',
+                'MotorBike'=>'MotorBike',
+                'Van'=>'Van',
+            )
+        ))->add('capacity')->add('category',ChoiceType::class,array(
+            'choices'=>array(
+                'Cold'=>'Cold',
+                'Neutral'=>'Neutral',
+                'Brittle'=>'Brittle',
+            )
+        ));
     }/**
      * {@inheritdoc}
      */

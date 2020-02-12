@@ -20,6 +20,7 @@ flux:
     resource: "@FluxBundle/Resources/config/routing.yml"
     prefix:   /flux
 
+
 auth:
     resource: "@AuthBundle/Resources/config/routing.yml"
     prefix:   /
