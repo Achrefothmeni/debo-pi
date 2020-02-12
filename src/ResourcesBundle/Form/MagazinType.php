@@ -3,6 +3,7 @@
 namespace ResourcesBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +14,13 @@ class MagazinType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('id_mag')->add('capacity')->add('category')->add('location');
+        $builder->add('id_mag')->add('capacity')->add('category',ChoiceType::class,array(
+            'choices'=>array(
+                'Cold'=>'Cold',
+                'Neutral'=>'Neutral',
+                'Brittle'=>'Brittle',
+            )
+        ))->add('location');
     }/**
      * {@inheritdoc}
      */
