@@ -20,7 +20,7 @@ update-article:
 
 view-article:
     path:     /view-article/{id}
-    defaults: { _controller: ArticleBundle:Category:create }
+    defaults: { _controller: ArticleBundle:Article:view }
 # ---------------------------------------------------------------
 create_category:
     path:     /create-category
@@ -40,4 +40,4 @@ update-category:
 
 view-category:
     path:     /view-category/{id}
-    defaults: { _controller: ArticleBundle:Article:view }
+    defaults: { _controller: ArticleBundle:Category:view }

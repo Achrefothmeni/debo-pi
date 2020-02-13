@@ -1,35 +1,56 @@
-<style>
-    th, td {
-        padding: 10px;
-    }
-    th {
-        text-align: left;
-    }
-</style>
 
 
-<h1>All Categories</h1>
-{% if category is not empty %}
-    <table>
-        <thead>
-        <tr>
-            <th>category ID</th>
-            <th>Label</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for category in categorys %}
-            <tr>
 
-                <td>{{ categorys.id_category }}</td>
-                <td>{{ categorys.label }}</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-{% else %}
-    <p>No categories found.</p>
-{% endif %}
+{% extends "dashboard_base.html.twig" %}
+{% block title %}Show Categories{% endblock %}
+{% block body %}
 
-<br/>
-<a href="/create-article">Create New</a>
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="card-title">All Categories</h1>
+                </div>
+                <div class="card-body">
+                    <div class="col-md-12">
+
+                        <div class="card card-user">
+                            <div class="card-header">
+                                <div class="table-responsive">
+                                    {% if category is not empty %}
+                                        <table class="table">
+                                            <thead class=" text-primary">
+                                            <th>category ID</th>
+                                            <th>Label</th>
+                                            </thead>
+                                            <tbody>
+                                            {% for categorys in category %}
+                                                <tr>
+                                                    <td>{{ categorys.IdCategory}}</td>
+                                                    <td>{{ categorys.Libelle }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    {% else %}
+                                        <p>No categories found.</p>
+                                    {% endif %}
+                                </div>
+
+                                <br/>
+                                <a href="{{ path('create_category') }}" class="btn btn-primary btn-round">Create New</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br/>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    {% endblock %}
