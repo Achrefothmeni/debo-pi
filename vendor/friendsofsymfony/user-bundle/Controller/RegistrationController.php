@@ -67,7 +67,10 @@ class RegistrationController extends Controller
             if ($form->isValid()) {
                 $event = new FormEvent($form, $request);
                 $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
-
+                $user->setRoles(array('ROLE_ADMIN'));
+                //$user->setRoles(['ROLE_USER']);
+                //$em=$this->getDoctrine()->getManager();
+                //$em->persist($user);
                 $userManager->updateUser($user);
 
                 if (null === $response = $event->getResponse()) {
