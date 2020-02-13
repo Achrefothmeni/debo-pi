@@ -5,3 +5,7 @@ user_redirect:
 redirect_to_login:
     path:   /
     defaults: { _controller: AuthBundle:UserRedirect:redirectToLogin }
+
+users_list:
+    path:   /list-users
+    defaults: { _controller: AuthBundle:User:getAllUsers }
