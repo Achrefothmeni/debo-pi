@@ -1,13 +1,8 @@
-
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 reclamation:
     resource: "@ReclamationBundle/Resources/config/routing.yml"
     prefix:   /reclamation
-
-
-
-
 resources:
     resource: "@ResourcesBundle/Resources/config/routing.yml"
     prefix:   /resources
@@ -26,7 +21,10 @@ flux:
 auth:
     resource: "@AuthBundle/Resources/config/routing.yml"
     prefix:   /
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 article:
     resource: "@ArticleBundle/Resources/config/routing.yml"
     prefix:   /article
