@@ -1,0 +1,87 @@
+{% extends 'dashboard_base.html.twig' %}
+{% block onglet %}Gestion Utilisateurs{% endblock %}
+{% block titre %}Debo - Users{% endblock %}
+{% block body %}
+
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-user">
+                    <div class="card-header">
+                        <h5 class="card-title">Ajouter un {{ user_type }}</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" action="{{ path('add_user', {'user_type':user_type}) }}">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Username</label>
+                                        <input type="text" class="form-control" name="username" placeholder="Username" >
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email address</label>
+                                        <input type="email" class="form-control" name="email" placeholder="Email">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>First Name</label>
+                                        <input type="text" class="form-control" name="first_name" placeholder="Nom" >
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Last Name</label>
+                                        <input type="text" class="form-control" name="last_name" placeholder="Last Name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Mot de passe</label>
+                                        <input type="password" class="form-control" name="password" placeholder="password" >
+                                    </div>
+                                </div>
+                            </div>
+                            {% if user_type == 'administrateur' %}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Roles</label>
+                                        <select class="form-control" name="role">
+                                            <option value="ROLE_DELIVERY_MANAGER">Livreur</option>
+                                            <option value="ROLE_WAREHOUSE_MANAGER">Magasinier</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                                {% else %}
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Matricule fiscale</label>
+                                            <input type="text" class="form-control" name="mat_fiscale" placeholder="matricule fiscale" >
+                                        </div>
+                                    </div>
+                                </div>
+
+                            {% endif %}
+
+                            <div class="row">
+                                <div class="update ml-auto mr-auto">
+                                    <input type="submit" class="btn btn-primary btn-round" value="Enregister"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

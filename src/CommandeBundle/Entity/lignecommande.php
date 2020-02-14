@@ -29,11 +29,7 @@ class lignecommande
     private $qte;
 
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Article")
-     * @ORM\JoinColumn(name="art_id", referencedColumnName="id_article")
-     */
-    private $article;
+
 
     /**
      * Get id

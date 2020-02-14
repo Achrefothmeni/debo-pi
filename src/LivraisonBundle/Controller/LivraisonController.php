@@ -9,11 +9,11 @@ class LivraisonController extends Controller
 {
     public function listeLivraisonAction()
     {
-        $users=$this->getDoctrine()
+        $livraisons=$this->getDoctrine()
             ->getRepository(Livraison::class)
             ->findAll();
 
-        return $this->render('@Auth/Default/liste_utilisateur.html.twig', array('users' => $users));
+        return $this->render('@Livraison/Default/listeLivraison.html.twig', array('livraisons' => $livraisons));
     }
 
 
