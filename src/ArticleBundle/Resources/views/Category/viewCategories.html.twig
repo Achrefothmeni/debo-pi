@@ -5,8 +5,10 @@
 {% block body %}
 <div class="content">
     <div class="row">
+        {% if category is not empty %}
         <div class="col-md-12">
             <div class="card">
+
                 <div class="card-header">
                     <h1 class="card-title">View Category : {{ category.libelle }}</h1>
                 </div>
@@ -38,13 +40,17 @@
                                                 {{ category.libelle }}
                                             </td>
                                             <td>
-                                                {{ category.libelle }}
+                                                {% if form is not empty %}
+                                                    {{ form.name }}
+                                                    {{ form.prix }}
+                                                    {{ form.description }}
+                                                    {{ form.description }}
+                                                {% else %}
+                                                    <p>No Articles found for this category</p>
+                                                {% endif %}
                                             </td>
                                         </tr>
-                                        {{ form.name }}
-                                        {{ form.prix }}
-                                        {{ form.description }}
-                                        {{ form.description }}
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -61,6 +67,9 @@
 
                 </div>
             </div>
+            {% else %}
+                <p>No Categoy found.</p>
+            {% endif %}
         </div>
 
     </div>
