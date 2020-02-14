@@ -21,10 +21,7 @@ flux:
 auth:
     resource: "@AuthBundle/Resources/config/routing.yml"
     prefix:   /
-<<<<<<< HEAD
 
-=======
->>>>>>> master
 article:
     resource: "@ArticleBundle/Resources/config/routing.yml"
     prefix:   /article
