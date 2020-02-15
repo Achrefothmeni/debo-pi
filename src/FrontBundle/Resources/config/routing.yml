@@ -1,0 +1,33 @@
+front_homepage:
+    path:     /
+    defaults: { _controller: FrontBundle:Default:index }
+shop:
+    path:     /shop
+    defaults: { _controller: FrontBundle:Default:shop }
+order:
+    path:     /order
+    defaults: { _controller: FrontBundle:Default:order }
+about:
+    path:     /about
+    defaults: { _controller: FrontBundle:Default:about }
+contact:
+    path:     /contact
+    defaults: { _controller: FrontBundle:Default:contact }
+login:
+    path:     /login
+    defaults: { _controller: FrontBundle:Default:login }
+account:
+    path:     /account
+    defaults: { _controller: FrontBundle:Default:account }
+checkout:
+    path:     /checkout
+    defaults: { _controller: FrontBundle:Default:checkout }
+cart:
+    path:     /cart
+    defaults: { _controller: FrontBundle:Default:cart }
+wishlist:
+    path:     /wishlist
+    defaults: { _controller: FrontBundle:Default:wishlist }
+single_product:
+    path:     /single_product
+    defaults: { _controller: FrontBundle:Default:single_product }
