@@ -2,12 +2,34 @@
 {% block onglet %}Gestion utilisateurs{% endblock %}
 {% block titre %}Debo - Utilisateurs{% endblock %}
 {% block body %}
+
+    <div style="margin-top: 100px" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body" style="text-align: center">
+                    <h5 style="text-transform: none">Choisissez le type de votre utilisateur</h5>
+
+                    <a href="{{ path('add_user', {user_type:'fournisseur'}) }}"> <button type="button" class="btn btn-info" >Fournisseur</button></a>
+                    <a href="{{ path('add_user', {user_type:'client'}) }}"><button type="button" class="btn btn-success">Client</button></a>
+                        <a href="{{ path('add_user', {user_type:'administrateur'}) }}"><button type="button" class="btn btn-warning">Admin</button></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="content">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Liste des utilisateur</h4>
+                    <div class="row">
+                        <div class="col-lg-6">
+                        <h4 class="card-title">Liste des utilisateur</h4>
+                        </div>
+                    <div class="col-lg-6" style="text-align: right">
+                        <button type="submit"  class="btn btn-outline-success  btn-round" data-toggle="modal" data-target="#exampleModal" >Ajouter un utilisateur</button>
+                    </div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -19,6 +41,10 @@
                             <th>
                                 email
                             </th>
+                            <th>
+                                ROLES
+                            </th>
+
                             </thead>
                             <tbody>
                             {% for user in users %}
@@ -29,6 +55,24 @@
                                     <td>
                                         {{user.email}}
                                     </td>
+                                    <td>
+                                        {% for role in user.roles %}
+                                            {% if role == "ROLE_USER" %}
+                                                <div class="badge badge-danger">{{ role }}</div>
+                                            {% elseif role == "ROLE_SUPER_ADMIN" %}
+                                                <div class="badge badge-success">{{ role }}</div>
+                                            {% elseif role == "ROLE_DELIVERY_MANAGER" %}
+                                                <div class="badge badge-info">{{ role }}</div>
+                                            {% elseif role == "ROLE_WAREHOUSE_MANAGER" %}
+                                                <div class="badge badge-warning">{{ role }}</div>
+                                            {% elseif role == "ROLE_FOURNISSEUR" %}
+                                                <div class="badge badge-dark">{{ role }}</div>
+
+                                            {% endif %}
+
+                                        {% endfor %}
+                                    </td>
+
                                 </tr>
                             {% endfor %}
                             </tbody>

@@ -554,4 +554,6 @@ abstract class User implements UserInterface, GroupableInterface
     {
         return (string) $this->getUsername();
     }
+
+
 }

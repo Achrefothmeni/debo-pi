@@ -19,7 +19,7 @@ class CommandeController extends Controller
 
         $commandelignes=$this->getDoctrine()
             ->getRepository(lignecommande::class)
-            ->findBy(array('article'=>$article));
+            ->findAll();
         return $this->render('@Commande/pannier/panier.html.twig',
             array('commandelignes'=>$commandelignes, 'a'=>$article));
     }
