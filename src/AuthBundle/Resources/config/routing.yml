@@ -1,3 +1,17 @@
-auth_homepage:
-    path:     /
-    defaults: { _controller: AuthBundle:Default:index }
+user_redirect:
+    path:     /user-redirect
+    defaults: { _controller: AuthBundle:UserRedirect:userRedirect }
+
+redirect_to_login:
+    path:   /
+    defaults: { _controller: AuthBundle:UserRedirect:redirectToLogin }
+
+users_list:
+    path:   /list-users
+    defaults: { _controller: AuthBundle:User:getAllUsers }
+
+add_user:
+    path: /add-user/{user_type}
+    defaults: { _controller: AuthBundle:User:addUser }
+
+
