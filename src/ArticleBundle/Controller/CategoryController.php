@@ -50,8 +50,16 @@ class CategoryController extends Controller
         $category = $this->getDoctrine()
             ->getRepository('ArticleBundle:Category')
             ->findAll();
+
+        for ($i=0;i<5;$i++){
+            $lib=$category[$i]->getLibelle();
+        }
+
+        $form = $this->getDoctrine()
+            ->getRepository('ArticleBundle:Article')
+            ->findBy( ['libelle' => $lib]);
         return $this->render(
-            '@Article/Category/ShowCategory.html.twig', array('category' => $category));
+            '@Article/Category/ShowCategory.html.twig', array('category' => $category,'form'=>$form));
     }
     //---------------------------
     public function updateAction(Request $request, $id) {
@@ -82,15 +90,16 @@ class CategoryController extends Controller
         $category = $this->getDoctrine()
             ->getRepository('ArticleBundle:Category')
             ->find($id);
-        $lib=$category->getLibelle();
-        $form = $this->getDoctrine()
-            ->getRepository('ArticleBundle:Article')
-            ->find($lib);
         if (!$category) {
             throw $this->createNotFoundException(
                 'no Categories with the following id: ' . $id
             );
         }
+        $lib=$category->getLibelle();
+        $form = $this->getDoctrine()
+            ->getRepository('ArticleBundle:Article')
+            ->findBy( ['libelle' => $lib]);
+
         return $this->render(
             '@Article/Category/viewCategories.html.twig',
             array('category' => $category,'form'=>$form)

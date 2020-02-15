@@ -31,6 +31,17 @@
                                                     <td>{{ categorys.Libelle }}</td>
                                                 </tr>
                                             {% endfor %}
+                                            <tr>
+                                                {% if form is not empty %}
+                                                    {% for forms in form %}
+                                                        <p>{{ forms.name }}</p>
+
+                                                    {% endfor %}
+
+                                                {% else %}
+                                                    <p>No Articles found for this category</p>
+                                                {% endif %}
+                                            </tr>
                                             </tbody>
                                         </table>
                                     {% else %}

@@ -40,11 +40,13 @@
                                                 {{ category.libelle }}
                                             </td>
                                             <td>
+
                                                 {% if form is not empty %}
-                                                    {{ form.name }}
-                                                    {{ form.prix }}
-                                                    {{ form.description }}
-                                                    {{ form.description }}
+                                                    {% for forms in form %}
+                                                        <p>{{ forms.name }}</p>
+
+                                                    {% endfor %}
+
                                                 {% else %}
                                                     <p>No Articles found for this category</p>
                                                 {% endif %}
