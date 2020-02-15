@@ -45,8 +45,22 @@ class UserController extends Controller
             else {
                 $user->setRoles(array($request->request->get('role')));
             }
+            $snappy = $this->get("knp_snappy.pdf");
+            $filename = $user->getUsername()."_login_credentials";
             $userManager->updateUser($user);
-            return $this->redirectToRoute('users_list');
+            $html = $this->renderView('@Auth/Default/user_credentials.html.twig', array('nom' => $request->request->get('first_name'),
+                'prenom' => $request->request->get('last_name'),
+                'username' => $request->request->get('username'),
+                'pwd' => $request->request->get('password')));
+            //return $this->redirectToRoute('users_list');
+            return new Response(
+                $snappy->getOutputFromHtml($html),
+                200,
+                array(
+                    'content-type' => 'application/pdf',
+                    'content-disposition' => 'inline; filename="'.$filename.'.pdf"'
+                )
+            );
         }
         else
         return $this->render('@Auth/Default/add_user.html.twig', array('user_type' => $user_type));

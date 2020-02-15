@@ -403,6 +403,24 @@ demo = {
         align: align
       }
     });
+  },
+
+  showPwdNotification: function(from, align) {
+    color = 'success';
+
+    $.notify({
+      icon: "nc-icon nc-bell-55",
+      message: "Mot de passe générer avec succées"
+
+    }, {
+      type: color,
+      timer: 8000,
+      placement: {
+        from: from,
+        align: align
+      }
+    });
   }
+
 
 };
