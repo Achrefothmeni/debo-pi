@@ -1,17 +1,53 @@
-{% extends 'base.html.twig' %}
+{% extends 'homepage.html.twig' %}
+{% block title %}Reclamation{% endblock %}
+
 {% block body %}
-<h1>Reclamation creation</h1>
-<fieldSet>
-    <legend>Envoyer Reclamation</legend>
-    {{ form(form) }}
 
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-        {{ form_end(form) }}
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Envoyer une Reclamation</h3>
+                </div>
+                <div class="card-body">
 
-        <ul>
-            <li>
-                <a href="{{ path('reclamation_index') }}">Back to the list</a>
-            </li>
-        </ul>
-    {% endblock %}
+                    {{ form_start(form) }}
+                    <div class="col-md-12">
+                        <div class="card card-user">
+
+                            <div class="card-body">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-5 pr-1">
+                                            <div class="form-group">
+                                                <label>Message</label>
+                                                {{ form_widget(form.message, {'attr': {'class': 'form-control'}}) }}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 px-1">
+                                            <div class="form-group">
+                                                <label>Type de reclamation</label>
+                                                {{ form_widget(form.type, {'attr': {'class': 'form-control'}}) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="update ml-auto mr-auto">
+
+                                            {{ form_widget(form.Envoyer, {'attr': {'class': 'btn btn-primary btn-round'}}) }}
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        {% endblock %}

@@ -1,16 +1,16 @@
 <?php
 
-namespace CommandeBundle\Entity;
+namespace LivraisonBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * lignecommande
+ * LivraisonCommande
  *
- * @ORM\Table(name="lignecommande")
- * @ORM\Entity(repositoryClass="CommandeBundle\Repository\lignecommandeRepository")
+ * @ORM\Table(name="livraison_commande")
+ * @ORM\Entity(repositoryClass="LivraisonBundle\Repository\LivraisonCommandeRepository")
  */
-class lignecommande
+class LivraisonCommande
 {
     /**
      * @var int
@@ -22,12 +22,10 @@ class lignecommande
     private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="qte", type="integer")
+     * @ORM\ManyToOne(targetEntity="LivraisonBundle\Entity\Livraison")
+     * @ORM\JoinColumn(name="livraison_id", referencedColumnName="id")
      */
-    private $qte;
-
+    private $livraison;
 
     /**
      * @ORM\ManyToOne(targetEntity="CommandeBundle\Entity\Commande")
@@ -35,6 +33,21 @@ class lignecommande
      */
     private $commande;
 
+    /**
+     * @return mixed
+     */
+    public function getLivraison()
+    {
+        return $this->livraison;
+    }
+
+    /**
+     * @param mixed $livraison
+     */
+    public function setLivraison($livraison)
+    {
+        $this->livraison = $livraison;
+    }
 
     /**
      * @return mixed
@@ -54,43 +67,14 @@ class lignecommande
 
 
 
-
-
-
-
-
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set qte
-     *
-     * @param integer $qte
-     *
-     * @return lignecommande
-     */
-    public function setQte($qte)
-    {
-        $this->qte = $qte;
-    
-        return $this;
-    }
-
-    /**
-     * Get qte
-     *
-     * @return integer
-     */
-    public function getQte()
-    {
-        return $this->qte;
     }
 }
 

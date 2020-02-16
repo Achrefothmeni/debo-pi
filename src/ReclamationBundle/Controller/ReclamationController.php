@@ -26,7 +26,6 @@ class ReclamationController extends Controller
     {
         $reclamation = new Reclamation();
         $form = $this->createForm(ReclamationType::class,$reclamation);
-        $form->add('Envoyer', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
