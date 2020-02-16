@@ -39,6 +39,28 @@ class Article
      */
     private $prix;
 
+
+
+    /**
+     * @ORM\Column(name="image",type="string")
+     * @Assert\NotBlank(message="Upload your image")
+     * @Assert\File(mimeTypes={ "image/png", "image/jpeg" })
+     */
+    private $image;
+
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
+        return $this;
+    }
+
+
+
     /**
      * @var int
      *

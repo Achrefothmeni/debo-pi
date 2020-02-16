@@ -10,6 +10,10 @@ delete_article:
     path:     /Delete-article/{id}
     defaults: { _controller: ArticleBundle:Article:delete }
 
+show-articles-front:
+    path:     /show-articles-front
+    defaults: { _controller: ArticleBundle:Article:showFront }
+
 show-articles:
     path:     /show-articles
     defaults: { _controller: ArticleBundle:Article:show }

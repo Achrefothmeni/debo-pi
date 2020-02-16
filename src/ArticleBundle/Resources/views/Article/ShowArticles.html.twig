@@ -1,6 +1,3 @@
-
-
-
 {% extends "dashboard_base.html.twig" %}
 {% block title %}ArticleBundle:Article:Ajout{% endblock %}
 {% block body %}
@@ -28,6 +25,7 @@
                                     <th>Name</th>
                                     <th>Price</th>
                                     <th>Quantity</th>
+                                    <th>Image</th>
                                     <th>Lablel</th>
                                     <th>Article Description</th>
                                     </thead>
@@ -35,9 +33,11 @@
                                     {% for article in articles %}
                                         <tr>
                                             <td>{{ article.idArticle }}</td>
+                                            <td><img src="{{ asset('images/' ~ article.image) }}" alt="" width="90px"></td>
                                             <td>{{ article.name }}</td>
                                             <td>{{ article.prix  }}</td>
                                             <td>{{ article.quantity }}</td>
+                                            <td><img src="{{ asset('images/' ~ article.image) }}" alt="" style="width: 100px;"></td>
                                             <td>{{ article.libelle }}</td>
                                             <td>{{ article.description }}</td>
                                         </tr>

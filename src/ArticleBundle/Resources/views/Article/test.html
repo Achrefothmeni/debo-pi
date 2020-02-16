@@ -48,168 +48,51 @@
                     </div>
                     <div class="by-brand-product">
                         <div class="row active-by-brand slick-arrow-2">
-                            {% for article in articles %}
-                                <div class="col-xs-12">
-                                    <div class="blog-item">
-                                        <div class="single-brand-product">
-                                            <a href="single-product.html"><img src="{{ asset('images/' ~ article.image) }}"  style="width: 270px " alt=""></a>
 
-                                            <div class="blog-desc">
-                                                <h5 class="blog-title"><a href="single-blog.html">{{ article.name }}</a></h5>
-                                                <p>  {{article.description}}</p>
-                                                <div class="read-more">
-                                                    <a href="single-blog.html">Read more</a>
+
+
+                            <div class="by-brand-product">
+                                <div class="row active-by-brand slick-arrow-2">
+                                    {% for article in articles %}
+                                    <div class="col-xs-12">
+                                        <div class="blog-item">
+                                            <div class="single-brand-product">
+                                                <a href="single-product.html"><img src="{{ asset('images/' ~ article.image) }}" alt=""></a>
+                            
+                                                <div class="blog-desc">
+                                                    <h5 class="blog-title"><a href="single-blog.html">{{ article.name }}</a></h5>
+                                                    <p>  {{article.description}}</p>
+                                                    <div class="read-more">
+                                                        <a href="single-blog.html">Read more</a>
+                                                    </div>
+                                                    <ul class="blog-meta">
+                                                        <li>
+                                                            <a href="#" title="Wishlist"><i class="zmdi zmdi-favorite" style="position: absolute; top: 220px;"></i></a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" data-toggle="modal" data-target="#productModal" title="Quickview"><i class="zmdi zmdi-zoom-in" style="position: absolute; top: 220px;"></i></a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" title="Compare"><i class="zmdi zmdi-refresh" style="position: absolute; top: 220px;"></i></a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" title="Add to cart"><i class="zmdi zmdi-shopping-cart-plus" style="position: absolute; top: 220px;"></i></a>
+                                                        </li>
+                                                    </ul>
                                                 </div>
-                                                <ul class="blog-meta">
-                                                    <li>
-                                                        <a href="#" title="Wishlist"><i class="zmdi zmdi-favorite" style="position: absolute; top: 220px;"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" data-toggle="modal" data-target="#productModal" title="Quickview"><i class="zmdi zmdi-zoom-in" style="position: absolute; top: 220px;"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" title="Compare"><i class="zmdi zmdi-refresh" style="position: absolute; top: 220px;"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" title="Add to cart"><i class="zmdi zmdi-shopping-cart-plus" style="position: absolute; top: 220px;"></i></a>
-                                                    </li>
-                                                </ul>
                                             </div>
+                            
                                         </div>
-
+                            
                                     </div>
 
-                                </div>
-                            {% endfor %}
-                        </div>
-
-                            </div>
-
-                            <div class="col-xs-12">
-                                <div class="blog-item">
-                                    <div class="single-brand-product">
-                                        <a href="single-product.html"><img src="{{ asset('front/assets/img/product/5.jpg') }}" alt=""></a>
-                                        <div class="blog-desc">
-                                            <h5 class="blog-title"><a href="single-blog.html">dummy Blog name</a></h5>
-                                            <p>There are many variations of passages of psum available, but the majority have suffered alterat on in some form, by injected humour, randomis words which don't look even slightly.</p>
-                                            <div class="read-more">
-                                                <a href="single-blog.html">Read more</a>
-                                            </div>
-                                            <ul class="blog-meta">
-                                                <li>
-                                                    <a href="#" title="Wishlist"><i class="zmdi zmdi-favorite" style="position: absolute; top: 220px;"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" data-toggle="modal" data-target="#productModal" title="Quickview"><i class="zmdi zmdi-zoom-in" style="position: absolute; top: 220px;"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" title="Compare"><i class="zmdi zmdi-refresh" style="position: absolute; top: 220px;"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" title="Add to cart"><i class="zmdi zmdi-shopping-cart-plus" style="position: absolute; top: 220px;"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
 
 
-                            <div class="col-xs-12">
-                                <div class="blog-item">
-                                    <div class="single-brand-product">
-                                        <a href="single-product.html"><img src="{{ asset('front/assets/img/product/5.jpg') }}" alt=""></a>
-                                        <div class="blog-desc">
-                                            <h5 class="blog-title"><a href="single-blog.html">dummy Blog name</a></h5>
-                                            <p>There are many variations of passages of psum available, but the majority have suffered alterat on in some form, by injected humour, randomis words which don't look even slightly.</p>
-                                            <div class="read-more">
-                                                <a href="single-blog.html">Read more</a>
-                                            </div>
-                                            <ul class="blog-meta">
-                                                <li>
-                                                    <a href="#" title="Wishlist"><i class="zmdi zmdi-favorite" style="position: absolute; top: 220px;"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" data-toggle="modal" data-target="#productModal" title="Quickview"><i class="zmdi zmdi-zoom-in" style="position: absolute; top: 220px;"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" title="Compare"><i class="zmdi zmdi-refresh" style="position: absolute; top: 220px;"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" title="Add to cart"><i class="zmdi zmdi-shopping-cart-plus" style="position: absolute; top: 220px;"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
 
 
-                            <div class="col-xs-12">
-                                <div class="blog-item">
-                                    <div class="single-brand-product">
-                                        <a href="single-product.html"><img src="{{ asset('front/assets/img/product/5.jpg') }}" alt=""></a>
-                                        <div class="blog-desc">
-                                            <h5 class="blog-title"><a href="single-blog.html">dummy Blog name</a></h5>
-                                            <p>There are many variations of passages of psum available, but the majority have suffered alterat on in some form, by injected humour, randomis words which don't look even slightly.</p>
-                                            <div class="read-more">
-                                                <a href="single-blog.html">Read more</a>
-                                            </div>
-                                            <ul class="blog-meta">
-                                                <li>
-                                                    <a href="#" title="Wishlist"><i class="zmdi zmdi-favorite" style="position: absolute; top: 220px;"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" data-toggle="modal" data-target="#productModal" title="Quickview"><i class="zmdi zmdi-zoom-in" style="position: absolute; top: 220px;"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" title="Compare"><i class="zmdi zmdi-refresh" style="position: absolute; top: 220px;"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" title="Add to cart"><i class="zmdi zmdi-shopping-cart-plus" style="position: absolute; top: 220px;"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
 
-                                </div>
 
-                            </div>
 
-                            <div class="col-xs-12">
-                                <div class="blog-item">
-                                    <div class="single-brand-product">
-                                        <a href="single-product.html"><img src="{{ asset('front/assets/img/product/5.jpg') }}" alt=""></a>
-                                        <div class="blog-desc">
-                                            <h5 class="blog-title"><a href="single-blog.html">dummy Blog name</a></h5>
-                                            <p>There are many variations of passages of psum available, but the majority have suffered alterat on in some form, by injected humour, randomis words which don't look even slightly.</p>
-                                            <div class="read-more">
-                                                <a href="single-blog.html">Read more</a>
-                                            </div>
-                                            <ul class="blog-meta">
-                                                <li>
-                                                    <a href="#" title="Wishlist"><i class="zmdi zmdi-favorite" style="position: absolute; top: 220px;"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" data-toggle="modal" data-target="#productModal" title="Quickview"><i class="zmdi zmdi-zoom-in" style="position: absolute; top: 220px;"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" title="Compare"><i class="zmdi zmdi-refresh" style="position: absolute; top: 220px;"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" title="Add to cart"><i class="zmdi zmdi-shopping-cart-plus" style="position: absolute; top: 220px;"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
 
 
                         </div>
