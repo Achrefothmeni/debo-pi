@@ -1,21 +1,44 @@
-<table border="2">
-    <tr>
-        <th>matriculation</th>
-        <th>nature</th>
-        <th>capacity</th>
-        <th>category</th>
-        <th>supprimer</th>
-        <th>modifier</th>
+{% extends 'dashboard_base.html.twig' %}
+    {% block onglet %}Fleet{% endblock %}
 
-    </tr>
-    {% for f in fleet %}
-    <tr>
-        <td>{{ f.matriculation }}</td>
-        <td>{{ f.nature }}</td>
-        <td>{{ f.capacity }}</td>
-        <td>{{ f.category }}</td>
-        <td><a href="{{ path('fleet_supp',{ 'matriculation' : f.matriculation }) }}">supprimer</a></td>
-        <td><a href="{{ path('fleet_modif',{ 'matriculation' : f.matriculation }) }}">modifier</a></td>
+    {% block body %}
+        <div class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Liste des Fleets</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class=" text-primary">
+                                    <th>matriculation</th>
+                                    <th>capacity</th>
+                                    <th>nature</th>
+                                    <th>category</th>
+                                    <th>modifier</th>
+                                    <th>supprimer</th>
 
-    </tr>
-{% endfor %}
+                                    </thead>
+                                    <tbody>
+                                    {% for f in fleet %}
+                                        <tr>
+                                            <td>{{ f.matriculation }}</td>
+                                            <td>{{ f.capacity }}</td>
+                                            <td>{{ f.nature }}</td>
+                                            <td>{{ f.category }}</td>
+                                            <td><a href="{{ path('fleet_modif',{ 'matriculation' : f.matriculation }) }}" style="color:#00ad5f">modifier</a></td>
+                                            <td><a href="{{ path('fleet_supp',{ 'matriculation' : f.matriculation }) }}" style="color:#FF0000">supprimer</a></td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    {% endblock %}
