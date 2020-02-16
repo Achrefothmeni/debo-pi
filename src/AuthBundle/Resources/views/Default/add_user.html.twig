@@ -1,0 +1,109 @@
+{% extends 'dashboard_base.html.twig' %}
+{% block onglet %}Gestion Utilisateurs{% endblock %}
+{% block titre %}Debo - Users{% endblock %}
+{% block body %}
+
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-user">
+                    <div class="card-header">
+                        <h5 class="card-title">Ajouter un {{ user_type }}</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" action="{{ path('add_user', {'user_type':user_type}) }}">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Username</label>
+                                        <input type="text" class="form-control" name="username" placeholder="Username" >
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email address</label>
+                                        <input type="email" class="form-control" name="email" placeholder="Email">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>First Name</label>
+                                        <input type="text" class="form-control" name="first_name" placeholder="Nom" >
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Last Name</label>
+                                        <input type="text" class="form-control" name="last_name" placeholder="Last Name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <label>Mot de passe</label>
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="password" >
+                                    </div>
+                                </div>
+                                <div class="col-md-3" style="margin: auto">
+                                    <button type="button" class="btn btn-success" id="genPwd" style="width: 100%" onclick="demo.showPwdNotification('bottom','right')">Générer mot de passe</button>
+                                </div>
+
+                            </div>
+                            {% if user_type == 'administrateur' %}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Roles</label>
+                                        <select class="form-control" name="role">
+                                            <option value="ROLE_DELIVERY_MANAGER">Livreur</option>
+                                            <option value="ROLE_WAREHOUSE_MANAGER">Magasinier</option>
+                                            <option value="ROLE_SUPER_ADMIN">Administrateur</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                                {% else %}
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Matricule fiscale</label>
+                                            <input type="text" class="form-control" name="mat_fiscale" placeholder="matricule fiscale" >
+                                        </div>
+                                    </div>
+                                </div>
+
+                            {% endif %}
+
+                            <div class="row">
+                                <div class="update ml-auto mr-auto">
+                                    <input type="submit" class="btn btn-primary btn-round" value="Enregister"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ asset('dashboard/assets/js/core/jquery.min.js') }}"></script>
+<script>
+    function stringGen(len)
+    {
+        var text = " ";
+        var charset = "abcdefghijklmnopqrstuvwxyz0123456789";
+        for( var i=0; i < len; i++ )
+            text += charset.charAt(Math.floor(Math.random() * charset.length));
+        return text;
+    }
+
+    $(function(){
+        $("#genPwd").click(function () {
+            $("#password").val(stringGen(10));
+        });
+    });
+
+</script>
+{% endblock %}

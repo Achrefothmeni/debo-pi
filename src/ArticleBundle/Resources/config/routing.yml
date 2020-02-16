@@ -40,4 +40,4 @@ update-category:
 
 view-category:
     path:     /view-category/{id}
-    defaults: { _controller: ArticleBundle:Article:view }
+    defaults: { _controller: ArticleBundle:Category:view }

@@ -1,25 +1,46 @@
-<style>
-    th, td {
-        padding: 10px;
-    }
-    th {
-        text-align: right;
-    }
-</style>
+{% extends "dashboard_base.html.twig" %}
 
-<h1>Create or Update Article:</h1>
+{% block title %}Add Category{% endblock %}
 
-{{ form_start(form) }}
+{% block body %}
 
-<table>
-    <tbody>
-        <th>Label:</th>
-        <td>{{ form_widget(form.libelle) }}</td>
-    </tr>
-    <tr>
-        <th></th>
-        <td>{{ form_widget(form.save) }}</td>
-    </tr>
-    </tbody>
-</table>
-{{ form_end(form) }}
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Create Category</h3>
+                </div>
+                <div class="card-body">
+
+                    {{ form_start(form) }}
+                    <div class="col-md-12">
+                        <div class="card card-user">
+                            <div class="card-body">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-5 pr-1">
+                                            <div class="form-group">
+                                                <label>Category Label </label>
+                                                {{ form_widget(form.libelle, {'attr': {'class': 'form-control'}}) }}
+                                            </div>
+                                        </div>
+                                    <div class="row">
+                                        <div class="update ml-auto mr-auto">
+                                            <br><br><br>
+                                            {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary btn-round'}}) }}
+                                        </div>
+                                    </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        {% endblock %}

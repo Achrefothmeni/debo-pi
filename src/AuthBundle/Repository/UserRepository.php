@@ -2,6 +2,8 @@
 
 namespace AuthBundle\Repository;
 
+use FOS\UserBundle\Model\User;
+
 /**
  * UserRepository
  *
@@ -10,4 +12,20 @@ namespace AuthBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    /**
+     * @param string $role
+     *
+     * @return array
+     */
+    public function findByRole($role)
+    {
+        $qb = $this->_em->createQueryBuilder();
+        $qb->select('u')
+            ->from(\AuthBundle\Entity\User::class, 'u')
+            ->where('u.roles LIKE :roles')
+            ->setParameter('roles', '%"'.$role.'"%');
+
+        return $qb->getQuery()->getResult();
+    }
 }

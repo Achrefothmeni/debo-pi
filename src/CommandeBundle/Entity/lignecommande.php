@@ -30,10 +30,34 @@ class lignecommande
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="Article")
-     * @ORM\JoinColumn(name="art_id", referencedColumnName="id_article")
+     * @ORM\ManyToOne(targetEntity="CommandeBundle\Entity\Commande")
+     * @ORM\JoinColumn(name="commande_id", referencedColumnName="id")
      */
-    private $article;
+    private $commande;
+
+
+    /**
+     * @return mixed
+     */
+    public function getCommande()
+    {
+        return $this->commande;
+    }
+
+    /**
+     * @param mixed $commande
+     */
+    public function setCommande($commande)
+    {
+        $this->commande = $commande;
+    }
+
+
+
+
+
+
+
 
     /**
      * Get id

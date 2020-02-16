@@ -6,8 +6,12 @@ security:
         FOS\UserBundle\Model\UserInterface: bcrypt
 
     role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
+        ROLE_USER: ROLE_USER
         ROLE_SUPER_ADMIN: ROLE_ADMIN
+        ROLE_DELIVERY_MANAGER: ROLE_ADMIN
+        ROLE_WAREHOUSE_MANAGER: ROLE_ADMIN
+        ROLE_FOURNISSEUR: ROLE_ADMIN
+        ROLE_ROOT_ACCESS: [ROLE_USER, ROLE_SUPER_ADMIN, ROLE_DELIVERY_MANAGER, ROLE_WAREHOUSE_MANAGER, ROLE_FOURNISSEUR]
 
 
 
@@ -30,6 +34,8 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
+                always_use_default_target_path: true
+                default_target_path: user_redirect
 
             logout:       true
             anonymous:    true
@@ -39,3 +45,5 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/dashboard/, role: ROLE_SUPER_ADMIN }
+        - { path: ^/livraison/, role: [ROLE_DELIVERY_MANAGER, ROLE_SUPER_ADMIN] }
