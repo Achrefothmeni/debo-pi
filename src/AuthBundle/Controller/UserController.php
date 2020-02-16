@@ -65,4 +65,10 @@ class UserController extends Controller
         else
         return $this->render('@Auth/Default/add_user.html.twig', array('user_type' => $user_type));
     }
+
+    public function findUsersByRole($role){
+        $users=$this->getDoctrine()
+            ->getRepository(User::class)
+            ->findByRole($role);
+    }
 }

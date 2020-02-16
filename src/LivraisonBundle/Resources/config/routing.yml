@@ -6,4 +6,6 @@ liste_livraison:
     path:     /liste-livraison
     defaults: { _controller: LivraisonBundle:Livraison:listeLivraison }
 
-
+ajouter_livraison:
+    path: /ajouter-livraison
+    defaults: { _controller: LivraisonBundle:Livraison:ajouterLivraison }
