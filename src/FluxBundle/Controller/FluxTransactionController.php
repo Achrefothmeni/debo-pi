@@ -13,7 +13,7 @@ class FluxTransactionController extends Controller
         $transaction = new FluxTransactions($type, $somme);
         $em->persist($transaction);
         $em->flush();
-        return new Response('Transaction efffectuée avec succées');
+        return new Response('Transaction efffectuée avec succès');
 
     }
 

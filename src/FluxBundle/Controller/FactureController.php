@@ -43,7 +43,7 @@ class FactureController extends Controller
         $facture = new FluxTransactions($prixTotal);
         $em->persist($facture);
         $em->flush();
-        return new Response('Facture générée avec succées');
+        return new Response('Facture générée avec succès');
 
     }
 
