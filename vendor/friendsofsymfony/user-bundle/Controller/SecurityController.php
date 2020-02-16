@@ -40,6 +40,7 @@ class SecurityController extends Controller
             $session->remove($authErrorKey);
         } else {
             $error = null;
+
         }
 
         if (!$error instanceof AuthenticationException) {

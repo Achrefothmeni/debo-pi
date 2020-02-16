@@ -24,7 +24,7 @@ class Livraison
     /**
      * @var string
      *
-     * @ORM\Column(name="text", type="text")
+     * @ORM\Column(name="text", type="text", nullable=true)
      */
     private $text;
 
@@ -45,7 +45,7 @@ class Livraison
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_arivee", type="datetime")
+     * @ORM\Column(name="date_arivee", type="datetime", nullable=true)
      */
     private $dateArivee;
 
@@ -54,6 +54,47 @@ class Livraison
      * @ORM\JoinColumn(name="bon_de_livraison_id", referencedColumnName="id")
      */
     private $bonDeLivraison;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AuthBundle\Entity\User")
+     * @ORM\JoinColumn(name="livreur_id", referencedColumnName="id")
+     */
+    private $livreur;
+
+    /**
+     * @return mixed
+     */
+    public function getBonDeLivraison()
+    {
+        return $this->bonDeLivraison;
+    }
+
+    /**
+     * @param mixed $bonDeLivraison
+     */
+    public function setBonDeLivraison($bonDeLivraison)
+    {
+        $this->bonDeLivraison = $bonDeLivraison;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLivreur()
+    {
+        return $this->livreur;
+    }
+
+    /**
+     * @param mixed $livreur
+     */
+    public function setLivreur($livreur)
+    {
+        $this->livreur = $livreur;
+    }
+
+
+
 
 
 

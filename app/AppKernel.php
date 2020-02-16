@@ -20,24 +20,14 @@ class AppKernel extends Kernel
             new ArticleBundle\ArticleBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new AuthBundle\AuthBundle(),
-
             new ResourcesBundle\ResourcesBundle(),
-
-
-
-
             new LivraisonBundle\LivraisonBundle(),
             new DashboardBundle\DashboardBundle(),
-
             new FluxBundle\FluxBundle(),
-
-
-
-
-
-
-
             new ReclamationBundle\ReclamationBundle(),
+            new CommandeBundle\CommandeBundle(),
+            new FrontBundle\FrontBundle(),
+            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
