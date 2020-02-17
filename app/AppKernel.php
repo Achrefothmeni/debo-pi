@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new ArticleBundle\ArticleBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new AuthBundle\AuthBundle(),
+            new Vresh\TwilioBundle\VreshTwilioBundle (),
             new ResourcesBundle\ResourcesBundle(),
             new LivraisonBundle\LivraisonBundle(),
             new DashboardBundle\DashboardBundle(),

@@ -25,3 +25,6 @@ ajouterMagazin:
 magazin_modif:
     path:     /modifierMagazin/{id_mag}
     defaults: { _controller: ResourcesBundle:Magazin:ModifierMagazin }
+aaaa:
+    path:     /call
+    defaults: { _controller: ResourcesBundle:Magazin:call }
