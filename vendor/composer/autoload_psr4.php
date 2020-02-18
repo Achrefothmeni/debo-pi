@@ -33,7 +33,11 @@ return array(
     'Psr\\Link\\' => array($vendorDir . '/psr/link/src'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'Psr\\Cache\\' => array($vendorDir . '/psr/cache/src'),
+    'PhpOffice\\PhpSpreadsheet\\' => array($vendorDir . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet'),
+    'Onurb\\Bundle\\' => array($vendorDir . '/onurb/excel-bundle/lib'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
+    'MewesK\\TwigExcelBundle\\' => array($vendorDir . '/mewesk/twig-excel-bundle'),
+    'Matrix\\' => array($vendorDir . '/markbaker/matrix/classes/src'),
     'Knp\\Snappy\\' => array($vendorDir . '/knplabs/knp-snappy/src/Knp/Snappy'),
     'Knp\\Bundle\\SnappyBundle\\' => array($vendorDir . '/knplabs/knp-snappy-bundle'),
     'Incenteev\\ParameterHandler\\' => array($vendorDir . '/incenteev/composer-parameter-handler'),
@@ -47,5 +51,6 @@ return array(
     'Doctrine\\Bundle\\DoctrineCacheBundle\\' => array($vendorDir . '/doctrine/doctrine-cache-bundle'),
     'Doctrine\\Bundle\\DoctrineBundle\\' => array($vendorDir . '/doctrine/doctrine-bundle'),
     'Composer\\CaBundle\\' => array($vendorDir . '/composer/ca-bundle/src'),
+    'Complex\\' => array($vendorDir . '/markbaker/complex/classes/src'),
     '' => array($baseDir . '/src'),
 );

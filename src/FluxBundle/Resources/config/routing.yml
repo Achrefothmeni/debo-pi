@@ -12,3 +12,16 @@ afficherfacture:
 flux_home:
     path:     /
     defaults: { _controller:FluxBundle:FluxTransaction:fluxHome }
+
+generer_facture:
+    path:     /facture/{id}
+    defaults: { _controller:FluxBundle:FluxTransaction:genererFacture }
+
+
+liste_transaction_by_date:
+    path:     /transactions/{date}
+    defaults: { _controller:FluxBundle:FluxTransaction:getTransactionByDate }
+
+generer_excel:
+    path:     /transaction.xlsx
+    defaults: { _controller: FluxBundle:FluxTransaction:generateExcelFile, _format: xlsx }
