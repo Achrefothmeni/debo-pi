@@ -1,13 +1,14 @@
-flux_homepage:
-    path:     /
-    defaults: { _controller: FluxBundle:Default:index }
-
 
 ajouter_facture:
     path:     /ajouter_factures
     defaults: { _controller:FluxBundle:Facture:ajouter }
 
 
-afficher_transactions:
-    path:     /afficher_transactions
-    defaults: { _controller:FluxBundle:FluxTransaction:afficherTransaction }
+afficherfacture:
+    path:     /afficher_facture
+    defaults: { _controller:FluxBundle:FluxTransaction:facture }
+
+
+flux_home:
+    path:     /
+    defaults: { _controller:FluxBundle:FluxTransaction:fluxHome }

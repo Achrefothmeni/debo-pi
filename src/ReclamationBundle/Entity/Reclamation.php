@@ -35,6 +35,13 @@ class Reclamation
      */
     private $type;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=255)
+     */
+    private $status="Non traitée";
+
 
     /**
      * Get id
@@ -92,6 +99,31 @@ class Reclamation
     public function getType()
     {
         return $this->type;
+    }
+
+
+    /**
+     * Set status
+     *
+     * @param string $status
+     *
+     * @return Reclamation
+     */
+    public function setStatus($status)
+    {
+        $this->setDefault('Non traitée');
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 }
 
