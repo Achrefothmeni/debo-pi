@@ -27,7 +27,7 @@
                                         <td>{{ m.idMag }}</td>
                                         <td>{{ m.capacity }}</td>
                                         <td>{{ m.location }}</td>
-                                        <td>{{ m.category }}</td>
+                                        <td>{{ m.category.libelle }}</td>
                                         <td><a href="{{ path('magazin_modif',{ 'id_mag' : m.idMag }) }}" style="color:#00ad5f">modifier</a></td>
                                         <td><a href="{{ path('magazin_supp',{ 'id_mag' : m.idMag }) }}" style="color:#FF0000">supprimer</a></td>
                                     </tr>

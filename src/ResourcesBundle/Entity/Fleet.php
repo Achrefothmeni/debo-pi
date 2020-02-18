@@ -3,6 +3,8 @@
 namespace ResourcesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\Date;
 
 /**
  * Fleet
@@ -18,27 +20,60 @@ class Fleet
      * @ORM\Column(name="matriculation", type="string", length=255)
      * @ORM\Id
      *
+     * @Assert\Regex(
+     *     pattern="/^(1|2|3|4|5|6|7|8|9)(0|1|2|3|4|5|6|7|8|9)(0|1|2|3|4|5|6|7|8|9)TUN(0|1|2|3|4|5|6|7|8|9)(0|1|2|3|4|5|6|7|8|9)(0|1|2|3|4|5|6|7|8|9)(0|1|2|3|4|5|6|7|8|9)$/",
+     *     match=true,
+     *     message="Your name cannot contain a number"
+     * )
      */
     private $matriculation;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="nature", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Nature",inversedBy="fleet")
+     * @ORM\JoinColumn(name="nature_id", referencedColumnName="id")
      */
-    private $nature;
+     public $nature;
+    /**
+     * @var date
+     *
+     * @ORM\Column(name="date", type="date")
+     */
+    private $date;
 
     /**
      * @var int
+     * @Assert\GreaterThan(25)
      *
      * @ORM\Column(name="capacity", type="integer")
      */
     private $capacity;
-
     /**
-     * @var string
+     * @var int
+     * @Assert\GreaterThan(25)
      *
-     * @ORM\Column(name="category", type="string", length=255)
+     * @ORM\Column(name="kilometrage", type="integer")
+     */
+    private $kilometrage;
+    /**
+     * @ORM\Column(name="image",type="string")
+     * @Assert\NotBlank(message="Upload your image")
+     * @Assert\File(mimeTypes={ "image/png", "image/jpeg" })
+     */
+    private $image;
+
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
+        return $this;
+    }
+    /**
+     * @ORM\ManyToOne(targetEntity="ArticleBundle\Entity\Category",inversedBy="magazin")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id_category")
      */
     private $category;
 
@@ -56,25 +91,26 @@ class Fleet
     /**
      * Set nature
      *
-     * @param string $nature
+     * @param mixed $nature
      *
      * @return Fleet
      */
     public function setNature($nature)
     {
         $this->nature = $nature;
-    
+
         return $this;
     }
 
+
     /**
-     * Get nature
+     * Get date
      *
-     * @return string
+     * @return date
      */
-    public function getNature()
+    public function getDate()
     {
-        return $this->nature;
+        return $this->date;
     }
 
     /**
@@ -100,11 +136,35 @@ class Fleet
     {
         return $this->capacity;
     }
+    /**
+     * Set kilometrage
+     *
+     * @param integer $kilometrage
+     *
+     * @return Fleet
+     */
+    public function setKilometrage($kilometrage)
+    {
+        $this->kilometrage = $kilometrage;
+
+        return $this;
+    }
+
+    /**
+     * Get kilometrage
+     *
+     * @return integer
+     */
+    public function getKilometrage()
+    {
+        return $this->kilometrage;
+    }
+
 
     /**
      * Set category
      *
-     * @param string $category
+     * @param mixed $category
      *
      * @return Fleet
      */
@@ -115,11 +175,25 @@ class Fleet
         return $this;
     }
     /**
+     * Set date
+     *
+     * @param date $date
+     *
+     * @return Fleet
+     */
+    public function setDate($date)
+    {
+        $this->date =$date;
+
+        return $this;
+    }
+    /**
      * Set matriculation
      *
      * @param string $matriculation
      *
      * @return Fleet
+     *
      */
     public function setMatriculation($matriculation)
     {
@@ -131,7 +205,7 @@ class Fleet
     /**
      * Get category
      *
-     * @return string
+     * @return mixed
      */
     public function getCategory()
     {

@@ -28,6 +28,16 @@ class Category
      */
     private $libelle;
 
+    /**
+     * @ORM\OneToMany(targetEntity="ResourcesBundle\Entity\Fleet",mappedBy="category")
+     * @ORM\JoinColumn(name="fleet_id", referencedColumnName="matriculation")
+     */
+    public $fleet;
+    /**
+     * @ORM\OneToMany(targetEntity="ResourcesBundle\Entity\Magazin",mappedBy="category")
+     * @ORM\JoinColumn(name="magazin_id", referencedColumnName="id_mag")
+     */
+    public $magazin;
 
     /**
      * Get id

@@ -41,6 +41,16 @@ class LivraisonController extends Controller
         $em=$this->getDoctrine()->getManager();
         $commandes=$request->request->get('commandes');
         $em->persist($livraison);
+        $twilio = $this->get('twilio.api');
+        $tel = $livreur->getNum();
+        $msg = "livraison est ".$livraison->getStatus();
+
+
+        $message = $twilio->account->messages->sendMessage(
+            '+13345106423', // From a Twilio number in your account
+            '+21650802348', // Text any number
+            $msg
+        );
         $em->flush();
         foreach ($commandes as $commande_id){
             $id = explode(" ",$commande_id);
