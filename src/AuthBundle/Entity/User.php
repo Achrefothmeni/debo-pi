@@ -45,6 +45,32 @@ class User extends BaseUser
     protected $prenom;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="status_livreur", type="string", length=255, nullable=true)
+     */
+    protected $status = "Disponible";
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param string $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+
+
+
+    /**
      * @return string
      */
     public function getNom()

@@ -9,3 +9,15 @@ liste_livraison:
 ajouter_livraison:
     path: /ajouter-livraison
     defaults: { _controller: LivraisonBundle:Livraison:ajouterLivraison }
+
+view_single_livraison:
+    path: /view-livraison/{id}
+    defaults: { _controller: LivraisonBundle:Livraison:viewSingleLivraison }
+
+update_single_livraison:
+    path: /update-livraison/{id}
+    defaults: { _controller: LivraisonBundle:Livraison:updateSingleLivraison }
+
+view_livraison_by_status:
+    path: /liste-livraison/{status}
+    defaults: { _controller: LivraisonBundle:Livraison:viewLivraisonByStatus }

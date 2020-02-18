@@ -73,72 +73,65 @@
 
 
     <div class="content">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Ajouter livraison</h4>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-lg-6" style="position: relative;">
-                            <form action="{{ path('ajouter_livraison') }}", method="post">
-                                <ol data-draggable="target" class="livraison" style="width: 100%; height: 300px;" id="livraison">
-                                    <p style="text-align: center">Ajouter les commande</p>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Ajouter livraison</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6" style="position: relative;">
+                                <form action="{{ path('ajouter_livraison') }}", method="post">
+                                    <ol data-draggable="target" class="livraison" style="width: 100%; height: 300px;" id="livraison">
+                                        <p style="text-align: center">Ajouter les commande</p>
 
-                                    <div class="form-group">
-                                        <label>Choisir le livreur</label>
-                                        <select class="form-control" name="livreur">
-                                            {% for livreur in livreurs %}
-                                                {% if livreur.status == "Disponible" %}
-                                                <option value={{livreur.id}}>{{ livreur.nom }} {{ livreur.prenom }}</option>
-                                                {% endif %}
-                                            {% endfor %}
-                                        </select>
-                                    </div>
-                                    <input type="submit" class="btn btn-success" value="Ajouter" style="position: absolute; bottom: 10px;"/>
+                                        <div class="form-group">
+                                            <label>Choisir le livreur</label>
+                                            <select class="form-control" name="livreur">
+                                                {% for livreur in livreurs %}
+                                                    {% if livreur.status == "Disponible" %}
+                                                        <option value={{livreur.id}}>{{ livreur.nom }} {{ livreur.prenom }}</option>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <input type="submit" class="btn btn-success" value="Ajouter" style="position: absolute; bottom: 10px;"/>
+                                    </ol>
+                                </form>
+                            </div>
+                            <div class="col-lg-6">
+                                <ol data-draggable="target" class="commandes" name="commandes" style="width: 100%; height: 300px;">
+                                    <p style="text-align: center">Liste des commandes</p>
+                                    {% for commande in commandes %}
+                                        {% if commande.status == 'En attente' %}
+                                            <input class="form-control"  data-draggable="item" name="commandes[]" value="Commande n° {{ commande.id }}"  style="margin-bottom: 8px"/>
+                                        {% endif %}
+                                    {% endfor %}
                                 </ol>
-                            </form>
-                        </div>
-                        <div class="col-lg-6">
-                            <ol data-draggable="target" class="commandes" name="commandes" style="width: 100%; height: 300px;">
-                                <p style="text-align: center">Liste des commandes</p>
-                                {% for commande in commandes %}
-                                    {% if commande.status == 'En attente' %}
-                                    <input class="form-control"  data-draggable="item" name="commandes[]" value="Commande n° {{ commande.id }}"  style="margin-bottom: 8px"/>
-                                    {% endif %}
-                                {% endfor %}
-                            </ol>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <h4 class="card-title">Liste des livraison</h4>
-                        </div>
-                        <div class="col-lg-6" style="text-align: right">
-                            <button type="button" class="btn btn-default">Mes livraison</button>
-                        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Liste des livraison</h4>
                     </div>
-                </div>
-                <div class="card-body">
-                    <div class="col-lg-12">
-                    <div class="row" style="justify-content: center">
-                        <a href="{{ path('liste_livraison') }}"> <button type="button" class="btn btn-sm btn-outline-default"> Tout</button></a>
-                        <a href="{{ path('view_livraison_by_status', {'status':'En attente'}) }}"><button type="button" class="btn btn-sm btn-outline-warning"> En attente</button></a>
-                        <a href="{{ path('view_livraison_by_status', {'status':'En cours'}) }}"><button type="button" class="btn btn-sm btn-outline-info"> En cours</button></a>
-                        <a href="{{ path('view_livraison_by_status', {'status':'Terminée'}) }}"><button type="button" class="btn btn-sm btn-outline-success"> Terminée</button></a>
-                        <a href="{{ path('view_livraison_by_status', {'status':'Annulée'}) }}"><button type="button" class="btn btn-sm btn-outline-danger"> Annulée</button></a>
-                    </div>
+                    <div class="card-body">
+                        <div class="col-lg-12">
+                            <a class="row" style="justify-content: center">
+                                <a href="{{ path('liste_livraison') }}"> <button type="button" class="btn btn-sm btn-outline-default"> Tout</button></a>
+                                <a href="{{ path('view_livraison_by_status', {'status':'En attente'}) }}"><button type="button" class="btn btn-sm btn-outline-warning"> En attente</button></a>
+                                <a href="{{ path('view_livraison_by_status', {'status':'En cours'}) }}"><button type="button" class="btn btn-sm btn-outline-info"> En cours</button></a>
+                                <a href="{{ path('view_livraison_by_status', {'status':'Terminée'}) }}"><button type="button" class="btn btn-sm btn-outline-success"> Terminée</button></a>
+                                <a href="{{ path('view_livraison_by_status', {'status':'Annulée'}) }}"><button type="button" class="btn btn-sm btn-outline-danger"> Annulée</button></a>
+                        </div>
                     </div>
                     <div class="table-responsive">
                         <table class="table">
