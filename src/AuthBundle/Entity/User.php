@@ -31,6 +31,13 @@ class User extends BaseUser
     protected $matFiscal;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="numero_tel", type="integer")
+     */
+    protected $num;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255, nullable=true)
@@ -112,6 +119,13 @@ class User extends BaseUser
     public function getMatFiscal()
     {
         return $this->matFiscal;
+    }
+    /**
+     * @return integer
+     */
+    public function getNum()
+    {
+        return $this->num;
     }
 
     /**

@@ -1,14 +1,53 @@
-<table border="2">
-    <tr>
-        <th>Id</th>
-        <th>Message</th>
-        <th>Type</th>
+{% extends 'dashboard_base.html.twig' %}
+{% block onglet %}Reclamations{% endblock %}
 
-    </tr>
-    {% for r in reclamations %}
-    <tr>
-        <td>{{ r.id }}</td>
-        <td>{{ r.message }}</td>
-        <td>{{ r.type }}</td>
-    </tr>
-{% endfor %}
+{% block body %}
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Liste des Reclamations</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-primary">
+                            <th>Id</th>
+                            <th>Message</th>
+                            <th>Type</th>
+                            <th>Status</th>
+
+                            </thead>
+                            <tbody>
+                            {% for r in reclamations %}
+                                <tr>
+                                    <td>{{ r.id }}</td>
+                                    <td>{{ r.message }}</td>
+                                    <td>{{ r.type }}</td>
+                                    <td>{{ r.status }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    {#<ul>
+        <li>
+            <a href="{{ path('reclamation_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('reclamation_edit', { 'id': reclamation.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+            <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>#}
+{% endblock %}

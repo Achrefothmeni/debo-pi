@@ -1,3 +1,8 @@
+{% extends 'dashboard_base.html.twig' %}
+{% block onglet %}Transactions{% endblock %}
+{% block titre %}Debo - Transaction{% endblock %}
+
 {% for transaction in transactions %}
     <p>Transaction n°:{{ transaction.id }} de nature {{ transaction.nature }} effectuée le {{ transaction.date|date("m/d/Y") }} avec la somme de {{ transaction.somme }}</p>
 {% endfor %}
+{% endblock %}

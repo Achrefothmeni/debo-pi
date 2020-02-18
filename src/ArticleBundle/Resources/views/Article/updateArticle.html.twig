@@ -1,16 +1,16 @@
 {% extends "dashboard_base.html.twig" %}
 
-{% block title %}Add article{% endblock %}
+{% block title %}Update article{% endblock %}
 
 {% block body %}
     <div class="main-panel ps-container ps-theme-default ps-active-y">
-    <h1 class="card-title">Create or Update Article:</h1>
+    <h1 class="card-title">Update Article:</h1>
 
     {{ form_start(form) }}
     <div class="col-md-8">
         <div class="card card-user">
             <div class="card-header">
-                <h5 class="card-title">Create Article</h5>
+                <h5 class="card-title">Update Article </h5>
             </div>
             <div class="card-body">
                 <form>
@@ -18,19 +18,25 @@
                         <div class="col-md-5 pr-1">
                             <div class="form-group">
                                 <label>Name</label>
-                                {{ form_widget(form.name) }}
+                                {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
                             </div>
                         </div>
                         <div class="col-md-3 px-1">
                             <div class="form-group">
                                 <label>Price</label>
-                                {{ form_widget(form.prix) }}
+                                {{ form_widget(form.prix, {'attr': {'class': 'form-control'}}) }}
                             </div>
                         </div>
                         <div class="col-md-4 pl-1">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Quantity</label>
-                                {{ form_widget(form.quantity) }}
+                                {{ form_widget(form.quantity, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                        </div>
+                        <div class="col-md-4 pl-1">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Quantity</label>
+                                {{ form_widget(form.image) }}
                             </div>
                         </div>
                     </div>
@@ -38,7 +44,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Label</label>
-                                {{ form_widget(form.libelle) }}
+                                {{ form_widget(form.libelle, {'attr': {'class': 'form-control'}}) }}
                             </div>
                         </div>
                     </div>
@@ -47,7 +53,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Description</label>
-                                {{ form_widget(form.description) }}
+                                {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
                             </div>
                         </div>
                     </div>

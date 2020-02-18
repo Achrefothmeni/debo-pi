@@ -2,6 +2,8 @@
 
 namespace FluxBundle\Controller;
 
+use CommandeBundle\Entity\Commande;
+use CommandeBundle\Entity\lignecommande;
 use FluxBundle\Entity\Facture;
 use FluxBundle\Entity\FluxTransactions;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -37,15 +39,6 @@ class FactureController extends Controller
      * @Method("GET")
      */
 
-    public function genererFactureAction($prixTotal)
-    {
-        $em=$this->getDoctrine()->getManager();
-        $facture = new FluxTransactions($prixTotal);
-        $em->persist($facture);
-        $em->flush();
-        return new Response('Facture générée avec succées');
-
-    }
 
 
 }
