@@ -62,7 +62,6 @@ class FluxTransactions
     }
 
 
-
     /**
      * Set somme
      *

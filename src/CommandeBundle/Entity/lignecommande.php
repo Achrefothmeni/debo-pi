@@ -35,6 +35,28 @@ class lignecommande
      */
     private $commande;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="ArticleBundle\Entity\Article")
+     * @ORM\JoinColumn(name="article_id", referencedColumnName="id_article")
+     */
+    private $article;
+
+    /**
+     * @return mixed
+     */
+    public function getArticle()
+    {
+        return $this->article;
+    }
+
+    /**
+     * @param mixed $article
+     */
+    public function setArticle($article)
+    {
+        $this->article = $article;
+    }
+
 
     /**
      * @return mixed
@@ -51,12 +73,6 @@ class lignecommande
     {
         $this->commande = $commande;
     }
-
-
-
-
-
-
 
 
     /**

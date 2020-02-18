@@ -1,68 +1,111 @@
-<style>
-    [data-draggable="target"]
-    {
-        float:left;
-        list-style-type:none;
+<link href="{{ asset('dashboard/assets/css/bootstrap.min.css') }}" rel="stylesheet" id="bootstrap-css">
+<script src="{{ asset('dashboard/assets/js/core/bootstrap.min.js') }}"></script>
+<script src="{{ asset('dashboard/assets/js/core/jquery.min.js') }}"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-        width:42%;
-        height:7.5em;
-        overflow-y:auto;
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body p-0">
+                    <div class="row p-5">
+                        <div class="col-md-6">
+                            <img src="http://via.placeholder.com/400x90?text=logo">
+                        </div>
 
-        margin:0 0.5em 0.5em 0;
-        padding:0.5em;
+                        <div class="col-md-6 text-right">
+                            <p class="font-weight-bold mb-1">Reference Commande</p>
+                            <p class="text-muted">date</p>
+                        </div>
+                    </div>
 
-        border:2px solid #888;
-        border-radius:0.2em;
+                    <hr class="my-5">
 
-        background:#ddd;
-        color:#555;
-    }
+                    <div class="row pb-5 p-5">
+                        <div class="col-md-6">
+                            <p class="font-weight-bold mb-4">Informations Client</p>
+                            <p class="mb-1">first name, last name</p>
+                            <p class="mb-1">Email address</p>
+                            <p class="mb-1">matricule fiscale </p>
+                        </div>
 
-    /* drop target state */
-    [data-draggable="target"][aria-dropeffect="move"]
-    {
-        border-color:#68b;
+                        <div class="col-md-6 text-right">
+                            <p class="font-weight-bold mb-4">Details de paiement</p>
+                            <p class="mb-1"><span class="text-muted">VAT: </span> 1425782</p>
+                            <p class="mb-1"><span class="text-muted">VAT ID: </span> 10253642</p>
+                            <p class="mb-1"><span class="text-muted">Payment Type: </span> Root</p>
+                            <p class="mb-1"><span class="text-muted">Name: </span> John Doe</p>
+                        </div>
+                    </div>
 
-        background:#fff;
-    }
+                    <div class="row p-5">
+                        <div class="col-md-12">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="border-0 text-uppercase small font-weight-bold">ID</th>
+                                    <th class="border-0 text-uppercase small font-weight-bold">Article</th>
+                                    <th class="border-0 text-uppercase small font-weight-bold">Description</th>
+                                    <th class="border-0 text-uppercase small font-weight-bold">Quantité</th>
+                                    <th class="border-0 text-uppercase small font-weight-bold">Prix unitaire</th>
+                                    <th class="border-0 text-uppercase small font-weight-bold">Prix Total</th>
+                                </tr>
+                                </thead>
 
-    /* drop target focus and dragover state */
-    [data-draggable="target"][aria-dropeffect="move"]:focus,
-    [data-draggable="target"][aria-dropeffect="move"].dragover
-    {
-        outline:none;
 
-        box-shadow:0 0 0 1px #fff, 0 0 0 3px #68b;
-    }
+                                <tbody>
+                                {% for lignecommande in lignecommandes%}
+                                    <tr>
+                                        <td>
 
-    /* draggable items */
-    [data-draggable="item"]
-    {
-        display:block;
-        list-style-type:none;
+                                            {{lignecommande.id}}
+                                        </td>
+                                        <td>
+                                            {{lignecommande.article ? lignecommande.article.name}}
+                                        </td>
+                                        <td>
+                                            {{lignecommande.article ? lignecommande.article.description}}
+                                        </td>
+                                        <td>
+                                            {{lignecommande.qte}}
+                                        </td>
+                                        <td>
+                                            {{lignecommande.article ? lignecommande.article.prix}}
+                                        </td>
+                                        <td>
+                                            {{lignecommande.article ? lignecommande.article.prix * lignecommande.qte}}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
 
-        margin:0 0 2px 0;
-        padding:0.2em 0.4em;
+                            </table>
+                        </div>
+                    </div>
 
-        border-radius:0.2em;
+                    <div class="d-flex flex-row-reverse bg-dark text-white p-4">
+                        <div class="py-3 px-5 text-right">
+                            <div class="mb-2">Grand Total</div>
+                            <div class="h2 font-weight-light">$234,234</div>
+                        </div>
 
-        line-height:1.3;
-    }
+                        <div class="py-3 px-5 text-right">
+                            <div class="mb-2">Discount</div>
+                            <div class="h2 font-weight-light">10%</div>
+                        </div>
 
-    /* items focus state */
-    [data-draggable="item"]:focus
-    {
-        outline:none;
+                        <div class="py-3 px-5 text-right">
+                            <div class="mb-2">Sub - Total amount</div>
+                            <div class="h2 font-weight-light">$32,432</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        box-shadow:0 0 0 2px #68b, inset 0 0 0 1px #ddd;
-    }
+    <div class="text-light mt-5 mb-5 text-center small">by : <a class="text-light" target="_blank" href="http://totoprayogo.com">totoprayogo.com</a></div>
 
-    /* items grabbed state */
-    [data-draggable="item"][aria-grabbed="true"]
-    {
-        background:#8ad;
-        color:#fff;
-    }
-</style>
+</div>
 
 

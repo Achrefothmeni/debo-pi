@@ -10,7 +10,27 @@
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Liste des transactions</h4>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h4 class="card-title" style="font-size: 18px">Liste des transactions</h4>
+                            </div>
+                            <div class="col-lg-6" style="text-align: end">
+                                <a href="{{ path('generer_excel') }}" target="_blank"> <button type="button" class="btn btn-info">Générer fichier excel</button></a>
+                            </div>
+                        </div>
+                        <form>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="date"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-6" style="align-content: center">
+                                <input type="submit" class="btn btn-sm btn-info" value="chercher">
+                            </div>
+
+                        </div>
+                        </form>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -27,7 +47,7 @@
                                     nature
                                 </th>
 
-                                <th >
+                                <th>
                                     Date
                                 </th>
                                 </thead>
@@ -86,7 +106,10 @@
                                         {{commande.date|date('Y-m-d H:i:s')}}
                                     </td>
                                     <td>
-                                        <input type="submit" class="btn btn-success" value="Voir plus" style="position: center; bottom: 10px;"/>
+                                        <a href="{{ path('generer_facture', {id:commande.id}) }}">
+
+                                        <button type="button" class="btn btn-info" style="position: center; bottom: 10px;">Voir plus</button>
+                                        </a>
                                     </td>
 
                                     </tr>
