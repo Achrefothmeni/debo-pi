@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+
+<container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://symfony.com/schema/dic/services"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="rollerworks_search.cache.array_driver" class="Doctrine\Common\Cache\ArrayCache" public="false" />
+
+        <service class="Rollerworks\Bundle\SearchBundle\Processor\SearchProcessorFactory" id="rollerworks_search.processor.search_processor_factory">
+            <argument id="rollerworks_search.input_factory" type="service"/>
+            <argument id="rollerworks_search.exporter_factory" type="service"/>
+            <argument id="rollerworks_search.condition_optimizer" type="service"/>
+            <argument id="rollerworks_search.condition_serializer" type="service"/>
+            <argument id="rollerworks_search.condition_validator" type="service"/>
+            <argument id="translator" type="service"/>
+            <argument id="rollerworks_search.uri_encoder" type="service"/>
+            <argument id="rollerworks_cache.driver.session_driver" type="service"/>
+        </service>
+
+        <service class="Rollerworks\Component\Search\Extension\Symfony\Validator\Validator" id="rollerworks_search.condition_validator" public="false">
+            <argument id="validator" type="service" />
+        </service>
+
+        <service id="rollerworks_search.uri_encoder" class="Rollerworks\Component\UriEncoder\Encoder\GZipCompressionDecorator" public="false">
+            <argument type="service">
+                <service class="Rollerworks\Component\UriEncoder\Encoder\Base64UriEncoder"/>
+            </argument>
+        </service>
+
+    </services>
+</container>

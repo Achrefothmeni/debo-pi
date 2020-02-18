@@ -1,8 +1,7 @@
 <?php
 
 namespace ArticleBundle\Entity;
-
-
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -35,9 +34,9 @@ class Article
     /**
      * @var float
      *
-     * @ORM\Column(name="prix", type="float")
+     * @ORM\Column(name="price", type="float")
      */
-    private $prix;
+    private $price;
 
 
 
@@ -47,6 +46,7 @@ class Article
      * @Assert\File(mimeTypes={ "image/png", "image/jpeg" })
      */
     private $image;
+
 
     public function getImage()
     {
@@ -74,14 +74,19 @@ class Article
      * @ORM\Column(name="description", type="string", length=255)
      */
     private $description;
-
     /**
      * @var string
      *
-     * @ORM\Column(name="libelle", type="string", length=255)
+     * @ORM\Column(name="label", type="string", length=255)
      */
-    private $libelle;
+    private $label;
 
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ArticleBundle\Entity\Category", inversedBy="label")
+     * @ORM\JoinColumn(name="id_article", referencedColumnName="id_category")
+     */
 
 
     /**
@@ -131,27 +136,27 @@ class Article
     }
 
     /**
-     * Set prix
+     * Set price
      *
-     * @param float $prix
+     * @param float $price
      *
      * @return Article
      */
-    public function setPrix($prix)
+    public function setPrice($price)
     {
-        $this->prix = $prix;
+        $this->price = $price;
 
 
     }
 
     /**
-     * Get prix
+     * Get price
      *
      * @return float
      */
-    public function getPrix()
+    public function getPrice()
     {
-        return $this->prix;
+        return $this->price;
     }
 
     /**
@@ -203,27 +208,29 @@ class Article
     }
 
     /**
-     * Set libelle
+     * Set label
      *
-     * @param string $libelle
+     * @param string $label
      *
      * @return Article
      */
-    public function setLibelle($libelle)
+    public function setLabel($label)
     {
-        $this->libelle = $libelle;
+        $this->label = $label;
 
         return $this;
     }
 
     /**
-     * Get libelle
+     * Get label
      *
      * @return string
      */
-    public function getLibelle()
+    public function getLabel()
     {
-        return $this->libelle;
+        return $this->label;
     }
+
+
 }
 

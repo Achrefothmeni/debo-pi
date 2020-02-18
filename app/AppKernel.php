@@ -28,6 +28,7 @@ class AppKernel extends Kernel
             new CommandeBundle\CommandeBundle(),
             new FrontBundle\FrontBundle(),
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
+            new Gregwar\CaptchaBundle\GregwarCaptchaBundle()
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

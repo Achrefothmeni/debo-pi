@@ -1,6 +1,7 @@
 <?php
 namespace ArticleBundle\Controller;
 use ArticleBundle\Entity\Category;
+use ArticleBundle\Form\CategoryType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\FrameworkBundle\Tests\Fixtures\Validation;
 use Symfony\Bundle\FrameworkBundle\Tests\Fixtures\Validation\NotExistingInterface;
@@ -13,17 +14,15 @@ class CategoryController extends Controller
 {
     public function createAction(Request $request) {
         $category = new Category();
-        $form = $this->createFormBuilder($category)
-            ->add('libelle', TextType::class)
-            ->add('save', SubmitType::class, array('label' => 'New Category'))
-            ->getForm();
+        $form =$this->createForm(CategoryType::class,$category);
+        $form->add('save', SubmitType::class, array('label' => 'New Article'));
         $form->handleRequest($request);
         if ($form->isSubmitted()) {
             $category = $form->getData();
             $em = $this->getDoctrine()->getManager();
             $em->persist($category);
             $em->flush();
-            return $this->redirect('article/view-category/' . $category->getIdCategory());
+            return $this->redirect('view-category/' . $category->getIdCategory());
         }
         return $this->render(
             '@Article/Category/EditCategory.html.twig',
@@ -41,23 +40,21 @@ class CategoryController extends Controller
         }
         $em->remove($category);
         $em->flush();
-        return $this->redirect('/view-category/');
+        return $this->redirect('view-category/');
     }
     //-------------------------
     public function showAction()
     {
-
         $category = $this->getDoctrine()
             ->getRepository('ArticleBundle:Category')
             ->findAll();
 
-        for ($i=0;i<5;$i++){
-            $lib=$category[$i]->getLibelle();
-        }
+            $lib=$category[0]->getLabel();
+
 
         $form = $this->getDoctrine()
             ->getRepository('ArticleBundle:Article')
-            ->findBy( ['libelle' => $lib]);
+            ->findBy( ['label' => $lib]);
         return $this->render(
             '@Article/Category/ShowCategory.html.twig', array('category' => $category,'form'=>$form));
     }
@@ -71,7 +68,7 @@ class CategoryController extends Controller
             );
         }
         $form = $this->createFormBuilder($category)
-            ->add('libelle', TextType::class)
+            ->add('label', TextType::class)
             ->add('save', SubmitType::class, array('label' => 'Update'))
             ->getForm();
         $form->handleRequest($request);
@@ -95,10 +92,10 @@ class CategoryController extends Controller
                 'no Categories with the following id: ' . $id
             );
         }
-        $lib=$category->getLibelle();
+        $lib=$category->getLabel();
         $form = $this->getDoctrine()
             ->getRepository('ArticleBundle:Article')
-            ->findBy( ['libelle' => $lib]);
+            ->findBy( ['label' => $lib]);
 
         return $this->render(
             '@Article/Category/viewCategories.html.twig',

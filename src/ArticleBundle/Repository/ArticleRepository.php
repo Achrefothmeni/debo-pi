@@ -1,6 +1,11 @@
 <?php
 
 namespace ArticleBundle\Repository;
+use Doctrine\ORM\EntityRepository;
+use ArticleBundle\Entity\Article;
+use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\Query;
+
 
 /**
  * ArticleRepository
@@ -10,4 +15,14 @@ namespace ArticleBundle\Repository;
  */
 class ArticleRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findEntitiesByString($str){
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT p
+                FROM ArticleBundle:Article p
+                WHERE p.name LIKE :str'
+            )
+            ->setParameter('str', '%'.$str.'%')
+            ->getResult();
+    }
 }

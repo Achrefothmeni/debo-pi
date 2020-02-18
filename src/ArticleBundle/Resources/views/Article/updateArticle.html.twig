@@ -3,17 +3,20 @@
 {% block title %}Update article{% endblock %}
 
 {% block body %}
-    <div class="main-panel ps-container ps-theme-default ps-active-y">
-    <h1 class="card-title">Update Article:</h1>
-
-    {{ form_start(form) }}
-    <div class="col-md-8">
-        <div class="card card-user">
+    <div class="content">
+    <div class="row">
+    <div class="col-md-12">
+        <div class="card">
             <div class="card-header">
-                <h5 class="card-title">Update Article </h5>
+                <h3 class="card-title">update an Article:</h3>
             </div>
             <div class="card-body">
-                <form>
+    {{ form_start(form) }}
+    <div class="col-md-12">
+        <div class="card card-user">
+
+            <div class="card-body">
+                <form method="post" action="{{ path('show-articles') }}" novalidate enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-5 pr-1">
                             <div class="form-group">
@@ -24,19 +27,13 @@
                         <div class="col-md-3 px-1">
                             <div class="form-group">
                                 <label>Price</label>
-                                {{ form_widget(form.prix, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_widget(form.price, {'attr': {'class': 'form-control'}}) }}
                             </div>
                         </div>
                         <div class="col-md-4 pl-1">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Quantity</label>
+                                <label for="Quantity">Quantity</label>
                                 {{ form_widget(form.quantity, {'attr': {'class': 'form-control'}}) }}
-                            </div>
-                        </div>
-                        <div class="col-md-4 pl-1">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Quantity</label>
-                                {{ form_widget(form.image) }}
                             </div>
                         </div>
                     </div>
@@ -44,27 +41,39 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Label</label>
-                                {{ form_widget(form.libelle, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_widget(form.label, {'attr': {'class': 'form-control'}}) }}
                             </div>
                         </div>
                     </div>
 
-                    <div class="row">
+
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Description</label>
                                 {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="update ml-auto mr-auto">
-                            {{ form_widget(form.save) }}
+
+                        <div class="row">
+                            <div class="update ml-auto mr-auto">
+
+                                {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary btn-round'}}) }}
+
+                            </div>
                         </div>
-                    </div>
+
                 </form>
             </div>
         </div>
+
+        {{ form_end(form) }}
     </div>
-    {{ form_end(form) }}
-{% endblock %}
+
+            </div>
+        </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+        {% endblock %}
