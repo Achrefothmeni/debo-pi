@@ -1,3 +1,15 @@
+supprimer:
+    path:  /supprimer/{id}
+    defaults: { _controller: CommandeBundle:Panier:supprimer }
+
+ajouter:
+    path:  /ajouter/{id}
+    defaults: { _controller: CommandeBundle:Panier:ajouter }
+
 panier:
-    path:     /afficher
-    defaults: { _controller: CommandeBundle:Commande:afficher}
+    path:  /panier
+    defaults: { _controller: CommandeBundle:Panier:panier }
+validation:
+    path:  /validation
+    defaults: { _controller: CommandeBundle:Validation:validation }
+
