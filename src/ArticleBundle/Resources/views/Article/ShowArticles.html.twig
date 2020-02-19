@@ -25,7 +25,7 @@
                         </div>
                         <ul class="nav" id="side-menu">
                             <li>
-                                <a href="#"> Entities<span class="fa arrow"></span></a>
+                                <a href="#"> <span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level" id="entitiesNav">
                                 </ul>
                             </li>
@@ -45,7 +45,7 @@
                                             searchRequest.abort();
                                         searchRequest = $.ajax({
                                             type: "GET",
-                                            url: "{{ path('ajax_search') }}",
+                                            url: "{{ path('article_search') }}",
                                             data: {
                                                 'q' : value
                                             },
@@ -60,8 +60,8 @@
                                                                 if (id !== 'error') {
                                                                     console.log(value[1]);
                                                                     entitySelector.append('<li><b>'+value[0]+'</b>' +
-                                                                        '<a href="{path(view-article) }}">'+
-                                                                        '<img src="/web/images/'+value[1]+'" style="width: 50px; height: 50px"/>'+'</a>' +
+                                                                        '<a href="/{{ path('view-article', {'id': 'x'}) }}" >'+
+                                                                        '<img src="{{ asset("images/Dell.jpeg")}}" style="width: 50px; height: 50px"/>'+'</a>' +
                                                                         '</li>');
                                                                 } else {
                                                                     entitySelector.append('<li class="errorLi">'+value+'</li>');
@@ -88,6 +88,8 @@
                                     <th>Image</th>
                                     <th>Lablel</th>
                                     <th>Article Description</th>
+                                    <th>Update</th>
+                                    <th>Delete</th>
                                     </thead>
                                     <tbody>
                                     {% for article in articles %}
@@ -99,7 +101,13 @@
                                             <td><img src="{{ asset('images/' ~ article.image) }}" alt="" width="90px"></td>
                                             <td>{{ article.label }}</td>
                                             <td>{{ article.description }}</td>
+                                            <td><a href="{{ path('update-article', {
+                                                    'id': article.idArticle
+                                                }) }}"  style="color:#00ad5f">Update</a> </td>
+                                            <td><a href="{{ path('delete_article',{'id': article.idArticle}) }}" style="color:#FF0000">Delete</a></td>
+
                                         </tr>
+
                                     {% endfor %}
                                     </tbody>
                                 </table>
@@ -109,8 +117,7 @@
                         {% endif %}
 
                         <br/>
-                        <a href="/create-article" target="_blank" class="simple-text logo-normal">Create New</a>
-                        <a href="/article/create-article" target="_blank" class="simple-text logo-normal">Create New</a>
+                        <a href="{{ path('create_article')}}" target="_blank" class="btn btn-primary btn-round"  >Create New</a>
 
                 </div>
             </div>

@@ -1,5 +1,6 @@
 <?php
 namespace ArticleBundle\Controller;
+use ArticleBundle\Entity\Article;
 use ArticleBundle\Entity\Category;
 use ArticleBundle\Form\CategoryType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -10,6 +11,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Core\User\UserInterface;
+
 class CategoryController extends Controller
 {
     public function createAction(Request $request) {
@@ -101,5 +109,24 @@ class CategoryController extends Controller
             '@Article/Category/viewCategories.html.twig',
             array('category' => $category,'form'=>$form)
         );
+    }
+    public function searchAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $requestString = $request->get('q');
+        $category =  $em->getRepository(Category::class)->findEntitiesByString($requestString);
+        if(!$category) {
+            $result['category']['error'] = "No Categories found :( ";
+        } else {
+            $result['category'] = $this->getRealEntities($category);
+        }
+        return new Response(json_encode($result));
+    }
+    public function getRealEntities($category){
+        foreach ($category as $categorys){
+            $realEntities[$categorys->getIdCategory()] = [$categorys->getLabel(),$categorys->getIdCategory()];
+
+        }
+        return $realEntities;
     }
 }

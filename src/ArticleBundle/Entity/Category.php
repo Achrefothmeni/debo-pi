@@ -25,9 +25,28 @@ class Category
     /**
      * @var string
      *
-     * @ORM\Column(name="label", type="string", length=255)
+     * @ORM\Column(name="label", type="string", length=255, unique=true)
      */
     private $label;
+
+    /**
+     * @ORM\OneToMany(targetEntity="ResourcesBundle\Entity\Fleet",mappedBy="category")
+     * @ORM\JoinColumn(name="fleet_id", referencedColumnName="matriculation")
+     */
+    public $fleet;
+    /**
+     * @ORM\OneToMany(targetEntity="ResourcesBundle\Entity\Magazin",mappedBy="category")
+     * @ORM\JoinColumn(name="magazin_id", referencedColumnName="id_mag")
+     */
+    public $magazin;
+
+    /**
+     * Get id
+     *
+     * @return int
+
+     */
+
 
     /**
      * @ORM\OneToMany(targetEntity="ArticleBundle\Entity\Article", mappedBy="label")

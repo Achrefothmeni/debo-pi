@@ -5,7 +5,10 @@ namespace ResourcesBundle\Controller;
 use ResourcesBundle\Entity\Fleet;
 use ResourcesBundle\Form\FleetType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 
 class FleetController extends Controller
@@ -29,13 +32,29 @@ class FleetController extends Controller
     {
         $fleet = new Fleet();
         $Form = $this->createForm(FleetType::class,$fleet);
-        $Form->add('Ajouter', SubmitType::class);
+        $Form->add('Ajouter', SubmitType::class)->add('image',FileType::Class,['mapped'=>false]);
         $Form->handleRequest($request);
+        $em = $this->getDoctrine()->getManager();
         if ($Form->isSubmitted()) {
-           $em = $this->getDoctrine()->getManager();
-           $em->persist($fleet);
-           $em->flush();
-           return $this->redirectToRoute('afficherFleet');
+            $imageFile = $Form->get('image')->getData();
+            if ($imageFile) {
+                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFilename = $originalFilename.'-'.uniqid().'.'.$imageFile->guessExtension();}
+                try {
+                    $imageFile->move(
+                        $this->getParameter('images_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+
+                }
+            $em = $this->getDoctrine()->getManager();
+            $fleet->setImage($newFilename);
+
+                $em->persist($fleet);
+                $em->flush();
+                return $this->redirectToRoute('afficherFleet');
+
         }
 
         return $this->render('@Resources/Fleet/ajouterFleet.html.twig',

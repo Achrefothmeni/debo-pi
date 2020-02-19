@@ -1,0 +1,48 @@
+{% extends 'dashboard_base.html.twig' %}
+{% block onglet %}Gestion livraisons{% endblock %}
+{% block titre %}Debo - Livraison{% endblock %}
+{% block body %}
+    <div class="content">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">livraison n° {{ livraison.id }}</h4>
+                    </div>
+                    <div class="card-body">
+                        <h6><strong>Date de depart:</strong> {{livraison.dateDepart|date('Y-m-d H:i:s')}} </h6><br>
+                        <h6><strong>Status: </strong>
+                            {% if livraison.status == "En cours" %}
+                                <div class="badge badge-info">{{ livraison.status }}</div>
+                            {% elseif livraison.status == "Terminée" %}
+                                <div class="badge badge-success">{{ livraison.status }}</div>
+                            {% elseif livraison.status == "Annulée" %}
+                                <div class="badge badge-danger">{{ livraison.status }}</div>
+                            {% else%}
+                                <div class="badge badge-warning">{{ livraison.status }}</div>
+
+                            {% endif %}
+                        </h6><br>
+                        <h6><strong>Livreur: </strong>{{ livraison.livreur ? livraison.livreur.nom }} {{ livraison.livreur ? livraison.livreur.prenom }}</h6>
+                        <h6><br>
+                            <strong>Mise à jour status</strong>
+                            <form action="{{ path('update_single_livraison', {'id':livraison.id}) }}", method="post">
+                                <br>
+                                    <div class="form-group">
+                                        <select class="form-control" name="status">
+                                            <option value="En cours">En cours</option>
+                                            <option value="Terminée">Terminée</option>
+                                            <option value="Annulée">Annulée</option>
+                                        </select>
+                                    </div>
+
+                                    <input type="submit" class="btn btn-success" value="Mise à jour" />
+                            </form>
+
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

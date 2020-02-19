@@ -25,8 +25,8 @@ update-article:
 view-article:
     path:     /view-article/{id}
     defaults: { _controller: ArticleBundle:Article:view }
-ajax_search:
-    path:   /search
+article_search:
+    path:   /search-article
     defaults: { _controller: ArticleBundle:Article:search }
 # ---------------------------------------------------------------
 create_category:
@@ -48,3 +48,6 @@ update-category:
 view-category:
     path:     /view-category/{id}
     defaults: { _controller: ArticleBundle:Category:view }
+category_search:
+    path:   /search-Category
+    defaults: { _controller: ArticleBundle:Category:search }

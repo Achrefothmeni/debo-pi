@@ -81,6 +81,11 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+vresh_twilio :
+    # (Obligatoire) SID de votre compte sur www.twilio.com/user/account
+    sid : 'ACd0801c446e66e37eaf24a5d00e84dfda'
+    # (Obligatoire) Votre jeton d'authentification sur www.twilio.com/user/account
+    authToken : '95f453feb8c2b3c4d783246d425c8ec3'
 
 sensio_framework_extra:
    router:

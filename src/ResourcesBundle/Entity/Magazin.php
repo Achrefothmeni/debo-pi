@@ -29,9 +29,8 @@ class Magazin
     private $capacity;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="category", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="ArticleBundle\Entity\Category",inversedBy="fleet")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id_category")
      */
     private $category;
 
@@ -80,7 +79,7 @@ class Magazin
     /**
      * Set category
      *
-     * @param string $category
+     * @param mixed $category
      *
      * @return Magazin
      */
@@ -108,7 +107,7 @@ class Magazin
     /**
      * Get category
      *
-     * @return string
+     * @return mixed
      */
     public function getCategory()
     {

@@ -1,0 +1,22 @@
+{% xlsdocument %}
+    {% xlssheet 'Worksheet' %}
+        {% xlsrow %}
+            {% xlscell%} id {% endxlscell %}
+            {% xlscell%} Nature {% endxlscell %}
+            {% xlscell%} Somme {% endxlscell %}
+            {% xlscell%} Date de transaction {% endxlscell %}
+        {% endxlsrow %}
+        {% for t in transactions %}
+            {% xlsrow %}
+                {% xlscell %}{{ t.id }}{% endxlscell %}
+                {% if t.nature == 'C' %}
+                {% xlscell %}CREDIT{% endxlscell %}
+                    {% else %}
+                        {% xlscell %}DEBIT{% endxlscell %}
+                {% endif %}
+                {% xlscell %}{{ t.somme }}{% endxlscell %}
+                {% xlscell %}{{ t.date | date('Y-m-d') }}{% endxlscell %}
+            {% endxlsrow %}
+        {% endfor %}
+    {% endxlssheet %}
+{% endxlsdocument %}
