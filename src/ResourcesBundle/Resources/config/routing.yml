@@ -28,3 +28,9 @@ magazin_modif:
 aaaa:
     path:     /call
     defaults: { _controller: ResourcesBundle:Magazin:call }
+rechercherMagazin:
+    path:     /rechercherMagazin
+    defaults: { _controller: ResourcesBundle:Magazin:search }
+rechercherFleet:
+    path:     /rechercherFleet
+    defaults: { _controller: ResourcesBundle:Fleet:search }

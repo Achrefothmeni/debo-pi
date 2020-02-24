@@ -10,4 +10,14 @@ namespace ResourcesBundle\Repository;
  */
 class MagazinRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findByLocation($str){
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT p
+                FROM ResourcesBundle:Magazin p
+                WHERE p.location LIKE :str'
+            )
+            ->setParameter('str', '%'.$str.'%')
+            ->getResult();
+    }
 }

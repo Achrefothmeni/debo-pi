@@ -4,9 +4,11 @@ namespace ResourcesBundle\Controller;
 
 use ResourcesBundle\Entity\Fleet;
 use ResourcesBundle\Form\FleetType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
@@ -63,17 +65,39 @@ class FleetController extends Controller
     function ModifierFleetAction($matriculation,Request $request)
     {
         $em= $this->getDoctrine()->getManager();
-        $fleet= $em->getRepository(Fleet::class)->find($matriculation);
-        $Form=$this->createForm(FleetType::class,$fleet);
+        $magazin = $em->getRepository(Fleet::class)->find($matriculation);
+        $Form=$this->createForm(FleetType::class,$magazin);
         $Form->add('Modifier', SubmitType::class);
         $Form->handleRequest($request);
         if($Form->isSubmitted())
         {
             $em= $this->getDoctrine()->getManager();
+            $magazin->setMatriculation($matriculation);
             $em->flush();
             return $this->redirectToRoute('afficherFleet');
         }
         return $this->render('@Resources/Fleet/ModifierFleet.html.twig',array('form'=>$Form->createView()));
+    }
+    function searchAction(Request $request){
+        $fleet=new fleet();
+        $em=$this->getDoctrine()->getManager();
+        $Form = $this->createFormBuilder($fleet)->add('category',TextType::class)->add('category',EntityType::class,array(
+                'class'=>'ArticleBundle:Category',
+                'choice_label'=>'libelle',
+                'multiple'=>false)
+        )->add('search',SubmitType::class)->getForm();
+        $Form->handleRequest($request);
+        if($Form->isSubmitted()){
+            $fleet=$em->getRepository(Fleet::class)
+                ->findBy(array('category'=>$fleet->getCategory()));
+        }
+        else{
+            $fleet=$em->getRepository(Fleet::class)
+                ->findAll();
+        }
+
+        return $this->render('@Resources/Fleet/search.html.twig',
+            array('fleet'=>$fleet,'form'=>$Form->createView()));
     }
 
 
