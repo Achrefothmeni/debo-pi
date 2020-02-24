@@ -72,7 +72,7 @@
                                                     <a href="#" title="Compare"><i class="zmdi zmdi-refresh" style="position: absolute; top: 220px;"></i></a>
                                                 </li>
                                                 <li>
-                                                    <a href="#" title="Add to cart"><i class="zmdi zmdi-shopping-cart-plus" style="position: absolute; top: 220px;"></i></a>
+                                                    <a href="{{ path('ajouter',{'id': article.idArticle}) }}" title="Add to cart"><i class="zmdi zmdi-shopping-cart-plus" style="position: absolute; top: 220px;"></i></a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -407,7 +407,7 @@
                                                         <a href="#" title="Compare"><i class="zmdi zmdi-refresh"></i></a>
                                                     </li>
                                                     <li>
-                                                        <a href="#" title="Add to cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
+                                                        <a href="{{ path('ajouter',{'id': r.idArticle}) }}" title="Add to cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
                                                     </li>
                                                 </ul>
                                             </div>
