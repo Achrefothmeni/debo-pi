@@ -74,10 +74,15 @@ class ComposerStaticInit073d87c53c1e8125dc40d928bc125959
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
         '023d27dca8066ef29e6739335ea73bad' => __DIR__ . '/..' . '/symfony/polyfill-php70/bootstrap.php',
+        'bccfaf6207f67190a92f35585e9a78b2' => __DIR__ . '/..' . '/twilio/sdk/Services/Twilio.php',
         '719971e375036615a0685b6fb054583d' => __DIR__ . '/..' . '/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php',
     );
 
     public static $prefixLengthsPsr4 = array (
+        'V' => 
+        array (
+            'Vresh\\TwilioBundle\\' => 19,
+        ),
         'T' => 
         array (
             'Twig\\' => 5,
@@ -157,6 +162,10 @@ class ComposerStaticInit073d87c53c1e8125dc40d928bc125959
     );
 
     public static $prefixDirsPsr4 = array (
+        'Vresh\\TwilioBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vresh/twilio-bundle',
+        ),
         'Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',

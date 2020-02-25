@@ -30,13 +30,13 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label>First Name</label>
-                                        <input type="text" class="form-control" name="first_name" placeholder="Nom" >
+                                        <input type="text" class="form-control" onkeypress="clsAlphaNoOnly(event)" name="first_name" placeholder="Nom" >
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label>Last Name</label>
-                                        <input type="text" class="form-control" name="last_name" placeholder="Last Name">
+                                        <input type="text" class="form-control" onkeypress="clsAlphaNoOnly(event)" name="last_name" placeholder="Last Name">
                                     </div>
                                 </div>
                             </div>
@@ -104,6 +104,20 @@
             $("#password").val(stringGen(10));
         });
     });
+
+    function clsAlphaNoOnly (e) {
+        var regex = new RegExp("^[a-zA-Z ]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+
+        e.preventDefault();
+        return false;
+    }
+    function clsAlphaNoOnly2 () {
+        return clsAlphaNoOnly (this.event); // window.event
+    }
 
 </script>
 {% endblock %}

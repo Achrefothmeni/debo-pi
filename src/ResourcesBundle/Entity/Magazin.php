@@ -3,7 +3,7 @@
 namespace ResourcesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Magazin
  *
@@ -17,27 +17,43 @@ class Magazin
      *
      * @ORM\Column(name="id_mag", type="string", length=255)
      * @ORM\Id
-     *
+     * @Assert\NotBlank(message="ne doit pas etre vide")
+     * @Assert\Regex(
+     *     pattern="/^M(1|2|3|4|5|6|7|8|9)(1|2|3|4|5|6|7|8|9)(1|2|3|4|5|6|7|8|9)$/",
+     *     match=true,
+     *     message="number"
+     * )
      */
     private $id_mag;
 
     /**
      * @var int
+     * @Assert\NotBlank(message="ne doit pas etre vide")
+     * @Assert\Regex(
+     *     pattern="/^(1|2|3|4|5|6|7|8|9)$/",
+     *     match=true,
+     *     message="number"
+     * )
      *
+
      * @ORM\Column(name="capacity", type="integer")
      */
     private $capacity;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="category", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="ArticleBundle\Entity\Category",inversedBy="fleet")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id_category")
      */
     private $category;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message="ne doit pas etre vide")
+     * @Assert\Regex(
+     *     pattern="/^(A|Z|E|R|T|Y|U|I|O|P|M|L|K|J|H|G|F|D|S|Q|W|X|C|V|B|N)+$/",
+     *     match=true,
+     *     message="char"
+     * )
      * @ORM\Column(name="location", type="string", length=255)
      */
     private $location;
@@ -80,7 +96,7 @@ class Magazin
     /**
      * Set category
      *
-     * @param string $category
+     * @param mixed $category
      *
      * @return Magazin
      */
@@ -108,7 +124,7 @@ class Magazin
     /**
      * Get category
      *
-     * @return string
+     * @return mixed
      */
     public function getCategory()
     {

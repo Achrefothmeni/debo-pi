@@ -1,20 +1,48 @@
-<table border="2">
-    <tr>
-        <th>id_magazin</th>
-        <th>capacity</th>
-        <th>location</th>
-        <th>category</th>
-        <th>supprimer</th>
-        <th>modifier</th>
+ {% extends 'dashboard_base.html.twig' %}
+    {% block onglet %}Magazin{% endblock %}
 
-    </tr>
-    {% for m in magazin %}
-    <tr>
-        <td>{{ m.idMag }}</td>
-        <td>{{ m.capacity }}</td>
-        <td>{{ m.location }}</td>
-        <td>{{ m.category }}</td>
-        <td><a href="{{ path('magazin_supp',{ 'id_mag' : m.idMag }) }}">supprimer</a></td>
-        <td><a href="{{ path('magazin_modif',{ 'id_mag' : m.idMag }) }}">modifier</a></td>
-    </tr>
-{% endfor %}
+    {% block body %}
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Liste des Magazins</h4>
+                    </div>
+                    <div class="card-header">
+                        <h6 class="card-title"><a href="{{ path('ajouterMagazin') }}" style="color:#0000F0">Ajouter Magazin</a></h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                <th>id_magazin</th>
+                                <th>capacity</th>
+                                <th>location</th>
+                                <th>category</th>
+                                <th>modifier</th>
+                                <th>supprimer</th>
+
+                                </thead>
+                                <tbody>
+                                {% for m in magazin %}
+                                    <tr>
+                                        <td>{{ m.idMag }}</td>
+                                        <td>{{ m.capacity }}</td>
+                                        <td>{{ m.location }}</td>
+                                        <td>{{ m.category.libelle }}</td>
+                                        <td><a href="{{ path('magazin_modif',{ 'id_mag' : m.idMag }) }}" style="color:#00ad5f">modifier</a></td>
+                                        <td><a href="{{ path('magazin_supp',{ 'id_mag' : m.idMag }) }}" style="color:#FF0000">supprimer</a></td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </div>
+        {% endblock %}

@@ -11,7 +11,9 @@ class UserRedirectController extends Controller
         if($this->getUser()->hasRole('ROLE_SUPER_ADMIN'))
             return $this->redirect($this->generateUrl('dashboard_homepage'));
 
-        elseif($this->getUser()->hasRole('ROLE_USER'))
+        elseif($this->getUser()->hasRole('ROLE_CLIENT'))
+            return $this->redirect($this->generateUrl('front_homepage'));
+        elseif($this->getUser()->hasRole('ROLE_DELIVERY_MANAGER'))
             return $this->redirect($this->generateUrl('liste_livraison'));
 
     }
