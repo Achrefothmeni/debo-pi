@@ -10,14 +10,14 @@ namespace ResourcesBundle\Repository;
  */
 class FleetRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function findEntitiesByString($str){
+    public function findFleets($str,$str2){
         return $this->getEntityManager()
             ->createQuery(
-                'SELECT p
-                FROM AppBundle:Post p
-                WHERE p.title LIKE :str'
+                'SELECT m
+                FROM ResourcesBundle:Fleet m
+                WHERE m.category = :str and m.nature = :str2'
             )
-            ->setParameter('str', '%'.$str.'%')
+            ->setParameter('str',$str)->setParameter('str2',$str2)
             ->getResult();
     }
 }

@@ -21,6 +21,12 @@
                                     {{ form_widget(form.category, {'attr': {'class': 'form-control'}}) }}
                                 </div>
                             </div>
+                            <div class="col-md-4 pl-1">
+                                <div class="form-group">
+                                    <label for="Quantity">Nature</label>
+                                    {{ form_widget(form.nature, {'attr': {'class': 'form-control'}}) }}
+                                </div>
+                            </div>
                             {{ form_widget(form.search, {'attr': {'class': 'btn btn-primary btn-round'}}) }}
                         </div>
                         {{ form_end(form) }}

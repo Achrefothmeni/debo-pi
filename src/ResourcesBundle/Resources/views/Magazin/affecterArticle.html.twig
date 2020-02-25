@@ -1,0 +1,60 @@
+{% extends "dashboard_base.html.twig" %}
+
+    {% block title %}Update Magazin{% endblock %}
+
+    {% block body %}
+
+        <div class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">affect Article:</h3>
+                        </div>
+                        <div class="card-body">
+
+
+                            <div class="col-md-12">
+                                <div class="card card-user">
+
+                                    <div class="card-body">
+                                        <form action="{{ path('article_affecter',{ 'idArticle' : article.idArticle }) }}", method="post">
+                                            <div class="row">
+                                                <div class="col-md-5 pr-1">
+                                                    <div class="form-group">
+                                                        <label>idArticle</label>
+                                                        <input type="Text" name="idArticle"  value={{ article.idArticle }} disabled="true"/>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <label>magazin</label>
+                                                        <select class="form-control" name="magazin">
+                                                            {% for magazin in magazin %}
+
+                                                                <option value={{magazin.idMag}}>{{ magazin.idMag }}</option>
+
+                                                            {% endfor %}
+                                                        </select>
+                                                    </div>
+                                                    <input type="submit" class="btn btn-success" value="Ajouter" style="position: absolute; bottom: 10px;"/>
+
+
+
+
+                                                </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    {% endblock %}

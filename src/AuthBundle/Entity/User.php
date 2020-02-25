@@ -20,6 +20,7 @@ class User extends BaseUser
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     *
      */
     protected $id;
 
@@ -33,7 +34,7 @@ class User extends BaseUser
     /**
      * @var integer
      *
-     * @ORM\Column(name="numero_tel", type="integer")
+     * @ORM\Column(name="numero_tel", type="integer", nullable=true)
      */
     protected $num;
 
@@ -50,6 +51,9 @@ class User extends BaseUser
      * @ORM\Column(name="prenom", type="string", length=255, nullable=true)
      */
     protected $prenom;
+
+
+
 
     /**
      * @var string
@@ -120,6 +124,7 @@ class User extends BaseUser
     {
         return $this->matFiscal;
     }
+
     /**
      * @return integer
      */

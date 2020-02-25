@@ -34,3 +34,15 @@ rechercherMagazin:
 rechercherFleet:
     path:     /rechercherFleet
     defaults: { _controller: ResourcesBundle:Fleet:search }
+magazin_affecter:
+    path:     /affecterMagazin/{id_mag}
+    defaults: { _controller: ResourcesBundle:Magazin:affecterMagazin }
+ajoutMagazinier:
+    path:     /ajoutMagazinier/{id_mag}
+    defaults: { _controller: ResourcesBundle:Magazin:ajouterMagazinier }
+articleAffecter:
+    path:     /affecterArticle/{idArticle}
+    defaults: { _controller: ResourcesBundle:Magazin:affecterArticle }
+article_affecter:
+    path:     /articleAffecter/{idArticle}
+    defaults: { _controller: ResourcesBundle:Magazin:ajouterArticle }
