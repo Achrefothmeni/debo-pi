@@ -18,21 +18,23 @@
                                 <a href="{{ path('generer_excel') }}" target="_blank"> <button type="button" class="btn btn-info">Générer fichier excel</button></a>
                             </div>
                         </div>
-                        <form>
+                        <form action="{{ path('liste_transaction_by_date') }}">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <div class="input-group date" data-provide="datepicker">
-                                        <input type="text" class="form-control">
-                                        <div class="input-group-addon">
-                                            <span class="glyphicon glyphicon-th"></span>
-                                        </div>
-                                    </div>                            </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="date_t" placeholder="YYYY-MM-DD"/>
+                                    </div>
+                                </div>
                                 <div class="col-lg-6" style="align-content: center">
                                     <input type="submit" class="btn btn-sm btn-info" value="chercher">
                                 </div>
 
                             </div>
                         </form>
+                        <div class="row" style="justify-content: center">
+                            <a href="{{ path('liste_transaction_by_nature', {nature:'C'}) }}"><button type="button" class="btn btn-sm btn-success">CREDIT</button></a>
+                            <a href="{{ path('liste_transaction_by_nature', {nature:'D'}) }}"><button type="button" class="btn btn-sm btn-danger">DEBIT </button></a>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -66,7 +68,7 @@
                                             {{transaction.nature}}
                                         </td>
                                         <td>
-                                            {{transaction.Date|date('Y-m-d H:i:s')}}
+                                            {{transaction.Date|date('Y-m-d ')}}
                                         </td>
                                     </tr>
                                 {% endfor %}

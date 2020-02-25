@@ -47,13 +47,13 @@ class LivraisonController extends Controller
         $msg = "livraison est ".$livraison->getStatus();
 
 
-        $message = $twilio->account->messages->sendMessage(
+        /*$message = $twilio->account->messages->sendMessage(
             '+13345106423', // From a Twilio number in your account
             '+216'.$tel, // Text any number
             $msg
         );
-        $em->flush();
-        foreach ($commandes as $commande_id){
+        $em->flush();*/
+        foreach ($commandes as $commande_id) {
             $id = explode(" ",$commande_id);
             $commande=$this->getDoctrine()
                 ->getRepository(Commande::class)
@@ -103,5 +103,19 @@ class LivraisonController extends Controller
             'commandes' => $commandes,
             'livreurs' => $livreurs));
     }
+
+    public function getLivraisonByLivreurAction($id) {
+        $livreur=$this->getDoctrine()
+            ->getRepository(User::class)
+            ->findBy(array('id'=>$id));
+        $livraisons=$this->getDoctrine()
+            ->getRepository(Livraison::class)
+            ->findBy(array('livreur'=>$livreur, 'status' => 'En attente'));
+        return $this->render('@Livraison/Default/listeLivraisonByLivreur.html.twig', array('livraisons' => $livraisons));
+
+
+    }
+
+
 
 }

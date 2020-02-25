@@ -114,9 +114,6 @@ class User extends BaseUser
     }
 
 
-
-
-
     /**
      * @return string
      */
@@ -140,10 +137,6 @@ class User extends BaseUser
     {
         $this->matFiscal = $matFiscal;
     }
-
-
-
-
 
 
     /**
