@@ -39,6 +39,12 @@
                                             <td><img src="{{ asset('images/' ~ article.image) }}" alt="" width="90px"></td>
                                             <td>{{ article.libelle }}</td>
                                             <td>{{ article.description }}</td>
+                                            {% if article.magazin == null %}
+                                                <td><a href="{{ path('articleAffecter',{ 'idArticle' : article.idArticle }) }}" style="color:#0000F0">affecter</a></td>
+                                            {% else %}
+                                                <td> affected to {{ article.magazin.idMag }}</td>
+                                            {% endif %}
+
                                         </tr>
                                     {% endfor %}
                                     </tbody>
