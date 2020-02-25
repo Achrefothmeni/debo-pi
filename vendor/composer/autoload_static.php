@@ -152,6 +152,7 @@ class ComposerStaticInit073d87c53c1e8125dc40d928bc125959
         array (
             'Composer\\CaBundle\\' => 18,
             'Complex\\' => 8,
+            'CMEN\\GoogleChartsBundle\\' => 24,
         ),
     );
 
@@ -335,6 +336,10 @@ class ComposerStaticInit073d87c53c1e8125dc40d928bc125959
         'Complex\\' => 
         array (
             0 => __DIR__ . '/..' . '/markbaker/complex/classes/src',
+        ),
+        'CMEN\\GoogleChartsBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cmen/google-charts-bundle',
         ),
     );
 

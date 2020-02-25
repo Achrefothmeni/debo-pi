@@ -28,8 +28,8 @@ class AppKernel extends Kernel
             new CommandeBundle\CommandeBundle(),
             new FrontBundle\FrontBundle(),
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
-            //new Liuggio\ExcelBundle\LiuggioExcelBundle(),
             new MewesK\TwigExcelBundle\MewesKTwigExcelBundle(),
+            new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

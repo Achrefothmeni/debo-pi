@@ -1,0 +1,132 @@
+{% extends 'dashboard_base.html.twig' %}
+{% block onglet %}Gestion des Flux{% endblock %}
+{% block titre %}Debo - Flux{% endblock %}
+{% block body %}
+    <div class="content">
+        <h4 class="card-title">Caisse</h4>
+
+        <div class="row">
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h4 class="card-title" style="font-size: 18px">Liste des transactions</h4>
+                            </div>
+                            <div class="col-lg-6" style="text-align: end">
+                                <a href="{{ path('generer_excel') }}" target="_blank"> <button type="button" class="btn btn-info">Générer fichier excel</button></a>
+                            </div>
+                        </div>
+                        <form action="{{ path('liste_transaction_by_date') }}">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="date" placeholder="date"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6" style="align-content: center">
+                                    <input type="submit" class="btn btn-sm btn-info" value="chercher">
+                                </div>
+
+                            </div>
+                        </form>
+                        <div class="row" style="justify-content: center">
+                            <a href="{{ path('liste_transaction_by_nature', {nature:'C'}) }}"><button type="button" class="btn btn-sm btn-success">CREDIT</button></a>
+                            <a href="{{ path('liste_transaction_by_nature', {nature:'D'}) }}"><button type="button" class="btn btn-sm btn-danger">DEBIT </button></a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+
+                                <th>
+                                    Id
+                                </th>
+                                <th>
+                                    Somme
+                                </th>
+                                <th>
+                                    nature
+                                </th>
+
+                                <th>
+                                    Date
+                                </th>
+                                </thead>
+                                <tbody>
+                                {% for transaction in transactions%}
+                                    <tr>
+                                        <td>
+                                            {{transaction.id}}
+                                        </td>
+                                        <td>
+                                            {{transaction.somme}}
+                                        </td>
+                                        <td>
+                                            {{transaction.nature}}
+                                        </td>
+                                        <td>
+                                            {{transaction.Date|date('Y-m-d H:i:s')}}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Liste des factures par commande</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                <th>
+                                    Id Commande
+                                </th>
+                                <th>
+                                    Date
+                                </th>
+                                <th>
+
+                                </th>
+                                </thead>
+                                <tbody>
+                                {% for commande in commandes%}
+
+                                    <td>
+                                        {{commande.id}}
+                                    </td>
+
+                                    <td>
+                                        {{commande.date|date('Y-m-d H:i:s')}}
+                                    </td>
+                                    <td>
+                                        <a href="{{ path('generer_facture', {id:commande.id}) }}">
+
+                                            <button type="button" class="btn btn-info" style="position: center; bottom: 10px;">Voir plus</button>
+                                        </a>
+                                    </td>
+
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
