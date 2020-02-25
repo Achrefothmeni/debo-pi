@@ -19,18 +19,33 @@
                         </div>
 
 
-                        <form action="{{ path('liste_transaction_by_date') }}">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="date_t" placeholder="YYYY-MM-DD"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-6" style="align-content: center">
-                                <input type="submit" class="btn btn-sm btn-info" value="chercher">
-                            </div>
+                        <form action="{{ path('search_liste_transaction') }}">
 
-                        </div>
+
+                                <div class="row" style="justify-content: center">
+                                    <div class="form-group" style="margin-left: 30px;">
+                                        <input type="text" class="form-control" name="min" placeholder="MIN" style="width: 100px;"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="max" placeholder="MAX" style="width: 100px;"/>
+                                    </div>
+                                    <div class="form-group" style="width: 100px">
+                                        <select class="form-control" name="nature2">
+                                            <option value="">Choisissez la nature de transaction</option>
+                                            <option value="C">CREDIT</option>
+                                            <option value="D">DEBIT</option>
+                                        </select>
+                                    </div>
+                                    <input type="submit" class="btn btn-info" style="margin-top: -2px;" value="chercher">
+                                </div>
+
+
+
+
+
+
+
                         </form>
 
                         <div class="row" style="justify-content: center">

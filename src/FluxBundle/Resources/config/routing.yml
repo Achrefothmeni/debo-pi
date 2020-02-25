@@ -33,3 +33,7 @@ statistiques:
 generer_excel:
     path:     /transaction.xlsx
     defaults: { _controller: FluxBundle:FluxTransaction:generateExcelFile, _format: xlsx }
+
+search_liste_transaction:
+    path:     /search
+    defaults: { _controller:FluxBundle:FluxTransaction:search }

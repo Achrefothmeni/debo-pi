@@ -13,6 +13,7 @@ use FluxBundle\Entity\Facture;
 use FluxBundle\Entity\FluxTransactions;
 use CommandeBundle\Entity\Commande;
 use ArticleBundle\Entity\Article;
+use LivraisonBundle\Entity\Livraison;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -154,6 +155,30 @@ class FluxTransactionController extends Controller
         return $this->render('@Flux/default/statistiques.html.twig',array(
             'piechart' => $pieChart,
             'histogram' => $histo));
+
+    }
+
+    public function searchAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $query = "select * from flux_transactions where flux_transactions.somme>= :min and flux_transactions.somme <= :max and flux_transactions.nature = :nature";
+        //$query2 = "select * from flux_transactions";
+        $statement = $em->getConnection()->prepare($query);
+        $statement->bindValue('min', $request->request->get('min'));
+        $statement->bindValue('max', $request->request->get('max'));
+        $statement->bindValue('nature', $request->request->get('nature2'));
+        $statement->execute();
+        $transactions = $statement->fetch();
+
+        /*$transactions=$this->getDoctrine()
+            ->getRepository(FluxTransactions::class)
+            ->findBy(array('nature'=>$request->request->get('nature2')));*/
+
+        $commandes=$this->getDoctrine()
+            ->getRepository(Commande::class)
+            ->findAll();
+        return $this->render('@Flux/Default/afficher_caisse.html.twig',
+            array('transactions'=>$transactions,
+                'commandes'=> $commandes));
 
     }
 

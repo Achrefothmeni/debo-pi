@@ -60,7 +60,6 @@ class Article
     }
 
 
-
     /**
      * @var int
      *
