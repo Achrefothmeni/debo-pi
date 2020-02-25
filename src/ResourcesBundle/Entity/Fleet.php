@@ -19,7 +19,7 @@ class Fleet
      *
      * @ORM\Column(name="matriculation", type="string", length=255)
      * @ORM\Id
-     *
+     * @Assert\NotBlank(message="ne doit pas etre vide")
      * @Assert\Regex(
      *     pattern="/^(1|2|3|4|5|6|7|8|9)(0|1|2|3|4|5|6|7|8|9)(0|1|2|3|4|5|6|7|8|9)TUN(0|1|2|3|4|5|6|7|8|9)(0|1|2|3|4|5|6|7|8|9)(0|1|2|3|4|5|6|7|8|9)(0|1|2|3|4|5|6|7|8|9)$/",
      *     match=true,
@@ -35,21 +35,33 @@ class Fleet
      public $nature;
     /**
      * @var date
-     *
+     * @Assert\NotBlank(message="ne doit pas etre vide")
+     * @Assert\DateTime()
      * @ORM\Column(name="date", type="date")
      */
     private $date;
 
     /**
      * @var int
-     * @Assert\GreaterThan(25)
+     *
+     * @Assert\Regex(
+     *     pattern="/^(1|2|3|4|5|6|7|8|9)$/",
+     *     match=true,
+     *     message="number"
+     * )
      *
      * @ORM\Column(name="capacity", type="integer")
      */
     private $capacity;
     /**
      * @var int
-     * @Assert\GreaterThan(25)
+     *
+     * @Assert\NotBlank(message="ne doit pas etre vide")
+     * @Assert\Regex(
+     *     pattern="/^[0-9]+$/i",
+     *     match=true,
+     *     message="number"
+     * )
      *
      * @ORM\Column(name="kilometrage", type="integer")
      */
@@ -210,6 +222,15 @@ class Fleet
     public function getCategory()
     {
         return $this->category;
+    }
+    /**
+     * Get nature
+     *
+     * @return mixed
+     */
+    public function getNature()
+    {
+        return $this->nature;
     }
 }
 
