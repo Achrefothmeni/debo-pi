@@ -20,7 +20,11 @@ class AppKernel extends Kernel
             new ArticleBundle\ArticleBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new AuthBundle\AuthBundle(),
+<<<<<<< HEAD
             new Vresh\TwilioBundle\VreshTwilioBundle (),
+=======
+            //new Vresh\TwilioBundle\VreshTwilioBundle(),
+>>>>>>> master
             new ResourcesBundle\ResourcesBundle(),
             new LivraisonBundle\LivraisonBundle(),
             new DashboardBundle\DashboardBundle(),
@@ -29,9 +33,14 @@ class AppKernel extends Kernel
             new CommandeBundle\CommandeBundle(),
             new FrontBundle\FrontBundle(),
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
+<<<<<<< HEAD
 
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
             new MewesK\TwigExcelBundle\MewesKTwigExcelBundle()
+=======
+            new MewesK\TwigExcelBundle\MewesKTwigExcelBundle(),
+            new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
+>>>>>>> master
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

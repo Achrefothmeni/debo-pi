@@ -21,3 +21,14 @@ update_single_livraison:
 view_livraison_by_status:
     path: /liste-livraison/{status}
     defaults: { _controller: LivraisonBundle:Livraison:viewLivraisonByStatus }
+<<<<<<< HEAD
+=======
+
+view_livraison_by_livreur:
+    path: /liste-livraison/livreur/{id}
+    defaults: { _controller: LivraisonBundle:Livraison:getLivraisonByLivreur }
+
+search_livraison:
+    path: /liste-livraison-search/
+    defaults: { _controller: LivraisonBundle:Livraison:searchMultiCriteria }
+>>>>>>> master

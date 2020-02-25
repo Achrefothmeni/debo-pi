@@ -10,4 +10,22 @@ namespace ResourcesBundle\Repository;
  */
 class MagazinRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findMagazins($str,$str2){
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT m
+                FROM ResourcesBundle:Magazin m
+                WHERE m.location = :str and m.category = :str2 '
+            )
+            ->setParameter('str', $str)->setParameter('str2',$str2)
+            ->getResult();
+    }
+    public function findMagazin($category,$capacity){
+        return $this->getEntityManager()
+            ->createQuery(
+                'select m
+                From ResourcesBundle:Magazin m
+                where (m.capacity - m.capacityRest) >= :str '
+            )->setParameter('str',$capacity)->getResult();
+    }
 }

@@ -1,0 +1,71 @@
+{% extends 'dashboard_base.html.twig' %}
+    {% block onglet %}Magazin{% endblock %}
+ {% block body %}
+
+     <div class="content">
+         <div class="row">
+             <div class="col-md-12">
+                 <div class="card">
+                     <div class="card-header">
+                         <h4 class="card-title">Liste des Magazins</h4>
+                     </div>
+                     {{ form_start(form) }}
+                     <div class="form-control">
+                         <div class="col-md-4 pl-1">
+                             <div class="form-group">
+                                 <label for="Quantity">Category</label>
+                                 {{ form_widget(form.category, {'attr': {'class': 'form-control'}}) }}
+                             </div>
+                         </div>
+                         <div class="col-md-4 pl-1">
+                             <div class="form-group">
+                                 <label for="location">Location</label>
+                                 {{ form_widget(form.location, {'attr': {'class': 'form-control'}}) }}
+                             </div>
+                         </div>
+                         {{ form_widget(form.search, {'attr': {'class': 'btn btn-primary btn-round'}}) }}
+                     </div>
+                     {{ form_end(form) }}
+                     <div class="card-body">
+                         <div class="table-responsive">
+                             <table class="table">
+                                 <thead class=" text-primary">
+                                 <th>id_magazin</th>
+                                 <th>capacity</th>
+                                 <th>location</th>
+                                 <th>category</th>
+
+
+                                 </thead>
+                                 <tbody>
+                                 {% for m in magazin %}
+                                     <tr>
+                                         <td>{{ m.idMag }}</td>
+                                         <td>{{ m.capacity }}</td>
+                                         <td>{{ m.location }}</td>
+                                         <td>{{ m.category.libelle }}</td>
+
+                                 {% endfor %}
+                                 </tbody>
+                             </table>
+                             {{ form_start(form) }}
+                             <div class="form-control">
+                                 <div class="col-md-4 pl-1">
+                                     <div class="form-group">
+                                         <label for="Quantity">Category</label>
+                                         {{ form_widget(form.category, {'attr': {'class': 'form-control'}}) }}
+                                     </div>
+                                 </div>
+                                 {{ form_widget(form.search, {'attr': {'class': 'btn btn-primary btn-round'}}) }}
+                             </div>
+                             {{ form_end(form) }}
+                         </div>
+                     </div>
+                 </div>
+             </div>
+
+         </div>
+     </div>
+ {% endblock %}
+
+

@@ -64,6 +64,33 @@ class Livraison
 
 
     /**
+     * @ORM\ManyToOne(targetEntity="ResourcesBundle\Entity\Fleet")
+     * @ORM\JoinColumn(name="flotte", referencedColumnName="matriculation")
+     */
+    private $flotte;
+
+    /**
+     * @return mixed
+     */
+    public function getFlotte()
+    {
+        return $this->flotte;
+    }
+
+    /**
+     * @param mixed $flotte
+     */
+    public function setFlotte($flotte)
+    {
+        $this->flotte = $flotte;
+    }
+
+
+
+
+
+
+    /**
      * @return mixed
      */
     public function getBonDeLivraison()

@@ -101,10 +101,18 @@
                                             <td><img src="{{ asset('images/' ~ article.image) }}" alt="" width="90px"></td>
                                             <td>{{ article.label }}</td>
                                             <td>{{ article.description }}</td>
+<<<<<<< HEAD
                                             <td><a href="{{ path('update-article', {
                                                     'id': article.idArticle
                                                 }) }}"  style="color:#00ad5f">Update</a> </td>
                                             <td><a href="{{ path('delete_article',{'id': article.idArticle}) }}" style="color:#FF0000">Delete</a></td>
+=======
+                                            {% if article.magazin == null %}
+                                                <td><a href="{{ path('articleAffecter',{ 'idArticle' : article.idArticle }) }}" style="color:#0000F0">affecter</a></td>
+                                            {% else %}
+                                                <td> affected to {{ article.magazin.idMag }}</td>
+                                            {% endif %}
+>>>>>>> master
 
                                         </tr>
 

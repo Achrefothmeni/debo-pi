@@ -20,6 +20,7 @@ class User extends BaseUser
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     *
      */
     protected $id;
 
@@ -33,7 +34,11 @@ class User extends BaseUser
     /**
      * @var integer
      *
+<<<<<<< HEAD
      * @ORM\Column(name="numero_tel", type="integer")
+=======
+     * @ORM\Column(name="numero_tel", type="integer", nullable=true)
+>>>>>>> master
      */
     protected $num;
 
@@ -50,6 +55,35 @@ class User extends BaseUser
      * @ORM\Column(name="prenom", type="string", length=255, nullable=true)
      */
     protected $prenom;
+
+
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status_livreur", type="string", length=255, nullable=true)
+     */
+    protected $status = "Disponible";
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param string $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+
+
 
     /**
      * @var string
@@ -110,9 +144,6 @@ class User extends BaseUser
     }
 
 
-
-
-
     /**
      * @return string
      */
@@ -129,16 +160,20 @@ class User extends BaseUser
     }
 
     /**
+     * @return integer
+     */
+    public function getNum()
+    {
+        return $this->num;
+    }
+
+    /**
      * @param string $matFiscal
      */
     public function setMatFiscal($matFiscal)
     {
         $this->matFiscal = $matFiscal;
     }
-
-
-
-
 
 
     /**

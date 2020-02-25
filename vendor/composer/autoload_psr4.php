@@ -79,6 +79,10 @@ return array(
     'Doctrine\\Bundle\\DoctrineBundle\\' => array($vendorDir . '/doctrine/doctrine-bundle'),
     'Composer\\CaBundle\\' => array($vendorDir . '/composer/ca-bundle/src'),
     'Complex\\' => array($vendorDir . '/markbaker/complex/classes/src'),
+<<<<<<< HEAD
     'Clue\\StreamFilter\\' => array($vendorDir . '/clue/stream-filter/src'),
+=======
+    'CMEN\\GoogleChartsBundle\\' => array($vendorDir . '/cmen/google-charts-bundle'),
+>>>>>>> master
     '' => array($baseDir . '/src'),
 );

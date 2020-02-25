@@ -9,6 +9,12 @@
                     <div class="card-header">
                         <h4 class="card-title">Liste des Magazins</h4>
                     </div>
+<<<<<<< HEAD
+=======
+                    <div class="card-header">
+                        <h6 class="card-title"><a href="{{ path('ajouterMagazin') }}" style="color:#0000F0">Ajouter Magazin</a></h6>
+                    </div>
+>>>>>>> master
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
@@ -17,8 +23,14 @@
                                 <th>capacity</th>
                                 <th>location</th>
                                 <th>category</th>
+<<<<<<< HEAD
                                 <th>modifier</th>
                                 <th>supprimer</th>
+=======
+                                <th>modify</th>
+                                <th>delete</th>
+                                <th>affect</th>
+>>>>>>> master
 
                                 </thead>
                                 <tbody>
@@ -30,10 +42,22 @@
                                         <td>{{ m.category.libelle }}</td>
                                         <td><a href="{{ path('magazin_modif',{ 'id_mag' : m.idMag }) }}" style="color:#00ad5f">modifier</a></td>
                                         <td><a href="{{ path('magazin_supp',{ 'id_mag' : m.idMag }) }}" style="color:#FF0000">supprimer</a></td>
+<<<<<<< HEAD
+=======
+                                        {% if m.magazinier == null %}
+                                        <td><a href="{{ path('magazin_affecter',{ 'id_mag' : m.idMag }) }}" style="color:#0000F0">affecter</a></td>
+                                    {% else %}
+                                            <td> affected to {{ m.magazinier.nom }}</td>
+                                        {% endif %}
+>>>>>>> master
                                     </tr>
                                 {% endfor %}
                                 </tbody>
                             </table>
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
                         </div>
                     </div>
                 </div>

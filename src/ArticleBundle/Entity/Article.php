@@ -47,6 +47,14 @@ class Article
      */
     private $image;
 
+<<<<<<< HEAD
+=======
+    /**
+     * @ORM\ManyToOne(targetEntity="ResourcesBundle\Entity\Magazin")
+     * @ORM\JoinColumn(name="magazin_id", referencedColumnName="id_mag")
+     */
+    private $magazin;
+>>>>>>> master
 
     public function getImage()
     {
@@ -58,7 +66,6 @@ class Article
         $this->image = $image;
         return $this;
     }
-
 
 
     /**
@@ -147,6 +154,29 @@ class Article
         $this->price = $price;
 
 
+    }
+    /**
+     * Get magazin
+     *
+     * @return mixed
+     */
+    public function getMagazin()
+    {
+        return $this->magazin;
+    }
+
+    /**
+     * Set magazin
+     *
+     * @param mixed $magazin
+     *
+     * @return Article
+     */
+    public function setMagazin($magazin)
+    {
+        $this->magazin = $magazin;
+
+        return $this;
     }
 
     /**

@@ -27,4 +27,26 @@ magazin_modif:
     defaults: { _controller: ResourcesBundle:Magazin:ModifierMagazin }
 aaaa:
     path:     /call
+<<<<<<< HEAD
     defaults: { _controller: ResourcesBundle:Magazin:call }
+=======
+    defaults: { _controller: ResourcesBundle:Magazin:call }
+rechercherMagazin:
+    path:     /rechercherMagazin
+    defaults: { _controller: ResourcesBundle:Magazin:search }
+rechercherFleet:
+    path:     /rechercherFleet
+    defaults: { _controller: ResourcesBundle:Fleet:search }
+magazin_affecter:
+    path:     /affecterMagazin/{id_mag}
+    defaults: { _controller: ResourcesBundle:Magazin:affecterMagazin }
+ajoutMagazinier:
+    path:     /ajoutMagazinier/{id_mag}
+    defaults: { _controller: ResourcesBundle:Magazin:ajouterMagazinier }
+articleAffecter:
+    path:     /affecterArticle/{idArticle}
+    defaults: { _controller: ResourcesBundle:Magazin:affecterArticle }
+article_affecter:
+    path:     /articleAffecter/{idArticle}
+    defaults: { _controller: ResourcesBundle:Magazin:ajouterArticle }
+>>>>>>> master
