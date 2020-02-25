@@ -19,9 +19,7 @@
                         </div>
 
 
-                        <form action="{{ path('search_liste_transaction') }}">
-
-
+                        <form action="{{ path('search_liste_transaction') }}" method="post">
                                 <div class="row" style="justify-content: center">
                                     <div class="form-group" style="margin-left: 30px;">
                                         <input type="text" class="form-control" name="min" placeholder="MIN" style="width: 100px;"/>
@@ -39,14 +37,9 @@
                                     </div>
                                     <input type="submit" class="btn btn-info" style="margin-top: -2px;" value="chercher">
                                 </div>
-
-
-
-
-
-
-
                         </form>
+
+
 
                         <div class="row" style="justify-content: center">
                             <a href="{{ path('liste_transaction_by_nature', {nature:'C'}) }}"><button type="button" class="btn btn-sm btn-success">CREDIT</button></a>
@@ -85,7 +78,7 @@
                                             {{transaction.nature}}
                                         </td>
                                         <td>
-                                            {{transaction.Date|date('Y-m-d')}}
+                                            {{transaction.date|date('Y-m-d')}}
                                         </td>
                                     </tr>
                                 {% endfor %}

@@ -54,7 +54,7 @@ class LivraisonController extends Controller
         $em=$this->getDoctrine()->getManager();
         $commandes=$request->request->get('commandes');
         $em->persist($livraison);
-        $twilio = $this->get('twilio.api');
+        //$twilio = $this->get('twilio.api');
         $tel = $livreur->getNum();
         $msg = "livraison est ".$livraison->getStatus();
 
@@ -145,9 +145,15 @@ class LivraisonController extends Controller
             ->getRepository(User::class)
             ->findByRole('ROLE_DELIVERY_MANAGER');
 
+        $flottes=$this->getDoctrine()
+            ->getRepository(Fleet::class)
+            ->findBy(array('status'=>'Disponible'));
+
+
         return $this->render('@Livraison/Default/listeLivraison.html.twig', array('livraisons' => $livraisons,
             'commandes' => $commandes,
-            'livreurs' => $livreurs));
+            'livreurs' => $livreurs,
+            'flottes' => $flottes));
 
     }
 

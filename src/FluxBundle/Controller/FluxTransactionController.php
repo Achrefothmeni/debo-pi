@@ -31,7 +31,8 @@ class FluxTransactionController extends Controller
             ->findAll();
         return $this->render('@Flux/Default/afficher_caisse.html.twig',
             array('transactions'=>$transactions,
-            'commandes'=> $commandes));
+            'commandes'=> $commandes,
+            'nb'=>0));
     }
 
 
@@ -160,14 +161,21 @@ class FluxTransactionController extends Controller
 
     public function searchAction(Request $request){
         $em = $this->getDoctrine()->getManager();
-        $query = "select * from flux_transactions where flux_transactions.somme>= :min and flux_transactions.somme <= :max and flux_transactions.nature = :nature";
+
+        $query = "select * from flux_transactions where flux_transactions.somme >= :min and flux_transactions.somme <= :max and flux_transactions.nature = :nature";
         //$query2 = "select * from flux_transactions";
         $statement = $em->getConnection()->prepare($query);
-        $statement->bindValue('min', $request->request->get('min'));
-        $statement->bindValue('max', $request->request->get('max'));
+        $statement->bindValue('min', (int)$request->request->get('min'));
+        $statement->bindValue('max', (int)$request->request->get('max'));
         $statement->bindValue('nature', $request->request->get('nature2'));
         $statement->execute();
-        $transactions = $statement->fetch();
+
+        $transactions = $statement->fetchAll();
+        $nb=0;
+
+        foreach ($transactions as $t){
+            $nb++;
+        }
 
         /*$transactions=$this->getDoctrine()
             ->getRepository(FluxTransactions::class)
@@ -178,7 +186,24 @@ class FluxTransactionController extends Controller
             ->findAll();
         return $this->render('@Flux/Default/afficher_caisse.html.twig',
             array('transactions'=>$transactions,
-                'commandes'=> $commandes));
+                'commandes'=> $commandes,
+                ));
+    }
+
+    public function search2Action(Request $request) {
+
+        $transactions=$this->getDoctrine()
+            ->getRepository(FluxTransactions::class)
+            ->findBy(array('nature'=>'C', 'somme'=>$request->request->get('somme2')));
+
+        $commandes=$this->getDoctrine()
+            ->getRepository(Commande::class)
+            ->findAll();
+
+        return $this->render('@Flux/Default/afficher_caisse.html.twig',
+            array('transactions'=>$transactions,
+                'commandes'=> $commandes
+                ));
 
     }
 

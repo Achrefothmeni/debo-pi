@@ -37,3 +37,9 @@ generer_excel:
 search_liste_transaction:
     path:     /search
     defaults: { _controller:FluxBundle:FluxTransaction:search }
+
+search_liste_transaction2:
+    path:     /search2
+    defaults: { _controller:FluxBundle:FluxTransaction:search2 }
+
+
