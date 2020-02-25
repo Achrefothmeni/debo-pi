@@ -29,6 +29,32 @@ class Fleet
     private $matriculation;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=255, nullable=true)
+     */
+    private $status = "Disponible";
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param string $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+
+
+
+    /**
      * @ORM\ManyToOne(targetEntity="Nature",inversedBy="fleet")
      * @ORM\JoinColumn(name="nature_id", referencedColumnName="id")
      */

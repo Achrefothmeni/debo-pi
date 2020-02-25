@@ -6,6 +6,7 @@ use AuthBundle\Entity\User;
 use CommandeBundle\Entity\Commande;
 use LivraisonBundle\Entity\Livraison;
 use LivraisonBundle\Entity\LivraisonCommande;
+use ResourcesBundle\Entity\Fleet;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -24,10 +25,15 @@ class LivraisonController extends Controller
             ->getRepository(User::class)
             ->findByRole('ROLE_DELIVERY_MANAGER');
 
+        $flottes=$this->getDoctrine()
+            ->getRepository(Fleet::class)
+            ->findBy(array('status'=>'Disponible'));
+
 
         return $this->render('@Livraison/Default/listeLivraison.html.twig', array('livraisons' => $livraisons,
             'commandes' => $commandes,
-            'livreurs' => $livreurs));
+            'livreurs' => $livreurs,
+            'flottes'=>$flottes));
     }
 
     public function ajouterLivraisonAction(Request $request) {
@@ -35,10 +41,16 @@ class LivraisonController extends Controller
         $livreur=$this->getDoctrine()
             ->getRepository(User::class)
             ->find($request->request->get('livreur'));
+        $flotte=$this->getDoctrine()
+            ->getRepository(Fleet::class)
+            ->find($request->request->get('flotte'));
+
+        $flotte->setStatus("Non disponible");
         $livraison->setLivreur($livreur);
         $livreur->setStatus("Non disponible");
         $livraison->setDateDepart(new \DateTime());
         $livraison->setStatus("En attente");
+        $livraison->setFlotte($flotte);
         $em=$this->getDoctrine()->getManager();
         $commandes=$request->request->get('commandes');
         $em->persist($livraison);
@@ -116,6 +128,27 @@ class LivraisonController extends Controller
 
     }
 
+    public function searchMultiCriteriaAction(Request $request){
 
+        $date= date_create($request->request->get('date'));
+        $livreur= $this->getDoctrine()->getRepository(User::class)->find($request->request->get('livreur2'));
+        $livraisons=$this->getDoctrine()
+            ->getRepository(Livraison::class)
+            ->findBy(array('status'=>$request->request->get('status2'), 'livreur'=>$livreur));
+
+
+        $commandes=$this->getDoctrine()
+            ->getRepository(Commande::class)
+            ->findBy(array('status'=>'En attente'));
+
+        $livreurs=$this->getDoctrine()
+            ->getRepository(User::class)
+            ->findByRole('ROLE_DELIVERY_MANAGER');
+
+        return $this->render('@Livraison/Default/listeLivraison.html.twig', array('livraisons' => $livraisons,
+            'commandes' => $commandes,
+            'livreurs' => $livreurs));
+
+    }
 
 }

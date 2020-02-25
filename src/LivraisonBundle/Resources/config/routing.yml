@@ -25,3 +25,7 @@ view_livraison_by_status:
 view_livraison_by_livreur:
     path: /liste-livraison/livreur/{id}
     defaults: { _controller: LivraisonBundle:Livraison:getLivraisonByLivreur }
+
+search_livraison:
+    path: /liste-livraison-search/
+    defaults: { _controller: LivraisonBundle:Livraison:searchMultiCriteria }
