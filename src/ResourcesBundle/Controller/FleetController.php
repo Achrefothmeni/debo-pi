@@ -2,6 +2,7 @@
 
 namespace ResourcesBundle\Controller;
 
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use ResourcesBundle\Entity\Fleet;
 use ResourcesBundle\Form\FleetType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -89,14 +90,15 @@ class FleetController extends Controller
                 'class'=>'ResourcesBundle:Nature',
                 'choice_label'=>'libelle',
                 'multiple'=>false)
-        )->add('search',SubmitType::class)->getForm();
+        )->add('date',DateType::class)->add('search',SubmitType::class)->getForm();
         $Form->handleRequest($request);
         if($Form->isSubmitted())
         {
             $str=$fleet->getCategory();
             $str2=$fleet->getNature();
+            $str3=$fleet->getDate();
 
-            $fleet=$em->getRepository('ResourcesBundle:Fleet')->findFleets($str,$str2);
+            $fleet=$em->getRepository('ResourcesBundle:Fleet')->findFleets($str,$str2,$str3);
         }
         else{
             $fleet=$em->getRepository(Fleet::class)
