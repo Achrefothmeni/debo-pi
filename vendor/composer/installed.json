@@ -53,6 +53,60 @@
         ]
     },
     {
+        "name": "clue/stream-filter",
+        "version": "v1.4.1",
+        "version_normalized": "1.4.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/clue/php-stream-filter.git",
+            "reference": "5a58cc30a8bd6a4eb8f856adf61dd3e013f53f71"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/clue/php-stream-filter/zipball/5a58cc30a8bd6a4eb8f856adf61dd3e013f53f71",
+            "reference": "5a58cc30a8bd6a4eb8f856adf61dd3e013f53f71",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^5.0 || ^4.8"
+        },
+        "time": "2019-04-09T12:31:48+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Clue\\StreamFilter\\": "src/"
+            },
+            "files": [
+                "src/functions_include.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Christian Lück",
+                "email": "christian@lueck.tv"
+            }
+        ],
+        "description": "A simple and modern approach to stream filtering in PHP",
+        "homepage": "https://github.com/clue/php-stream-filter",
+        "keywords": [
+            "bucket brigade",
+            "callback",
+            "filter",
+            "php_user_filter",
+            "stream",
+            "stream_filter_append",
+            "stream_filter_register"
+        ]
+    },
+    {
         "name": "composer/ca-bundle",
         "version": "1.2.6",
         "version_normalized": "1.2.6.0",
@@ -1053,6 +1107,473 @@
         ]
     },
     {
+        "name": "gregwar/captcha",
+        "version": "v1.1.8",
+        "version_normalized": "1.1.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Gregwar/Captcha.git",
+            "reference": "6088ad3db59bc226423ad1476a9f0424b19b1866"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Gregwar/Captcha/zipball/6088ad3db59bc226423ad1476a9f0424b19b1866",
+            "reference": "6088ad3db59bc226423ad1476a9f0424b19b1866",
+            "shasum": ""
+        },
+        "require": {
+            "ext-gd": "*",
+            "ext-mbstring": "*",
+            "php": ">=5.3.0",
+            "symfony/finder": "*"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^6.4"
+        },
+        "time": "2020-01-22T14:54:02+00:00",
+        "type": "captcha",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Gregwar\\": "src/Gregwar"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Grégoire Passault",
+                "email": "g.passault@gmail.com",
+                "homepage": "http://www.gregwar.com/"
+            },
+            {
+                "name": "Jeremy Livingston",
+                "email": "jeremy.j.livingston@gmail.com"
+            }
+        ],
+        "description": "Captcha generator",
+        "homepage": "https://github.com/Gregwar/Captcha",
+        "keywords": [
+            "bot",
+            "captcha",
+            "spam"
+        ]
+    },
+    {
+        "name": "gregwar/captcha-bundle",
+        "version": "v2.0.7",
+        "version_normalized": "2.0.7.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Gregwar/CaptchaBundle.git",
+            "reference": "3ccfdf1c9324acbdfbcccea2c454075115741b3a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Gregwar/CaptchaBundle/zipball/3ccfdf1c9324acbdfbcccea2c454075115741b3a",
+            "reference": "3ccfdf1c9324acbdfbcccea2c454075115741b3a",
+            "shasum": ""
+        },
+        "require": {
+            "gregwar/captcha": "~1.1",
+            "php": ">=5.3.9",
+            "symfony/form": "~2.8|~3.0|~4.0",
+            "symfony/framework-bundle": "~2.8|~3.0|~4.0",
+            "twig/twig": "^1.40|^2.9"
+        },
+        "time": "2019-09-23T13:07:46+00:00",
+        "type": "captcha-bundle",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Gregwar\\CaptchaBundle\\": "/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Grégoire Passault",
+                "email": "g.passault@gmail.com",
+                "homepage": "http://www.gregwar.com/"
+            },
+            {
+                "name": "Jeremy Livingston",
+                "email": "jeremy.j.livingston@gmail.com"
+            }
+        ],
+        "description": "Captcha bundle",
+        "homepage": "https://github.com/Gregwar/CaptchaBundle",
+        "keywords": [
+            "Symfony2",
+            "bot",
+            "captcha",
+            "code",
+            "security",
+            "spam",
+            "visual"
+        ]
+    },
+    {
+        "name": "guzzlehttp/guzzle",
+        "version": "6.5.2",
+        "version_normalized": "6.5.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/guzzle/guzzle.git",
+            "reference": "43ece0e75098b7ecd8d13918293029e555a50f82"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/guzzle/guzzle/zipball/43ece0e75098b7ecd8d13918293029e555a50f82",
+            "reference": "43ece0e75098b7ecd8d13918293029e555a50f82",
+            "shasum": ""
+        },
+        "require": {
+            "ext-json": "*",
+            "guzzlehttp/promises": "^1.0",
+            "guzzlehttp/psr7": "^1.6.1",
+            "php": ">=5.5"
+        },
+        "require-dev": {
+            "ext-curl": "*",
+            "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.4 || ^7.0",
+            "psr/log": "^1.1"
+        },
+        "suggest": {
+            "ext-intl": "Required for Internationalized Domain Name (IDN) support",
+            "psr/log": "Required for using the Log middleware"
+        },
+        "time": "2019-12-23T11:57:10+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "6.5-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "GuzzleHttp\\": "src/"
+            },
+            "files": [
+                "src/functions_include.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            }
+        ],
+        "description": "Guzzle is a PHP HTTP client library",
+        "homepage": "http://guzzlephp.org/",
+        "keywords": [
+            "client",
+            "curl",
+            "framework",
+            "http",
+            "http client",
+            "rest",
+            "web service"
+        ]
+    },
+    {
+        "name": "guzzlehttp/promises",
+        "version": "v1.3.1",
+        "version_normalized": "1.3.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/guzzle/promises.git",
+            "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/guzzle/promises/zipball/a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+            "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.0"
+        },
+        "time": "2016-12-20T10:07:11+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.4-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "GuzzleHttp\\Promise\\": "src/"
+            },
+            "files": [
+                "src/functions_include.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            }
+        ],
+        "description": "Guzzle promises library",
+        "keywords": [
+            "promise"
+        ]
+    },
+    {
+        "name": "guzzlehttp/psr7",
+        "version": "1.6.1",
+        "version_normalized": "1.6.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/guzzle/psr7.git",
+            "reference": "239400de7a173fe9901b9ac7c06497751f00727a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/guzzle/psr7/zipball/239400de7a173fe9901b9ac7c06497751f00727a",
+            "reference": "239400de7a173fe9901b9ac7c06497751f00727a",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0",
+            "psr/http-message": "~1.0",
+            "ralouphie/getallheaders": "^2.0.5 || ^3.0.0"
+        },
+        "provide": {
+            "psr/http-message-implementation": "1.0"
+        },
+        "require-dev": {
+            "ext-zlib": "*",
+            "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
+        },
+        "suggest": {
+            "zendframework/zend-httphandlerrunner": "Emit PSR-7 responses"
+        },
+        "time": "2019-07-01T23:21:34+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.6-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "GuzzleHttp\\Psr7\\": "src/"
+            },
+            "files": [
+                "src/functions_include.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            },
+            {
+                "name": "Tobias Schultze",
+                "homepage": "https://github.com/Tobion"
+            }
+        ],
+        "description": "PSR-7 message implementation that also provides common utility methods",
+        "keywords": [
+            "http",
+            "message",
+            "psr-7",
+            "request",
+            "response",
+            "stream",
+            "uri",
+            "url"
+        ]
+    },
+    {
+        "name": "hwi/oauth-bundle",
+        "version": "0.6.3",
+        "version_normalized": "0.6.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/hwi/HWIOAuthBundle.git",
+            "reference": "0963709b04d8ac0d6d6c0c78787f6f59bd0d9a01"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/hwi/HWIOAuthBundle/zipball/0963709b04d8ac0d6d6c0c78787f6f59bd0d9a01",
+            "reference": "0963709b04d8ac0d6d6c0c78787f6f59bd0d9a01",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.6|^7.0",
+            "php-http/client-common": "^1.3",
+            "php-http/client-implementation": "^1.0",
+            "php-http/discovery": "^1.0",
+            "php-http/httplug": "^1.0",
+            "php-http/message-factory": "^1.0",
+            "psr/http-message": "^1.0",
+            "symfony/form": "^2.8|^3.0|^4.0",
+            "symfony/framework-bundle": "^2.8|^3.0|^4.0",
+            "symfony/options-resolver": "^2.8|^3.0|^4.0",
+            "symfony/security-bundle": "^2.8|^3.0|^4.0",
+            "symfony/templating": "^2.8|^3.0|^4.0",
+            "symfony/yaml": "^2.8|^3.0|^4.0"
+        },
+        "conflict": {
+            "twig/twig": "<1.12"
+        },
+        "require-dev": {
+            "doctrine/orm": "^2.3",
+            "friendsofphp/php-cs-fixer": "^2.0",
+            "friendsofsymfony/user-bundle": "^1.3|^2.0",
+            "php-http/guzzle6-adapter": "^1.1",
+            "php-http/httplug-bundle": "^1.7",
+            "phpunit/phpunit": "^5.7",
+            "symfony/phpunit-bridge": "^2.8|^3.0|^4.0",
+            "symfony/property-access": "^2.8|^3.0|^4.0",
+            "symfony/stopwatch": "^2.8|^3.0|^4.0",
+            "symfony/twig-bundle": "^2.8|^3.0|^4.0",
+            "symfony/validator": "^2.8|^3.0|^4.0"
+        },
+        "suggest": {
+            "doctrine/doctrine-bundle": "to use Doctrine user provider",
+            "friendsofsymfony/user-bundle": "to connect FOSUB with this bundle",
+            "php-http/httplug-bundle": "to provide required HTTP client with ease.",
+            "symfony/property-access": "to use FOSUB integration with this bundle",
+            "symfony/twig-bundle": "to use the Twig hwi_oauth_* functions"
+        },
+        "time": "2018-07-31T10:19:28+00:00",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "0.6-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "HWI\\Bundle\\OAuthBundle\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Contributors",
+                "homepage": "https://github.com/hwi/HWIOAuthBundle/contributors"
+            },
+            {
+                "name": "Joseph Bielawski",
+                "email": "stloyd@gmail.com"
+            },
+            {
+                "name": "Alexander",
+                "email": "iam.asm89@gmail.com"
+            },
+            {
+                "name": "Geoffrey Bachelet",
+                "email": "geoffrey.bachelet@gmail.com"
+            }
+        ],
+        "description": "Support for authenticating users using both OAuth1.0a and OAuth2 in Symfony2.",
+        "homepage": "http://github.com/hwi/HWIOAuthBundle",
+        "keywords": [
+            "37signals",
+            "Authentication",
+            "Deezer",
+            "EVE Online",
+            "amazon",
+            "asana",
+            "auth0",
+            "azure",
+            "bitbucket",
+            "bitly",
+            "box",
+            "bufferapp",
+            "clever",
+            "dailymotion",
+            "deviantart",
+            "discogs",
+            "disqus",
+            "dropbox",
+            "eventbrite",
+            "facebook",
+            "firewall",
+            "fiware",
+            "flickr",
+            "foursquare",
+            "github",
+            "gitlab",
+            "google",
+            "hubic",
+            "instagram",
+            "jawbone",
+            "jira",
+            "linkedin",
+            "mail.ru",
+            "oauth",
+            "oauth1",
+            "oauth2",
+            "odnoklassniki",
+            "paypal",
+            "qq",
+            "reddit",
+            "runkeeper",
+            "salesforce",
+            "security",
+            "sensio connect",
+            "sina weibo",
+            "slack",
+            "sound cloud",
+            "spotify",
+            "stack exchange",
+            "stereomood",
+            "strava",
+            "toshl",
+            "trakt",
+            "trello",
+            "twitch",
+            "twitter",
+            "vkontakte",
+            "windows live",
+            "wordpress",
+            "wunderlist",
+            "xing",
+            "yahoo",
+            "yandex",
+            "youtube"
+        ]
+    },
+    {
         "name": "incenteev/composer-parameter-handler",
         "version": "v2.1.3",
         "version_normalized": "2.1.3.0",
@@ -1889,6 +2410,809 @@
         ]
     },
     {
+        "name": "php-http/client-common",
+        "version": "1.10.0",
+        "version_normalized": "1.10.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-http/client-common.git",
+            "reference": "c0390ae3c8f2ae9d50901feef0127fb9e396f6b4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-http/client-common/zipball/c0390ae3c8f2ae9d50901feef0127fb9e396f6b4",
+            "reference": "c0390ae3c8f2ae9d50901feef0127fb9e396f6b4",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.4 || ^7.0",
+            "php-http/httplug": "^1.1",
+            "php-http/message": "^1.6",
+            "php-http/message-factory": "^1.0",
+            "symfony/options-resolver": "^2.6 || ^3.0 || ^4.0 || ^5.0"
+        },
+        "require-dev": {
+            "guzzlehttp/psr7": "^1.4",
+            "phpspec/phpspec": "^2.5 || ^3.4 || ^4.2"
+        },
+        "suggest": {
+            "php-http/cache-plugin": "PSR-6 Cache plugin",
+            "php-http/logger-plugin": "PSR-3 Logger plugin",
+            "php-http/stopwatch-plugin": "Symfony Stopwatch plugin"
+        },
+        "time": "2019-11-18T08:54:36+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.10.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Http\\Client\\Common\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Márk Sági-Kazár",
+                "email": "mark.sagikazar@gmail.com"
+            }
+        ],
+        "description": "Common HTTP Client implementations and tools for HTTPlug",
+        "homepage": "http://httplug.io",
+        "keywords": [
+            "client",
+            "common",
+            "http",
+            "httplug"
+        ]
+    },
+    {
+        "name": "php-http/discovery",
+        "version": "1.6.1",
+        "version_normalized": "1.6.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-http/discovery.git",
+            "reference": "684855f2c2e9d0a61868b8f8d6bd0295c8a4b651"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-http/discovery/zipball/684855f2c2e9d0a61868b8f8d6bd0295c8a4b651",
+            "reference": "684855f2c2e9d0a61868b8f8d6bd0295c8a4b651",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.5 || ^7.0"
+        },
+        "conflict": {
+            "nyholm/psr7": "<1.0"
+        },
+        "require-dev": {
+            "php-http/httplug": "^1.0 || ^2.0",
+            "php-http/message-factory": "^1.0",
+            "phpspec/phpspec": "^2.4",
+            "puli/composer-plugin": "1.0.0-beta10"
+        },
+        "suggest": {
+            "php-http/message": "Allow to use Guzzle, Diactoros or Slim Framework factories",
+            "puli/composer-plugin": "Sets up Puli which is recommended for Discovery to work. Check http://docs.php-http.org/en/latest/discovery.html for more details."
+        },
+        "time": "2019-02-23T07:42:53+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.5-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Http\\Discovery\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Márk Sági-Kazár",
+                "email": "mark.sagikazar@gmail.com"
+            }
+        ],
+        "description": "Finds installed HTTPlug implementations and PSR-7 message factories",
+        "homepage": "http://php-http.org",
+        "keywords": [
+            "adapter",
+            "client",
+            "discovery",
+            "factory",
+            "http",
+            "message",
+            "psr7"
+        ]
+    },
+    {
+        "name": "php-http/guzzle6-adapter",
+        "version": "v1.1.1",
+        "version_normalized": "1.1.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-http/guzzle6-adapter.git",
+            "reference": "a56941f9dc6110409cfcddc91546ee97039277ab"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-http/guzzle6-adapter/zipball/a56941f9dc6110409cfcddc91546ee97039277ab",
+            "reference": "a56941f9dc6110409cfcddc91546ee97039277ab",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/guzzle": "^6.0",
+            "php": ">=5.5.0",
+            "php-http/httplug": "^1.0"
+        },
+        "provide": {
+            "php-http/async-client-implementation": "1.0",
+            "php-http/client-implementation": "1.0"
+        },
+        "require-dev": {
+            "ext-curl": "*",
+            "php-http/adapter-integration-tests": "^0.4"
+        },
+        "time": "2016-05-10T06:13:32+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.2-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Http\\Adapter\\Guzzle6\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Márk Sági-Kazár",
+                "email": "mark.sagikazar@gmail.com"
+            },
+            {
+                "name": "David de Boer",
+                "email": "david@ddeboer.nl"
+            }
+        ],
+        "description": "Guzzle 6 HTTP Adapter",
+        "homepage": "http://httplug.io",
+        "keywords": [
+            "Guzzle",
+            "http"
+        ]
+    },
+    {
+        "name": "php-http/httplug",
+        "version": "v1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-http/httplug.git",
+            "reference": "1c6381726c18579c4ca2ef1ec1498fdae8bdf018"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-http/httplug/zipball/1c6381726c18579c4ca2ef1ec1498fdae8bdf018",
+            "reference": "1c6381726c18579c4ca2ef1ec1498fdae8bdf018",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4",
+            "php-http/promise": "^1.0",
+            "psr/http-message": "^1.0"
+        },
+        "require-dev": {
+            "henrikbjorn/phpspec-code-coverage": "^1.0",
+            "phpspec/phpspec": "^2.4"
+        },
+        "time": "2016-08-31T08:30:17+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Http\\Client\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Eric GELOEN",
+                "email": "geloen.eric@gmail.com"
+            },
+            {
+                "name": "Márk Sági-Kazár",
+                "email": "mark.sagikazar@gmail.com"
+            }
+        ],
+        "description": "HTTPlug, the HTTP client abstraction for PHP",
+        "homepage": "http://httplug.io",
+        "keywords": [
+            "client",
+            "http"
+        ]
+    },
+    {
+        "name": "php-http/httplug-bundle",
+        "version": "1.15.2",
+        "version_normalized": "1.15.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-http/HttplugBundle.git",
+            "reference": "35d281804a90f0359aa9da5b5b1f55c18aeafaf8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-http/HttplugBundle/zipball/35d281804a90f0359aa9da5b5b1f55c18aeafaf8",
+            "reference": "35d281804a90f0359aa9da5b5b1f55c18aeafaf8",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.5 || ^7.0",
+            "php-http/client-common": "^1.9 || ^2.0",
+            "php-http/client-implementation": "^1.0",
+            "php-http/discovery": "^1.0",
+            "php-http/httplug": "^1.0 || ^2.0",
+            "php-http/logger-plugin": "^1.1",
+            "php-http/message": "^1.4",
+            "php-http/message-factory": "^1.0.2",
+            "php-http/stopwatch-plugin": "^1.2",
+            "psr/http-message": "^1.0",
+            "symfony/config": "^2.8.49 || ^3.0.9 || ^3.1.10 || ^3.2.14 || ^3.3.18 || ^3.4.20 || ^4.0.15 || ^4.1.9 || ^4.2.1",
+            "symfony/dependency-injection": "^2.8.49 || ^3.0.9 || ^3.1.10 || ^3.2.14 || ^3.3.18 || ^3.4.20 || ^4.0.15 || ^4.1.9 || ^4.2.1",
+            "symfony/event-dispatcher": "^2.8.49 || ^3.0.9 || ^3.1.10 || ^3.2.14 || ^3.3.18 || ^3.4.20 || ^4.0.15 || ^4.1.9 || ^4.2.1",
+            "symfony/http-kernel": "^2.8.49 || ^3.0.9 || ^3.1.10 || ^3.2.14 || ^3.3.18 || ^3.4.20 || ^4.0.15 || ^4.1.9 || ^4.2.1",
+            "symfony/options-resolver": "^2.8.49 || ^3.0.9 || ^3.1.10 || ^3.2.14 || ^3.3.18 || ^3.4.20 || ^4.0.15 || ^4.1.9 || ^4.2.1"
+        },
+        "conflict": {
+            "php-http/guzzle6-adapter": "<1.1"
+        },
+        "require-dev": {
+            "guzzlehttp/psr7": "^1.0",
+            "matthiasnoback/symfony-dependency-injection-test": "^1.1 || ^2.3",
+            "nyholm/nsa": "^1.1",
+            "php-http/cache-plugin": "^1.6",
+            "php-http/guzzle6-adapter": "^1.1.1 || ^2.0.1",
+            "php-http/mock-client": "^1.2",
+            "php-http/promise": "^1.0",
+            "polishsymfonycommunity/symfony-mocker-container": "^1.0",
+            "symfony/browser-kit": "^2.8.49 || ^3.0.9 || ^3.1.10 || ^3.2.14 || ^3.3.18 || ^3.4.20 || ^4.0.15 || ^4.1.9 || ^4.2.1",
+            "symfony/cache": "^3.1.10 || ^3.2.14 || ^3.3.18 || ^3.4.20 || ^4.0.15 || ^4.1.9 || ^4.2.1",
+            "symfony/dom-crawler": "^2.8.49 || ^3.0.9 || ^3.1.10 || ^3.2.14 || ^3.3.18 || ^3.4.20 || ^4.0.15 || ^4.1.9 || ^4.2.1",
+            "symfony/framework-bundle": "^2.8.1 || ^3.0.1 || ^4.0",
+            "symfony/http-foundation": "^2.8.49 || ^3.0.9 || ^3.1.10 || ^3.2.14 || ^3.3.18 || ^3.4.20 || ^4.0.15 || ^4.1.9 || ^4.2.1",
+            "symfony/phpunit-bridge": "^3.4 || ^4.2",
+            "symfony/stopwatch": "^2.8.49 || ^3.0.9 || ^3.1.10 || ^3.2.14 || ^3.3.18 || ^3.4.20 || ^4.0.15 || ^4.1.9 || ^4.2.1",
+            "symfony/twig-bundle": "^2.8.49 || ^3.0.9 || ^3.1.10 || ^3.2.14 || ^3.3.18 || ^3.4.20 || ^4.0.15 || ^4.1.9 || ^4.2.1",
+            "symfony/web-profiler-bundle": "^2.8.49 || ^3.0.9 || ^3.1.10 || ^3.2.14 || ^3.3.18 || ^3.4.20 || ^4.0.15 || ^4.1.9 || ^4.2.1",
+            "twig/twig": "^1.36 || ^2.6"
+        },
+        "suggest": {
+            "php-http/cache-plugin": "To configure clients that cache responses",
+            "php-http/mock-client": "Add this to your require-dev section to mock HTTP responses easily",
+            "twig/twig": "Add this to your require-dev section when using the WebProfilerBundle"
+        },
+        "time": "2019-04-18T14:01:25+00:00",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Http\\HttplugBundle\\": "src/"
+            },
+            "exclude-from-classmap": [
+                "/Tests/Resources/MyPsr18TestClient.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "David Buchmann",
+                "email": "mail@davidbu.ch"
+            },
+            {
+                "name": "Tobias Nyholm",
+                "email": "tobias.nyholm@gmail.com"
+            }
+        ],
+        "description": "Symfony integration for HTTPlug",
+        "homepage": "http://httplug.io",
+        "keywords": [
+            "adapter",
+            "bundle",
+            "discovery",
+            "factory",
+            "http",
+            "httplug",
+            "message",
+            "php-http"
+        ]
+    },
+    {
+        "name": "php-http/logger-plugin",
+        "version": "1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-http/logger-plugin.git",
+            "reference": "c1c6e90717ce350319b7b8bc489f1db35bb523fd"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-http/logger-plugin/zipball/c1c6e90717ce350319b7b8bc489f1db35bb523fd",
+            "reference": "c1c6e90717ce350319b7b8bc489f1db35bb523fd",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.4 || ^7.0",
+            "php-http/client-common": "^1.9 || ^2.0",
+            "php-http/message": "^1.0",
+            "psr/log": "^1.0"
+        },
+        "require-dev": {
+            "henrikbjorn/phpspec-code-coverage": "^1.0",
+            "phpspec/phpspec": "^2.5"
+        },
+        "time": "2019-01-30T11:48:21+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Http\\Client\\Common\\Plugin\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Márk Sági-Kazár",
+                "email": "mark.sagikazar@gmail.com"
+            }
+        ],
+        "description": "PSR-3 Logger plugin for HTTPlug",
+        "homepage": "http://httplug.io",
+        "keywords": [
+            "http",
+            "httplug",
+            "logger",
+            "plugin"
+        ]
+    },
+    {
+        "name": "php-http/message",
+        "version": "1.7.2",
+        "version_normalized": "1.7.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-http/message.git",
+            "reference": "b159ffe570dffd335e22ef0b91a946eacb182fa1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-http/message/zipball/b159ffe570dffd335e22ef0b91a946eacb182fa1",
+            "reference": "b159ffe570dffd335e22ef0b91a946eacb182fa1",
+            "shasum": ""
+        },
+        "require": {
+            "clue/stream-filter": "^1.4",
+            "php": "^5.4 || ^7.0",
+            "php-http/message-factory": "^1.0.2",
+            "psr/http-message": "^1.0"
+        },
+        "provide": {
+            "php-http/message-factory-implementation": "1.0"
+        },
+        "require-dev": {
+            "akeneo/phpspec-skip-example-extension": "^1.0",
+            "coduo/phpspec-data-provider-extension": "^1.0",
+            "ext-zlib": "*",
+            "guzzlehttp/psr7": "^1.0",
+            "henrikbjorn/phpspec-code-coverage": "^1.0",
+            "phpspec/phpspec": "^2.4",
+            "slim/slim": "^3.0",
+            "zendframework/zend-diactoros": "^1.0"
+        },
+        "suggest": {
+            "ext-zlib": "Used with compressor/decompressor streams",
+            "guzzlehttp/psr7": "Used with Guzzle PSR-7 Factories",
+            "slim/slim": "Used with Slim Framework PSR-7 implementation",
+            "zendframework/zend-diactoros": "Used with Diactoros Factories"
+        },
+        "time": "2018-11-01T09:32:41+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.6-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Http\\Message\\": "src/"
+            },
+            "files": [
+                "src/filters.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Márk Sági-Kazár",
+                "email": "mark.sagikazar@gmail.com"
+            }
+        ],
+        "description": "HTTP Message related tools",
+        "homepage": "http://php-http.org",
+        "keywords": [
+            "http",
+            "message",
+            "psr-7"
+        ]
+    },
+    {
+        "name": "php-http/message-factory",
+        "version": "v1.0.2",
+        "version_normalized": "1.0.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-http/message-factory.git",
+            "reference": "a478cb11f66a6ac48d8954216cfed9aa06a501a1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-http/message-factory/zipball/a478cb11f66a6ac48d8954216cfed9aa06a501a1",
+            "reference": "a478cb11f66a6ac48d8954216cfed9aa06a501a1",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4",
+            "psr/http-message": "^1.0"
+        },
+        "time": "2015-12-19T14:08:53+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Http\\Message\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Márk Sági-Kazár",
+                "email": "mark.sagikazar@gmail.com"
+            }
+        ],
+        "description": "Factory interfaces for PSR-7 HTTP Message",
+        "homepage": "http://php-http.org",
+        "keywords": [
+            "factory",
+            "http",
+            "message",
+            "stream",
+            "uri"
+        ]
+    },
+    {
+        "name": "php-http/promise",
+        "version": "v1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-http/promise.git",
+            "reference": "dc494cdc9d7160b9a09bd5573272195242ce7980"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-http/promise/zipball/dc494cdc9d7160b9a09bd5573272195242ce7980",
+            "reference": "dc494cdc9d7160b9a09bd5573272195242ce7980",
+            "shasum": ""
+        },
+        "require-dev": {
+            "henrikbjorn/phpspec-code-coverage": "^1.0",
+            "phpspec/phpspec": "^2.4"
+        },
+        "time": "2016-01-26T13:27:02+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Http\\Promise\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Márk Sági-Kazár",
+                "email": "mark.sagikazar@gmail.com"
+            },
+            {
+                "name": "Joel Wurtz",
+                "email": "joel.wurtz@gmail.com"
+            }
+        ],
+        "description": "Promise used for asynchronous HTTP requests",
+        "homepage": "http://httplug.io",
+        "keywords": [
+            "promise"
+        ]
+    },
+    {
+        "name": "php-http/stopwatch-plugin",
+        "version": "1.2.0",
+        "version_normalized": "1.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-http/stopwatch-plugin.git",
+            "reference": "520419dd18755a1e7b29077e677fbeb16b6629e7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-http/stopwatch-plugin/zipball/520419dd18755a1e7b29077e677fbeb16b6629e7",
+            "reference": "520419dd18755a1e7b29077e677fbeb16b6629e7",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.4 || ^7.0",
+            "php-http/client-common": "^1.9 || ^2.0",
+            "symfony/stopwatch": "^2.7 || ^3.0 || ^4.0"
+        },
+        "require-dev": {
+            "phpspec/phpspec": "^2.5 || ^3.0 || ^4.0"
+        },
+        "time": "2019-01-30T12:01:37+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.2-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Http\\Client\\Common\\Plugin\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Márk Sági-Kazár",
+                "email": "mark.sagikazar@gmail.com"
+            }
+        ],
+        "description": "Symfony Stopwatch plugin for HTTPlug",
+        "homepage": "http://httplug.io",
+        "keywords": [
+            "http",
+            "httplug",
+            "plugin",
+            "stopwatch"
+        ]
+    },
+    {
+        "name": "phpoffice/phpexcel",
+        "version": "1.8.2",
+        "version_normalized": "1.8.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/PHPOffice/PHPExcel.git",
+            "reference": "1441011fb7ecdd8cc689878f54f8b58a6805f870"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/1441011fb7ecdd8cc689878f54f8b58a6805f870",
+            "reference": "1441011fb7ecdd8cc689878f54f8b58a6805f870",
+            "shasum": ""
+        },
+        "require": {
+            "ext-mbstring": "*",
+            "ext-xml": "*",
+            "ext-xmlwriter": "*",
+            "php": "^5.2|^7.0"
+        },
+        "require-dev": {
+            "squizlabs/php_codesniffer": "2.*"
+        },
+        "time": "2018-11-22T23:07:24+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "PHPExcel": "Classes/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL-2.1"
+        ],
+        "authors": [
+            {
+                "name": "Maarten Balliauw",
+                "homepage": "http://blog.maartenballiauw.be"
+            },
+            {
+                "name": "Erik Tilt"
+            },
+            {
+                "name": "Franck Lefevre",
+                "homepage": "http://rootslabs.net"
+            },
+            {
+                "name": "Mark Baker",
+                "homepage": "http://markbakeruk.net"
+            }
+        ],
+        "description": "PHPExcel - OpenXML - Read, Create and Write Spreadsheet documents in PHP - Spreadsheet engine",
+        "homepage": "https://github.com/PHPOffice/PHPExcel",
+        "keywords": [
+            "OpenXML",
+            "excel",
+            "php",
+            "spreadsheet",
+            "xls",
+            "xlsx"
+        ],
+        "abandoned": "phpoffice/phpspreadsheet"
+    },
+    {
+        "name": "phpoffice/phpspreadsheet",
+        "version": "1.8.2",
+        "version_normalized": "1.8.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/PHPOffice/PhpSpreadsheet.git",
+            "reference": "0c1346a1956347590b7db09533966307d20cb7cc"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/PHPOffice/PhpSpreadsheet/zipball/0c1346a1956347590b7db09533966307d20cb7cc",
+            "reference": "0c1346a1956347590b7db09533966307d20cb7cc",
+            "shasum": ""
+        },
+        "require": {
+            "ext-ctype": "*",
+            "ext-dom": "*",
+            "ext-fileinfo": "*",
+            "ext-gd": "*",
+            "ext-iconv": "*",
+            "ext-libxml": "*",
+            "ext-mbstring": "*",
+            "ext-simplexml": "*",
+            "ext-xml": "*",
+            "ext-xmlreader": "*",
+            "ext-xmlwriter": "*",
+            "ext-zip": "*",
+            "ext-zlib": "*",
+            "markbaker/complex": "^1.4",
+            "markbaker/matrix": "^1.1",
+            "php": "^5.6|^7.0",
+            "psr/simple-cache": "^1.0"
+        },
+        "require-dev": {
+            "doctrine/instantiator": "^1.0.0",
+            "dompdf/dompdf": "^0.8.0",
+            "friendsofphp/php-cs-fixer": "@stable",
+            "jpgraph/jpgraph": "^4.0",
+            "mpdf/mpdf": "^7.0.0",
+            "phpcompatibility/php-compatibility": "^8.0",
+            "phpunit/phpunit": "^5.7",
+            "squizlabs/php_codesniffer": "^3.3",
+            "tecnickcom/tcpdf": "^6.2"
+        },
+        "suggest": {
+            "dompdf/dompdf": "Option for rendering PDF with PDF Writer",
+            "jpgraph/jpgraph": "Option for rendering charts, or including charts with PDF or HTML Writers",
+            "mpdf/mpdf": "Option for rendering PDF with PDF Writer",
+            "tecnickcom/tcpdf": "Option for rendering PDF with PDF Writer"
+        },
+        "time": "2019-07-08T21:21:25+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "PhpOffice\\PhpSpreadsheet\\": "src/PhpSpreadsheet"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL-2.1-or-later"
+        ],
+        "authors": [
+            {
+                "name": "Erik Tilt"
+            },
+            {
+                "name": "Adrien Crivelli"
+            },
+            {
+                "name": "Maarten Balliauw",
+                "homepage": "https://blog.maartenballiauw.be"
+            },
+            {
+                "name": "Mark Baker",
+                "homepage": "https://markbakeruk.net"
+            },
+            {
+                "name": "Franck Lefevre",
+                "homepage": "https://rootslabs.net"
+            }
+        ],
+        "description": "PHPSpreadsheet - Read, Create and Write Spreadsheet documents in PHP - Spreadsheet engine",
+        "homepage": "https://github.com/PHPOffice/PhpSpreadsheet",
+        "keywords": [
+            "OpenXML",
+            "excel",
+            "gnumeric",
+            "ods",
+            "php",
+            "spreadsheet",
+            "xls",
+            "xlsx"
+        ]
+    },
+    {
         "name": "psr/cache",
         "version": "1.0.1",
         "version_normalized": "1.0.1.0",
@@ -1985,6 +3309,58 @@
             "container-interface",
             "container-interop",
             "psr"
+        ]
+    },
+    {
+        "name": "psr/http-message",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/http-message.git",
+            "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+            "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2016-08-06T14:39:51+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Http\\Message\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for HTTP messages",
+        "homepage": "https://github.com/php-fig/http-message",
+        "keywords": [
+            "http",
+            "http-message",
+            "psr",
+            "psr-7",
+            "request",
+            "response"
         ]
     },
     {
@@ -2135,6 +3511,731 @@
             "psr",
             "psr-16",
             "simple-cache"
+        ]
+    },
+    {
+        "name": "ralouphie/getallheaders",
+        "version": "3.0.3",
+        "version_normalized": "3.0.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ralouphie/getallheaders.git",
+            "reference": "120b605dfeb996808c31b6477290a714d356e822"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/120b605dfeb996808c31b6477290a714d356e822",
+            "reference": "120b605dfeb996808c31b6477290a714d356e822",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.6"
+        },
+        "require-dev": {
+            "php-coveralls/php-coveralls": "^2.1",
+            "phpunit/phpunit": "^5 || ^6.5"
+        },
+        "time": "2019-03-08T08:55:37+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "src/getallheaders.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Ralph Khattar",
+                "email": "ralph.khattar@gmail.com"
+            }
+        ],
+        "description": "A polyfill for getallheaders."
+    },
+    {
+        "name": "rollerworks/cache",
+        "version": "v1.2.0",
+        "version_normalized": "1.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/rollerworks/Cache.git",
+            "reference": "ad7e658730e480618f007f5de1caf39e47028c0f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/rollerworks/Cache/zipball/ad7e658730e480618f007f5de1caf39e47028c0f",
+            "reference": "ad7e658730e480618f007f5de1caf39e47028c0f",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/cache": "^1.5.2",
+            "php": ">=5.3",
+            "symfony/http-foundation": "~2.3|~3.0"
+        },
+        "time": "2015-12-05T12:56:18+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.2-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Rollerworks\\Component\\Cache\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Sebastiaan Stok",
+                "email": "s.stok@rollercapes.net"
+            }
+        ],
+        "description": "Rollerworks Cache Component",
+        "keywords": [
+            "cache",
+            "doctrine",
+            "rollerworks",
+            "symfony"
+        ],
+        "abandoned": true
+    },
+    {
+        "name": "rollerworks/cache-bundle",
+        "version": "v1.2.0",
+        "version_normalized": "1.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/rollerworks/RollerworksCacheBundle.git",
+            "reference": "31ff03d7220e974a95f50ad30bbf3ada97a6709b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/rollerworks/RollerworksCacheBundle/zipball/31ff03d7220e974a95f50ad30bbf3ada97a6709b",
+            "reference": "31ff03d7220e974a95f50ad30bbf3ada97a6709b",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3",
+            "rollerworks/cache": "~1.2",
+            "symfony/framework-bundle": "~2.3|~3.0"
+        },
+        "time": "2015-12-05T13:11:18+00:00",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Rollerworks\\Bundle\\CacheBundle\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Sebastiaan Stok",
+                "email": "s.stok@rollercapes.net"
+            }
+        ],
+        "description": "Symfony integration bundle for Rollerworks Session Cache",
+        "keywords": [
+            "bundle",
+            "cache",
+            "symfony"
+        ],
+        "abandoned": true
+    },
+    {
+        "name": "rollerworks/exception-parser",
+        "version": "v1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/rollerworks/rollerworks-exception-parser.git",
+            "reference": "1af8996077d80dbf0469277e004507197e4023d9"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/rollerworks/rollerworks-exception-parser/zipball/1af8996077d80dbf0469277e004507197e4023d9",
+            "reference": "1af8996077d80dbf0469277e004507197e4023d9",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "phpspec/phpspec": "~2.1@dev"
+        },
+        "time": "2015-08-06T09:05:47+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Rollerworks\\Component\\ExceptionParser\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Sebastiaan Stok",
+                "email": "s.stok@rollercapes.net"
+            },
+            {
+                "name": "Community contributions",
+                "homepage": "https://github.com/Rollerworks/rollerworks-exception-parser/contributors"
+            }
+        ],
+        "description": "Extracts exception-information to an array",
+        "keywords": [
+            "error",
+            "exception",
+            "parser",
+            "rollerworks"
+        ],
+        "abandoned": true
+    },
+    {
+        "name": "rollerworks/metadata",
+        "version": "v0.5.0",
+        "version_normalized": "0.5.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/rollerworks-graveyard/metadata.git",
+            "reference": "2498210f1520f48dad5da587c338c9e638277088"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/rollerworks-graveyard/metadata/zipball/2498210f1520f48dad5da587c338c9e638277088",
+            "reference": "2498210f1520f48dad5da587c338c9e638277088",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4"
+        },
+        "time": "2015-09-17T11:20:41+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "0.6-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Rollerworks\\Component\\Metadata\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Sebastiaan Stok",
+                "email": "s.stok@rollerscapes.net"
+            }
+        ],
+        "description": "The Rollerworks Metadata Component provides a mechanisms to easily load annotated configuration (or metadata) of Classes, methods and properties from different sources like PHPDoc Annotations, YAML or XML.",
+        "abandoned": true
+    },
+    {
+        "name": "rollerworks/metadata-doctrine-cache",
+        "version": "v0.2",
+        "version_normalized": "0.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/rollerworks/metadata-doctrine-cache.git",
+            "reference": "2596deb36e8e9bbeaf5f7f35879a85cefbbaed40"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/rollerworks/metadata-doctrine-cache/zipball/2596deb36e8e9bbeaf5f7f35879a85cefbbaed40",
+            "reference": "2596deb36e8e9bbeaf5f7f35879a85cefbbaed40",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/cache": "^1.4.2",
+            "php": ">=5.4",
+            "rollerworks/metadata": ">=0.5,<2.0"
+        },
+        "time": "2015-09-17T12:23:34+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Rollerworks\\Component\\Metadata\\Cache\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Sebastiaan Stok",
+                "email": "s.stok@rollercapes.net"
+            },
+            {
+                "name": "Community contributions",
+                "homepage": "https://github.com/Rollerworks/metadata-doctrine-cache/contributors"
+            }
+        ],
+        "description": "Doctrine Cache adapter for the Rollerworks Metadata Component",
+        "keywords": [
+            "cache",
+            "doctrine",
+            "metadata",
+            "rollerworks"
+        ],
+        "abandoned": true
+    },
+    {
+        "name": "rollerworks/search",
+        "version": "v1.2.1",
+        "version_normalized": "1.2.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/rollerworks/search-core.git",
+            "reference": "7cc6d43be96eaf12935041eae012e7be3dd39119"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/rollerworks/search-core/zipball/7cc6d43be96eaf12935041eae012e7be3dd39119",
+            "reference": "7cc6d43be96eaf12935041eae012e7be3dd39119",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/lexer": "^1.0.1",
+            "php": ">=5.4",
+            "seld/jsonlint": "^1.3.1",
+            "symfony/intl": "~2.3|~3.0",
+            "symfony/options-resolver": "~2.8|~3.0",
+            "symfony/property-access": "~2.3|~3.0"
+        },
+        "require-dev": {
+            "phpspec/phpspec": "^2.2.1",
+            "sllh/php-cs-fixer-styleci-bridge": "^2.0",
+            "symfony/phpunit-bridge": "~2.8|~3.0"
+        },
+        "time": "2016-12-01T11:07:21+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.2-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Rollerworks\\Component\\Search\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Sebastiaan Stok",
+                "email": "s.stok@rollercapes.net"
+            },
+            {
+                "name": "Community contributions",
+                "homepage": "https://github.com/Rollerworks/RollerworksSearch/contributors"
+            }
+        ],
+        "description": "RollerworksSearch provides you with a powerful search system",
+        "homepage": "https://rollerworks.github.io/",
+        "keywords": [
+            "filter",
+            "rollerworks",
+            "search"
+        ]
+    },
+    {
+        "name": "rollerworks/search-bundle",
+        "version": "v1.2.0",
+        "version_normalized": "1.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/rollerworks/RollerworksSearchBundle.git",
+            "reference": "8f4203fa1cf7ab7e452b88053d2d6588a305d7a5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/rollerworks/RollerworksSearchBundle/zipball/8f4203fa1cf7ab7e452b88053d2d6588a305d7a5",
+            "reference": "8f4203fa1cf7ab7e452b88053d2d6588a305d7a5",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4",
+            "rollerworks/cache-bundle": "^1.2.0",
+            "rollerworks/exception-parser": "^1.0.1",
+            "rollerworks/metadata-doctrine-cache": ">=0.2,<2.0",
+            "rollerworks/search": "^1.2.1",
+            "rollerworks/search-metadata": "^1.0.3",
+            "rollerworks/search-symfony-di": "^1.1.0",
+            "rollerworks/search-symfony-validator": "^1.0.1",
+            "rollerworks/uri-encoder": "^1.1.0",
+            "symfony/finder": "^2.3.24|~3.0",
+            "symfony/form": "^2.3.24|~3.0",
+            "symfony/framework-bundle": "^2.3.30|~3.0",
+            "symfony/property-access": "^2.3.30|~3.0"
+        },
+        "require-dev": {
+            "doctrine/common": "~2.4",
+            "matthiasnoback/symfony-dependency-injection-test": "^0.7.4",
+            "matthiasnoback/symfony-service-definition-validator": "^1.2.2",
+            "symfony/browser-kit": "~2.3|~3.0",
+            "symfony/phpunit-bridge": "^3.2"
+        },
+        "time": "2017-01-18T14:27:46+00:00",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Rollerworks\\Bundle\\SearchBundle\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Sebastiaan Stok",
+                "email": "s.stok@rollercapes.net"
+            }
+        ],
+        "description": "RollerworksSearch Bundle",
+        "keywords": [
+            "bundle",
+            "filter",
+            "rollerworks",
+            "search",
+            "symfony"
+        ]
+    },
+    {
+        "name": "rollerworks/search-metadata",
+        "version": "v1.0.3",
+        "version_normalized": "1.0.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/rollerworks/search-metadata.git",
+            "reference": "57a9e09bde13493cf815a391f86ab7e02c8ca662"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/rollerworks/search-metadata/zipball/57a9e09bde13493cf815a391f86ab7e02c8ca662",
+            "reference": "57a9e09bde13493cf815a391f86ab7e02c8ca662",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/annotations": "~1.1",
+            "php": ">=5.4",
+            "rollerworks/metadata": ">=0.5,<2.0",
+            "rollerworks/search": "^1.0.1",
+            "symfony/yaml": "~2.3|~3.0"
+        },
+        "require-dev": {
+            "symfony/phpunit-bridge": "~2.7|~3.0"
+        },
+        "time": "2015-12-09T09:45:03+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Rollerworks\\Component\\Search\\Metadata\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Sebastiaan Stok",
+                "email": "s.stok@rollercapes.net"
+            },
+            {
+                "name": "Community contributions",
+                "homepage": "https://github.com/Rollerworks/rollerworks-search-metadata/contributors"
+            }
+        ],
+        "description": "Metadata extension for RollerworksSearch",
+        "keywords": [
+            "metadata",
+            "rollerworks",
+            "search"
+        ],
+        "abandoned": true
+    },
+    {
+        "name": "rollerworks/search-symfony-di",
+        "version": "v1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/rollerworks/search-symfony-di.git",
+            "reference": "3ddc00f4da9f8808fe3edec99fa478c9f20d9068"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/rollerworks/search-symfony-di/zipball/3ddc00f4da9f8808fe3edec99fa478c9f20d9068",
+            "reference": "3ddc00f4da9f8808fe3edec99fa478c9f20d9068",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4",
+            "rollerworks/search": "^1.0.1",
+            "symfony/config": "~2.3|~3.0",
+            "symfony/dependency-injection": "~2.3|~3.0"
+        },
+        "require-dev": {
+            "matthiasnoback/symfony-dependency-injection-test": "^0.7.1",
+            "matthiasnoback/symfony-service-definition-validator": "^1.2.2",
+            "symfony/finder": "~2.3"
+        },
+        "time": "2015-12-05T11:47:35+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Rollerworks\\Component\\Search\\Extension\\Symfony\\DependencyInjection\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Sebastiaan Stok",
+                "email": "s.stok@rollercapes.net"
+            },
+            {
+                "name": "Community contributions",
+                "homepage": "https://github.com/Rollerworks/rollerworks-search-symfony-di/contributors"
+            }
+        ],
+        "description": "Symfony DependencyInjection extension for RollerworksSearch",
+        "keywords": [
+            "dependency injection",
+            "di",
+            "rollerworks",
+            "search",
+            "symfony"
+        ],
+        "abandoned": "rollerworks/search-bundle"
+    },
+    {
+        "name": "rollerworks/search-symfony-validator",
+        "version": "v1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/rollerworks/search-symfony-validator.git",
+            "reference": "9e88cd5830ddd9ab229310e3827234d53056a304"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/rollerworks/search-symfony-validator/zipball/9e88cd5830ddd9ab229310e3827234d53056a304",
+            "reference": "9e88cd5830ddd9ab229310e3827234d53056a304",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4",
+            "rollerworks/search": "^1.0.1",
+            "symfony/translation": "^2.3.3|~3.0",
+            "symfony/validator": "^2.3.3|~3.0"
+        },
+        "require-dev": {
+            "doctrine/annotations": "~1.2",
+            "doctrine/cache": "~1.4",
+            "symfony/phpunit-bridge": "~2.7|~3.0"
+        },
+        "time": "2015-12-05T12:01:55+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Rollerworks\\Component\\Search\\Extension\\Symfony\\Validator\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Sebastiaan Stok",
+                "email": "s.stok@rollercapes.net"
+            },
+            {
+                "name": "Community contributions",
+                "homepage": "https://github.com/Rollerworks/rollerworks-search-symfony-validator/contributors"
+            }
+        ],
+        "description": "Symfony validator extension for RollerworksSearch",
+        "keywords": [
+            "rollerworks",
+            "search",
+            "symfony",
+            "validation"
+        ]
+    },
+    {
+        "name": "rollerworks/uri-encoder",
+        "version": "v1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/rollerworks/uri-encoder.git",
+            "reference": "340d7e883c2caa778b421e0c8c88e18facdf06d4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/rollerworks/uri-encoder/zipball/340d7e883c2caa778b421e0c8c88e18facdf06d4",
+            "reference": "340d7e883c2caa778b421e0c8c88e18facdf06d4",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "phpspec/phpspec": "~2.1"
+        },
+        "time": "2017-01-17T16:26:09+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Rollerworks\\Component\\UriEncoder\\": "src/"
+            },
+            "exclude-from-classmap": [
+                "spec/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Sebastiaan Stok",
+                "email": "s.stok@rollercapes.net"
+            },
+            {
+                "name": "Community contributions",
+                "homepage": "https://github.com/Rollerworks/rollerworks-uri-encoder/contributors"
+            }
+        ],
+        "description": "A simple library, to safely encode a string for usage in a URI.",
+        "keywords": [
+            "rollerworks"
+        ]
+    },
+    {
+        "name": "seld/jsonlint",
+        "version": "1.7.2",
+        "version_normalized": "1.7.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Seldaek/jsonlint.git",
+            "reference": "e2e5d290e4d2a4f0eb449f510071392e00e10d19"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/e2e5d290e4d2a4f0eb449f510071392e00e10d19",
+            "reference": "e2e5d290e4d2a4f0eb449f510071392e00e10d19",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.3 || ^7.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0"
+        },
+        "time": "2019-10-24T14:27:39+00:00",
+        "bin": [
+            "bin/jsonlint"
+        ],
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Seld\\JsonLint\\": "src/Seld/JsonLint/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jordi Boggiano",
+                "email": "j.boggiano@seld.be",
+                "homepage": "http://seld.be"
+            }
+        ],
+        "description": "JSON Linter",
+        "keywords": [
+            "json",
+            "linter",
+            "parser",
+            "validator"
         ]
     },
     {

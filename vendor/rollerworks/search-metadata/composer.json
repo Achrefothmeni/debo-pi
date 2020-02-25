@@ -1,0 +1,42 @@
+{
+    "name": "rollerworks/search-metadata",
+    "description": "Metadata extension for RollerworksSearch",
+    "keywords": ["rollerworks", "search", "metadata"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sebastiaan Stok",
+            "email": "s.stok@rollercapes.net"
+        },
+        {
+            "name": "Community contributions",
+            "homepage": "https://github.com/Rollerworks/rollerworks-search-metadata/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "rollerworks/search": "^1.0.1",
+        "rollerworks/metadata": ">=0.5,<2.0",
+        "doctrine/annotations": "~1.1",
+        "symfony/yaml": "~2.3|~3.0"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": "~2.7|~3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rollerworks\\Component\\Search\\Metadata\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Rollerworks\\Component\\Search\\Tests\\Metadata\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}

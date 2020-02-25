@@ -43,16 +43,16 @@
                                                 <td>
                                                     {{ article.name }}
                                                 </td>
-                                                <td>{{ article.prix }}</td>
+                                                <td>{{ article.price }}</td>
                                                 <td>{{ article.quantity }}</td>
                                                 <td>
                                                     <img src="{{ asset('images/' ~ article.image) }}" alt="" style="width: 100px;">
-                                    </div>
+
                                                 </td>
                                                 </td>
 
 
-                                                <td>{{ article.libelle }}</td>
+                                                <td>{{ article.label }}</td>
 
 
                                                 <td>{{ article.description }}</td>
@@ -76,7 +76,7 @@
                 </div>
             </div>
         </div>
-
+    </div>
     </div>
 
     {% endblock %}

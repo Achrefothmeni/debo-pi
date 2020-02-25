@@ -7,6 +7,7 @@ use FOS\UserBundle\Model\UserManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Gregwar\CaptchaBundle\Type\CaptchaType;
 
 class UserController extends Controller
 {
@@ -33,6 +34,11 @@ class UserController extends Controller
             $user->setPlainPassword($request->request->get('password'));
             $user->setNom($request->request->get('first_name'));
             $user->setPrenom($request->request->get('last_name'));
+            $user->add('captcha', CaptchaType::class, array(
+                'width' => 200,
+                'height' => 50,
+                'length' => 6,
+            ));
             if ($user_type=="client" || $user_type=="fournisseur"){
                 $user->setMatFiscal($request->request->get('mat_fiscale'));
                 if($user_type=="client"){

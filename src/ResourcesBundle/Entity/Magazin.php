@@ -41,6 +41,8 @@ class Magazin
     private $capacity;
 
     /**
+<<<<<<< HEAD
+=======
      * @var int
      * @Assert\NotBlank(message="ne doit pas etre vide")
      * @Assert\Regex(
@@ -55,6 +57,7 @@ class Magazin
     private $capacityRest;
 
     /**
+>>>>>>> master
      * @ORM\ManyToOne(targetEntity="ArticleBundle\Entity\Category",inversedBy="fleet")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id_category")
      */

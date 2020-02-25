@@ -1,0 +1,50 @@
+{
+    "name": "rollerworks/search-bundle",
+    "description": "RollerworksSearch Bundle",
+    "keywords": ["filter", "search", "rollerworks", "symfony", "bundle"],
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sebastiaan Stok",
+            "email": "s.stok@rollercapes.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "rollerworks/search": "^1.2.1",
+        "rollerworks/search-symfony-di": "^1.1.0",
+        "rollerworks/search-symfony-validator": "^1.0.1",
+        "rollerworks/search-metadata": "^1.0.3",
+        "rollerworks/metadata-doctrine-cache": ">=0.2,<2.0",
+        "rollerworks/exception-parser": "^1.0.1",
+        "rollerworks/uri-encoder": "^1.1.0",
+        "rollerworks/cache-bundle": "^1.2.0",
+        "symfony/framework-bundle": "^2.3.30|~3.0",
+        "symfony/property-access": "^2.3.30|~3.0",
+        "symfony/finder": "^2.3.24|~3.0",
+        "symfony/form": "^2.3.24|~3.0"
+    },
+    "require-dev": {
+        "symfony/browser-kit": "~2.3|~3.0",
+        "doctrine/common": "~2.4",
+        "symfony/phpunit-bridge": "^3.2",
+        "matthiasnoback/symfony-dependency-injection-test": "^0.7.4",
+        "matthiasnoback/symfony-service-definition-validator": "^1.2.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rollerworks\\Bundle\\SearchBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Rollerworks\\Bundle\\SearchBundle\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.1-dev"
+        }
+    }
+}

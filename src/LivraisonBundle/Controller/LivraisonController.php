@@ -59,6 +59,15 @@ class LivraisonController extends Controller
         $msg = "livraison est ".$livraison->getStatus();
 
 
+<<<<<<< HEAD
+        $message = $twilio->account->messages->sendMessage(
+            '+13345106423', // From a Twilio number in your account
+            '+21650802348', // Text any number
+            $msg
+        );
+        $em->flush();
+        foreach ($commandes as $commande_id){
+=======
         /*$message = $twilio->account->messages->sendMessage(
             '+13345106423', // From a Twilio number in your account
             '+216'.$tel, // Text any number
@@ -66,6 +75,7 @@ class LivraisonController extends Controller
         );
         $em->flush();*/
         foreach ($commandes as $commande_id) {
+>>>>>>> master
             $id = explode(" ",$commande_id);
             $commande=$this->getDoctrine()
                 ->getRepository(Commande::class)
@@ -115,6 +125,8 @@ class LivraisonController extends Controller
             'commandes' => $commandes,
             'livreurs' => $livreurs));
     }
+<<<<<<< HEAD
+=======
 
     public function getLivraisonByLivreurAction($id) {
         $livreur=$this->getDoctrine()
@@ -156,5 +168,6 @@ class LivraisonController extends Controller
             'flottes' => $flottes));
 
     }
+>>>>>>> master
 
 }

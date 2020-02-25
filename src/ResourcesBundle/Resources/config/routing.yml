@@ -27,6 +27,9 @@ magazin_modif:
     defaults: { _controller: ResourcesBundle:Magazin:ModifierMagazin }
 aaaa:
     path:     /call
+<<<<<<< HEAD
+    defaults: { _controller: ResourcesBundle:Magazin:call }
+=======
     defaults: { _controller: ResourcesBundle:Magazin:call }
 rechercherMagazin:
     path:     /rechercherMagazin
@@ -46,3 +49,4 @@ articleAffecter:
 article_affecter:
     path:     /articleAffecter/{idArticle}
     defaults: { _controller: ResourcesBundle:Magazin:ajouterArticle }
+>>>>>>> master

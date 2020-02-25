@@ -17,6 +17,66 @@
 
                 <div class="card-body">
                         <h1 class="card-title">All Articles</h1>
+                    <h4>Search an article</h4>
+                    <div class="sidebar-search">
+
+                        <div class="input-group custom-search-form">
+                            <input type="text" id="search" class="form-control" placeholder="Search here">
+                        </div>
+                        <ul class="nav" id="side-menu">
+                            <li>
+                                <a href="#"> <span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level" id="entitiesNav">
+                                </ul>
+                            </li>
+                        </ul>
+                        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+                        <script type="text/javascript">
+                            jQuery(document).ready(function() {
+                                var searchRequest = null;
+                                $("#search").keyup(function() {
+                                    var minlength = 1;
+                                    var that = this;
+                                    var value = $(this).val();
+                                    var entitySelector = $("#entitiesNav").html('');
+                                    if (value.length >= minlength ) {
+                                        if (searchRequest != null)
+                                            searchRequest.abort();
+                                        searchRequest = $.ajax({
+                                            type: "GET",
+                                            url: "{{ path('article_search') }}",
+                                            data: {
+                                                'q' : value
+                                            },
+                                            dataType: "text",
+                                            success: function(msg){
+                                                //we need to check if the value is the same
+                                                if (value===$(that).val()) {
+                                                    var result = JSON.parse(msg);
+                                                    $.each(result, function(key, arr) {
+                                                        $.each(arr, function(id, value) {
+                                                            if (key === 'posts') {
+                                                                if (id !== 'error') {
+                                                                    console.log(value[1]);
+                                                                    entitySelector.append('<li><b>'+value[0]+'</b>' +
+                                                                        '<a href="/{{ path('view-article', {'id': 'x'}) }}" >'+
+                                                                        '<img src="{{ asset("images/Dell.jpeg")}}" style="width: 50px; height: 50px"/>'+'</a>' +
+                                                                        '</li>');
+                                                                } else {
+                                                                    entitySelector.append('<li class="errorLi">'+value+'</li>');
+                                                                }
+                                                            }
+                                                        });
+                                                    });
+                                                }
+                                            }
+                                        });
+                                    }
+                                });
+                            });
+                        </script>
+
                         {% if articles is not empty %}
                             <div class="table-responsive">
                                 <table class="table">
@@ -28,24 +88,34 @@
                                     <th>Image</th>
                                     <th>Lablel</th>
                                     <th>Article Description</th>
+                                    <th>Update</th>
+                                    <th>Delete</th>
                                     </thead>
                                     <tbody>
                                     {% for article in articles %}
                                         <tr>
                                             <td>{{ article.idArticle }}</td>
                                               <td>{{ article.name }}</td>
-                                            <td>{{ article.prix  }}</td>
+                                            <td>{{ article.Price  }}</td>
                                             <td>{{ article.quantity }}</td>
                                             <td><img src="{{ asset('images/' ~ article.image) }}" alt="" width="90px"></td>
-                                            <td>{{ article.libelle }}</td>
+                                            <td>{{ article.label }}</td>
                                             <td>{{ article.description }}</td>
+<<<<<<< HEAD
+                                            <td><a href="{{ path('update-article', {
+                                                    'id': article.idArticle
+                                                }) }}"  style="color:#00ad5f">Update</a> </td>
+                                            <td><a href="{{ path('delete_article',{'id': article.idArticle}) }}" style="color:#FF0000">Delete</a></td>
+=======
                                             {% if article.magazin == null %}
                                                 <td><a href="{{ path('articleAffecter',{ 'idArticle' : article.idArticle }) }}" style="color:#0000F0">affecter</a></td>
                                             {% else %}
                                                 <td> affected to {{ article.magazin.idMag }}</td>
                                             {% endif %}
+>>>>>>> master
 
                                         </tr>
+
                                     {% endfor %}
                                     </tbody>
                                 </table>
@@ -55,8 +125,7 @@
                         {% endif %}
 
                         <br/>
-                        <a href="/create-article" target="_blank" class="simple-text logo-normal">Create New</a>
-                        <a href="/article/create-article" target="_blank" class="simple-text logo-normal">Create New</a>
+                        <a href="{{ path('create_article')}}" target="_blank" class="btn btn-primary btn-round"  >Create New</a>
 
                 </div>
             </div>

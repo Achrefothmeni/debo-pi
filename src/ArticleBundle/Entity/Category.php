@@ -3,6 +3,7 @@
 namespace ArticleBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Category
@@ -24,9 +25,9 @@ class Category
     /**
      * @var string
      *
-     * @ORM\Column(name="libelle", type="string", length=255, unique=true)
+     * @ORM\Column(name="label", type="string", length=255, unique=true)
      */
-    private $libelle;
+    private $label;
 
     /**
      * @ORM\OneToMany(targetEntity="ResourcesBundle\Entity\Fleet",mappedBy="category")
@@ -43,21 +44,14 @@ class Category
      * Get id
      *
      * @return int
+
      */
+
 
     /**
-     * Set idCategory
-     *
-     * @param string $idCategory
-     *
-     * @return Category
+     * @ORM\OneToMany(targetEntity="ArticleBundle\Entity\Article", mappedBy="label")
      */
-    public function setIdCategory($idCategory)
-    {
-        $this->idCategory = $idCategory;
 
-        return $this;
-    }
 
     /**
      * @return int
@@ -68,37 +62,28 @@ class Category
     }
 
     /**
-     * Get idCategory
-     *
-     * @return string
+     * @param int $id_category
      */
+    public function setIdCategory($id_category)
+    {
+        $this->id_category = $id_category;
+    }
 
     /**
-     * Set libelle
-     *
-     * @param string $libelle
-     *
-     * @return Category
-     */
-    public function setLibelle($libelle)
-    {
-        $this->libelle = $libelle;
-
-        return $this;
-    }
-    /**
-     * @var
-     * @ORM\ManyToOne(targetEntity="ArticleBundle\Entity\Article")
-     * @ORM\JoinColumn(name="libelle",referencedColumnName="libelle")
-     */
-    /**
-     * Get libelle
-     *
      * @return string
      */
-    public function getLibelle()
+    public function getLabel()
     {
-        return $this->libelle;
+        return $this->label;
     }
+
+    /**
+     * @param string $label
+     */
+    public function setLabel($label)
+    {
+        $this->label = $label;
+    }
+
 }
 

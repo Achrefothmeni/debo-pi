@@ -34,7 +34,11 @@ class User extends BaseUser
     /**
      * @var integer
      *
+<<<<<<< HEAD
+     * @ORM\Column(name="numero_tel", type="integer")
+=======
      * @ORM\Column(name="numero_tel", type="integer", nullable=true)
+>>>>>>> master
      */
     protected $num;
 
@@ -51,6 +55,32 @@ class User extends BaseUser
      * @ORM\Column(name="prenom", type="string", length=255, nullable=true)
      */
     protected $prenom;
+
+
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status_livreur", type="string", length=255, nullable=true)
+     */
+    protected $status = "Disponible";
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param string $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
 
 
 
@@ -120,6 +150,13 @@ class User extends BaseUser
     public function getMatFiscal()
     {
         return $this->matFiscal;
+    }
+    /**
+     * @return integer
+     */
+    public function getNum()
+    {
+        return $this->num;
     }
 
     /**

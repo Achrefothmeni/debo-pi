@@ -19,7 +19,11 @@ class Fleet
      *
      * @ORM\Column(name="matriculation", type="string", length=255)
      * @ORM\Id
+<<<<<<< HEAD
+     *
+=======
      * @Assert\NotBlank(message="ne doit pas etre vide")
+>>>>>>> master
      * @Assert\Regex(
      *     pattern="/^(1|2|3|4|5|6|7|8|9)(0|1|2|3|4|5|6|7|8|9)(0|1|2|3|4|5|6|7|8|9)TUN(0|1|2|3|4|5|6|7|8|9)(0|1|2|3|4|5|6|7|8|9)(0|1|2|3|4|5|6|7|8|9)(0|1|2|3|4|5|6|7|8|9)$/",
      *     match=true,
@@ -29,8 +33,15 @@ class Fleet
     private $matriculation;
 
     /**
-     * @var string
+     * @ORM\ManyToOne(targetEntity="Nature",inversedBy="fleet")
+     * @ORM\JoinColumn(name="nature_id", referencedColumnName="id")
+     */
+     public $nature;
+    /**
+     * @var date
      *
+<<<<<<< HEAD
+=======
      * @ORM\Column(name="status", type="string", length=255, nullable=true)
      */
     private $status = "Disponible";
@@ -63,12 +74,14 @@ class Fleet
      * @var date
      * @Assert\NotBlank(message="ne doit pas etre vide")
      * @Assert\DateTime()
+>>>>>>> master
      * @ORM\Column(name="date", type="date")
      */
     private $date;
 
     /**
      * @var int
+     * @Assert\GreaterThan(25)
      *
      * @Assert\Regex(
      *     pattern="/^(1|2|3|4|5|6|7|8|9)$/",
@@ -81,6 +94,9 @@ class Fleet
     private $capacity;
     /**
      * @var int
+<<<<<<< HEAD
+     * @Assert\GreaterThan(25)
+=======
      *
      * @Assert\NotBlank(message="ne doit pas etre vide")
      * @Assert\Regex(
@@ -88,6 +104,7 @@ class Fleet
      *     match=true,
      *     message="number"
      * )
+>>>>>>> master
      *
      * @ORM\Column(name="kilometrage", type="integer")
      */

@@ -9,9 +9,12 @@
                         <div class="card-header">
                             <h4 class="card-title">Liste des Fleets</h4>
                         </div>
+<<<<<<< HEAD
+=======
                         <div class="card-header">
                             <h6 class="card-title"><a href="{{ path('ajouterFleet') }}" style="color:#0000F0">Ajouter Fleet</a></h6>
                         </div>
+>>>>>>> master
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table">
@@ -20,7 +23,10 @@
                                     <th>capacity</th>
                                     <th>nature</th>
                                     <th>category</th>
+<<<<<<< HEAD
+=======
                                     <th>date de mise en circulation</th>
+>>>>>>> master
                                     <th>images</th>
                                     <th>modifier</th>
                                     <th>supprimer</th>
@@ -33,7 +39,10 @@
                                             <td>{{ f.capacity }}</td>
                                             <td>{{ f.nature.libelle }}</td>
                                             <td>{{ f.category.libelle }}</td>
+<<<<<<< HEAD
+=======
                                             <td>{{ f.date|date('Y-m-d') }}</td>
+>>>>>>> master
                                             <td><img src="{{ asset('images/' ~ f.image) }}" alt="" width="90px"></td>
                                             <td><a href="{{ path('fleet_modif',{ 'matriculation' : f.matriculation }) }}" style="color:#00ad5f">modifier</a></td>
                                             <td><a href="{{ path('fleet_supp',{ 'matriculation' : f.matriculation }) }}" style="color:#FF0000">supprimer</a></td>

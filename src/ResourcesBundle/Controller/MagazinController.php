@@ -78,6 +78,8 @@ class MagazinController extends Controller
 
         return new Response($message->sid);
     }
+<<<<<<< HEAD
+=======
     function searchAction(Request $request){
         $magazin=new magazin();
         $em=$this->getDoctrine()->getManager();
@@ -176,5 +178,6 @@ $category = null;
 
 
 
+>>>>>>> master
 }
 

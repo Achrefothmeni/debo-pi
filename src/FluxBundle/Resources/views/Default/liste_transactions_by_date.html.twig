@@ -18,6 +18,17 @@
                                 <a href="{{ path('generer_excel') }}" target="_blank"> <button type="button" class="btn btn-info">Générer fichier excel</button></a>
                             </div>
                         </div>
+<<<<<<< HEAD
+                        <form>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="input-group date" data-provide="datepicker">
+                                        <input type="text" class="form-control">
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-th"></span>
+                                        </div>
+                                    </div>                            </div>
+=======
                         <form action="{{ path('liste_transaction_by_date') }}">
                             <div class="row">
                                 <div class="col-lg-6">
@@ -25,16 +36,20 @@
                                         <input type="text" class="form-control" name="date_t" placeholder="YYYY-MM-DD"/>
                                     </div>
                                 </div>
+>>>>>>> master
                                 <div class="col-lg-6" style="align-content: center">
                                     <input type="submit" class="btn btn-sm btn-info" value="chercher">
                                 </div>
 
                             </div>
                         </form>
+<<<<<<< HEAD
+=======
                         <div class="row" style="justify-content: center">
                             <a href="{{ path('liste_transaction_by_nature', {nature:'C'}) }}"><button type="button" class="btn btn-sm btn-success">CREDIT</button></a>
                             <a href="{{ path('liste_transaction_by_nature', {nature:'D'}) }}"><button type="button" class="btn btn-sm btn-danger">DEBIT </button></a>
                         </div>
+>>>>>>> master
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -68,7 +83,11 @@
                                             {{transaction.nature}}
                                         </td>
                                         <td>
+<<<<<<< HEAD
+                                            {{transaction.Date|date('Y-m-d H:i:s')}}
+=======
                                             {{transaction.Date|date('Y-m-d ')}}
+>>>>>>> master
                                         </td>
                                     </tr>
                                 {% endfor %}
