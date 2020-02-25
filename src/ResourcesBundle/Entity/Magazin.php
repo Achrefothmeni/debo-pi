@@ -41,10 +41,30 @@ class Magazin
     private $capacity;
 
     /**
+     * @var int
+     * @Assert\NotBlank(message="ne doit pas etre vide")
+     * @Assert\Regex(
+     *     pattern="/^(1|2|3|4|5|6|7|8|9)$/",
+     *     match=true,
+     *     message="number"
+     * )
+     *
+
+     * @ORM\Column(name="capacityRest", type="integer", options={"unsigned":true, "default":0})
+     */
+    private $capacityRest;
+
+    /**
      * @ORM\ManyToOne(targetEntity="ArticleBundle\Entity\Category",inversedBy="fleet")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id_category")
      */
     private $category;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AuthBundle\Entity\User")
+     * @ORM\JoinColumn(name="magazinier_id", referencedColumnName="id")
+     */
+    private $magazinier;
 
     /**
      * @var string
@@ -57,6 +77,12 @@ class Magazin
      * @ORM\Column(name="location", type="string", length=255)
      */
     private $location;
+
+    /**
+     * @ORM\OnetoMany(targetEntity="ArticleBundle\Entity\Article",mappedBy="magazin")
+     * @ORM\JoinColumn(name="article_id", referencedColumnName="id_article")
+     */
+    private $article;
 
 
     /**
@@ -84,6 +110,20 @@ class Magazin
     }
 
     /**
+     * Set capacityRest
+     *
+     * @param integer $capacityRest
+     *
+     * @return Magazin
+     */
+    public function setCapacityRest($capacityRest)
+    {
+        $this->capacityRest = $capacityRest;
+
+        return $this;
+    }
+
+    /**
      * Get capacity
      *
      * @return integer
@@ -92,6 +132,18 @@ class Magazin
     {
         return $this->capacity;
     }
+
+    /**
+     * Get capacityRest
+     *
+     * @return integer
+     */
+    public function getCapacityRest()
+    {
+        return $this->capacityRest;
+    }
+
+
 
     /**
      * Set category
@@ -104,6 +156,34 @@ class Magazin
     {
         $this->category = $category;
     
+        return $this;
+    }
+
+    /**
+     * Set article
+     *
+     * @param mixed $article
+     *
+     * @return Magazin
+     */
+    public function setArticle($article)
+    {
+        $this->article = $article;
+
+        return $this;
+    }
+
+    /**
+     * Set magazinier
+     *
+     * @param mixed $magazinier
+     *
+     * @return Magazin
+     */
+    public function setMagazinier($magazinier)
+    {
+        $this->magazinier = $magazinier;
+
         return $this;
     }
 
@@ -129,6 +209,25 @@ class Magazin
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Get article
+     *
+     * @return mixed
+     */
+    public function getArticle()
+    {
+        return $this->article;
+    }
+    /**
+     * Get magazinier
+     *
+     * @return mixed
+     */
+    public function getMagazinier()
+    {
+        return $this->magazinier;
     }
 
     /**
