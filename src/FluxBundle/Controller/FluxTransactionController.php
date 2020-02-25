@@ -78,7 +78,7 @@ class FluxTransactionController extends Controller
         
     }
     
-    public function generateExcelFileAction(){
+    public function generateExcelFileAction() {
         $transactions=$this->getDoctrine()
             ->getRepository(FluxTransactions::class)
             ->findAll();

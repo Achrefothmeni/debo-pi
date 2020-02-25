@@ -33,7 +33,7 @@ class User extends BaseUser
     /**
      * @var integer
      *
-     * @ORM\Column(name="numero_tel", type="integer")
+     * @ORM\Column(name="numero_tel", type="integer", nullable=true)
      */
     protected $num;
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ccf852a30747da389a080c3825ce6d26",
+    "content-hash": "1e68833304f5f11e05db6b1eddd063bd",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -3044,7 +3044,7 @@
         },
         {
             "name": "vresh/twilio-bundle",
-            "version": "dev-master",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fridolin-koch/VreshTwilioBundle.git",
@@ -3214,9 +3214,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "vresh/twilio-bundle": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
