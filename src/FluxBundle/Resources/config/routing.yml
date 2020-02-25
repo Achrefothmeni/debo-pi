@@ -19,15 +19,7 @@ generer_facture:
 
 
 liste_transaction_by_date:
-<<<<<<< HEAD
     path:     /transactions/{date}
-    defaults: { _controller:FluxBundle:FluxTransaction:getTransactionByDate }
-
-generer_excel:
-    path:     /transaction.xlsx
-    defaults: { _controller: FluxBundle:FluxTransaction:generateExcelFile, _format: xlsx }
-=======
-    path:     /transactions
     defaults: { _controller:FluxBundle:FluxTransaction:getTransactionByDate }
 
 liste_transaction_by_nature:
@@ -45,7 +37,6 @@ generer_excel:
 search_liste_transaction:
     path:     /search
     defaults: { _controller:FluxBundle:FluxTransaction:search }
->>>>>>> master
 
 search_liste_transaction2:
     path:     /search2

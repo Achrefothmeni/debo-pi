@@ -17,21 +17,6 @@
                                 <a href="{{ path('generer_excel') }}" target="_blank"> <button type="button" class="btn btn-info">Générer fichier excel</button></a>
                             </div>
                         </div>
-<<<<<<< HEAD
-                        <form>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="date"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-6" style="align-content: center">
-                                <input type="submit" class="btn btn-sm btn-info" value="chercher">
-                            </div>
-
-                        </div>
-                        </form>
-=======
 
 
                         <form action="{{ path('search_liste_transaction') }}" method="post">
@@ -60,7 +45,6 @@
                             <a href="{{ path('liste_transaction_by_nature', {nature:'C'}) }}"><button type="button" class="btn btn-sm btn-success">CREDIT</button></a>
                             <a href="{{ path('liste_transaction_by_nature', {nature:'D'}) }}"><button type="button" class="btn btn-sm btn-danger">DEBIT </button></a>
                         </div>
->>>>>>> master
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

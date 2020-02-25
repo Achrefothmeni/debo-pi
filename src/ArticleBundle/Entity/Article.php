@@ -47,14 +47,11 @@ class Article
      */
     private $image;
 
-<<<<<<< HEAD
-=======
     /**
      * @ORM\ManyToOne(targetEntity="ResourcesBundle\Entity\Magazin")
      * @ORM\JoinColumn(name="magazin_id", referencedColumnName="id_mag")
      */
     private $magazin;
->>>>>>> master
 
     public function getImage()
     {

@@ -25,12 +25,9 @@
         "knplabs/knp-snappy-bundle": "^1.5",
         "mewesk/twig-excel-bundle": "^2.2",
         "onurb/excel-bundle": "^1.0",
-<<<<<<< HEAD
         "php-http/guzzle6-adapter": "^1.1",
         "php-http/httplug-bundle": "^1.15",
         "rollerworks/search-bundle": "^1.2",
-=======
->>>>>>> master
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^5.0.0",
         "symfony/cache": "^3.4",
@@ -39,11 +36,8 @@
         "symfony/swiftmailer-bundle": "^2.6.4",
         "symfony/symfony": "3.4.*",
         "twig/twig": "^1.0||^2.0",
-        "vresh/twilio-bundle": "^1.0"
-<<<<<<< HEAD
-=======
+        "vresh/twilio-bundle": "^1.0",
       "ext-json": "*"
->>>>>>> master
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

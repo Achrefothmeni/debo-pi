@@ -4,7 +4,6 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
     "content-hash": "c2998a5c418e6856c6d633e3de860b26",
     "packages": [
         {
@@ -35,7 +34,6 @@
                 "files": [
                     "src/functions_include.php"
                 ]
-=======
     "content-hash": "1a9298f30f360d8982542e9dc0845d21",
     "packages": [
         {
@@ -68,7 +66,6 @@
                 "psr-4": {
                     "CMEN\\GoogleChartsBundle\\": ""
                 }
->>>>>>> master
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -76,7 +73,6 @@
             ],
             "authors": [
                 {
-<<<<<<< HEAD
                     "name": "Christian Lück",
                     "email": "christian@lueck.tv"
                 }
@@ -93,7 +89,6 @@
                 "stream_filter_register"
             ],
             "time": "2019-04-09T12:31:48+00:00"
-=======
                     "name": "Christophe Meneses"
                 }
             ],
@@ -107,7 +102,6 @@
                 "map"
             ],
             "time": "2019-12-06T16:29:20+00:00"
->>>>>>> master
         },
         {
             "name": "composer/ca-bundle",

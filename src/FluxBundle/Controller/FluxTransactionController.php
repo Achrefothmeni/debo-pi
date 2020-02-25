@@ -75,6 +75,8 @@ class FluxTransactionController extends Controller
         
     }
 
+
+
     public function getTransactionByNatureAction($nature){
         $em=$this->getDoctrine()->getManager();
         $transactions = $em->getRepository(FluxTransactions::class)->findBy(array('nature'=>$nature));
@@ -87,14 +89,6 @@ class FluxTransactionController extends Controller
             'commandes' => $commandes
         ));
 
-    }
-
-    public function generateExcelFileAction(){
-        $transactions=$this->getDoctrine()
-            ->getRepository(FluxTransactions::class)
-            ->findAll();
-        return $this->render('@Flux/default/transaction.xlsx.twig',array(
-            'transactions' => $transactions));
     }
 
 
@@ -159,35 +153,8 @@ class FluxTransactionController extends Controller
 
     }
 
-<<<<<<< HEAD
-    public function genererFactureAction($id)
-    {
-        $em=$this->getDoctrine()->getManager();
-        $commande = $em->getRepository(Commande::class)->find($id);
-        $lignecommandes = $em->getRepository(lignecommande::class)->findBy(array('commande' => $commande));
-        return $this->render('@Flux/default/afficherfacture.html.twig', array(
-            'lignecommandes' => $lignecommandes,
-            'commande' => $commande
-        ));
 
-    }
 
-    public function getTransactionByDateAction($date){
-        $em=$this->getDoctrine()->getManager();
-        $date= date_create($date);
-        $transactions = $em->getRepository(FluxTransactions::class)->findBy(array('date'=>$date));
-        $commandes=$this->getDoctrine()
-            ->getRepository(Commande::class)
-            ->findAll();
-
-        return $this->render('@Flux/default/liste_transactions_by_date.html.twig', array(
-            'transactions' => $transactions,
-            'commandes' => $commandes
-
-        ));
-        
-    }
-    
     public function generateExcelFileAction(){
         $transactions=$this->getDoctrine()
             ->getRepository(FluxTransactions::class)
@@ -195,7 +162,6 @@ class FluxTransactionController extends Controller
         return $this->render('@Flux/default/transaction.xlsx.twig',array(
             'transactions' => $transactions));
     }
-=======
     public function searchAction(Request $request){
         $em = $this->getDoctrine()->getManager();
 
