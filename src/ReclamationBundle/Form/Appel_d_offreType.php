@@ -13,7 +13,7 @@ class Appel_d_offreType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('status');
+        //$builder->add('status');
     }/**
      * {@inheritdoc}
      */

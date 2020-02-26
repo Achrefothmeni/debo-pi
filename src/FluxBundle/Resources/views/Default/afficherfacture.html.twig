@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-<link href="{{ asset('dashboard/assets/css/bootstrap.min.css') }}" rel="stylesheet" id="bootstrap-css">
-<script src="{{ asset('dashboard/assets/js/core/bootstrap.min.js') }}"></script>
-<script src="{{ asset('dashboard/assets/js/core/jquery.min.js') }}"></script>
-=======
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
->>>>>>> master
 <!------ Include the above in your HEAD tag ---------->
 
 <div class="container">
@@ -15,24 +9,15 @@
                 <div class="card-body p-0">
                     <div class="row p-5">
                         <div class="col-md-6">
-<<<<<<< HEAD
-                            <img src="http://via.placeholder.com/400x90?text=logo">
-                        </div>
-
-                        <div class="col-md-6 text-right">
-                            <p class="font-weight-bold mb-1">Reference Commande</p>
-                            <p class="text-muted">date</p>
-=======
                             <img src="{{asset('dashboard/assets/img/logo.png')}}" style="width: 100px ;height: 100px">
                         </div>
 
                         <div class="col-md-6 text-right">
                             <h4> <p class="font-weight-bold mb-15">FACTURE</p> </h4>
                             <div class="row">
-                            <p class="text-muted">Réf commande: {{commande.id}}</p>
+                                <p class="text-muted">Réf commande: {{commande.id}}</p>
                             </div>
                             <p class="text-muted">{{commande.Date|date('Y-m-d')}}</p>
->>>>>>> master
                         </div>
                     </div>
 
@@ -41,27 +26,13 @@
                     <div class="row pb-5 p-5">
                         <div class="col-md-6">
                             <p class="font-weight-bold mb-4">Informations Client</p>
-<<<<<<< HEAD
-                            <p class="mb-1">first name, last name</p>
-                            <p class="mb-1">Email address</p>
-                            <p class="mb-1">matricule fiscale </p>
-                        </div>
-
-                        <div class="col-md-6 text-right">
-                            <p class="font-weight-bold mb-4">Details de paiement</p>
-                            <p class="mb-1"><span class="text-muted">VAT: </span> 1425782</p>
-                            <p class="mb-1"><span class="text-muted">VAT ID: </span> 10253642</p>
-                            <p class="mb-1"><span class="text-muted">Payment Type: </span> Root</p>
-                            <p class="mb-1"><span class="text-muted">Name: </span> John Doe</p>
-=======
 
                             <div class="row" style="margin-left: 1px;">
-                            <p class="mb-1" style="margin-right: 5px;">Nom: {{commande.user ? commande.user.nom}}</p>
-                            <p class="mb-1">Prénom: {{commande.user ? commande.user.prenom}}</p>
+                                <p class="mb-1" style="margin-right: 5px;">Nom: {{commande.user ? commande.user.nom}}</p>
+                                <p class="mb-1">Prénom: {{commande.user ? commande.user.prenom}}</p>
                             </div>
                             <p class="mb-1">Adresse email: {{commande.user ? commande.user.email}}</p>
                             <p class="mb-1">Matricule fiscale: {{commande.user ? commande.user.MatFiscal}}</p>
->>>>>>> master
                         </div>
                     </div>
 
@@ -79,18 +50,10 @@
                                 </tr>
                                 </thead>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
                                 <tbody>
                                 {% for lignecommande in lignecommandes%}
                                     <tr>
                                         <td>
-<<<<<<< HEAD
-
-=======
->>>>>>> master
                                             {{lignecommande.id}}
                                         </td>
                                         <td>
@@ -119,22 +82,8 @@
                     <div class="d-flex flex-row-reverse bg-dark text-white p-4">
                         <div class="py-3 px-5 text-right">
                             <div class="mb-2">Grand Total</div>
-<<<<<<< HEAD
-                            <div class="h2 font-weight-light">$234,234</div>
-                        </div>
-
-                        <div class="py-3 px-5 text-right">
-                            <div class="mb-2">Discount</div>
-                            <div class="h2 font-weight-light">10%</div>
-                        </div>
-
-                        <div class="py-3 px-5 text-right">
-                            <div class="mb-2">Sub - Total amount</div>
-                            <div class="h2 font-weight-light">$32,432</div>
-=======
 
                             <div class="h2 font-weight-light"><p class="mb-1">{{commande.sum}}</p></div>
->>>>>>> master
                         </div>
                     </div>
                 </div>
@@ -142,10 +91,6 @@
         </div>
     </div>
 
-<<<<<<< HEAD
-    <div class="text-light mt-5 mb-5 text-center small">by : <a class="text-light" target="_blank" href="http://totoprayogo.com">totoprayogo.com</a></div>
-=======
->>>>>>> master
 
 </div>
 

@@ -42,9 +42,9 @@
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <li class="active ">
-                    <a href="./dashboard.html">
+                    <a href="{{ path('show-articles') }}">
                         <i class="nc-icon nc-bank"></i>
-                        <p>Stock</p>
+                        <p>Articles</p>
                     </a>
                 </li>
                 <li>
@@ -60,11 +60,18 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./notifications.html">
+                    <a href="{{ path('afficherMagazin') }}">
                         <i class="nc-icon nc-shop"></i>
-                        <p>Resources</p>
+                        <p>Magasins</p>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ path('afficherFleet') }}">
+                        <i class="nc-icon nc-shop"></i>
+                        <p>Fleet</p>
+                    </a>
+                </li>
+
                 <li>
                     <a href="{{ path ('flux_home') }}">
                         <i class="nc-icon nc-money-coins"></i>
@@ -72,11 +79,18 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./tables.html">
+                    <a href="{{ path('reclamation_show') }}">
                         <i class="nc-icon nc-paper"></i>
                         <p>Appel d'offres</p>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ path('reclamation_show') }}">
+                        <i class="nc-icon nc-paper"></i>
+                        <p>Reclamations</p>
+                    </a>
+                </li>
+
                 <li>
                     <a href="{{ path('statistiques') }}">
                         <i class="nc-icon nc-chart-pie-36"></i>
@@ -190,6 +204,8 @@
         <script src="{{ asset('dashboard/assets/demo/demo.js') }}"></script>
         <script src="{{ asset('dashboard/assets/date/js/bootstrap-datepicker.js') }}"></script>
         <script src="{{ asset('dashboard/assets/date/js/bootstrap-datepicker.min.js') }}"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
         <script>
             $(document).ready(function() {
                 demo.initChartsPages();

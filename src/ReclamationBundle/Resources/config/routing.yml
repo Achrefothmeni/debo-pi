@@ -14,6 +14,13 @@ reclamation_create:
     path:     /createReclamation
     defaults: { _controller: "ReclamationBundle:Reclamation:createReclamation" }
 
+reclamation_edit:
+    path:     /status/{id}
+    defaults: { _controller: "ReclamationBundle:Reclamation:edit" }
+
+reclamation_recherche:
+    path:     /status/{choix}
+    defaults: { _controller: "ReclamationBundle:Reclamation:recherche" }
 
 
 
@@ -35,9 +42,13 @@ appel_d_offre_show:
     path:     /{id}/show
     defaults: { _controller: "ReclamationBundle:Appel_d_offre:show" }
 
+appel_d_offre_all:
+    path: /showTender
+    defaults: {_controller: "ReclamationBundle:Appel_d_offre:showTenders"}
+
 appel_d_offre_new:
     path:     /new
-    defaults: { _controller: "ReclamationBundle:Appel_d_offre:new" }
+    defaults: { _controller: "ReclamationBundle:Appel_d_offre:createTenders" }
 
 appel_d_offre_edit:
     path:     /{id}/edit
@@ -46,3 +57,14 @@ appel_d_offre_edit:
 appel_d_offre_delete:
     path:     /{id}/delete
     defaults: { _controller: "ReclamationBundle:Appel_d_offre:delete" }
+
+articleTender_add:
+    path: /{id}/addArticleTender
+    defaults: {_controller: "ReclamationBundle:Appel_d_offre:addArticle"}
+article_add:
+    path: /{id}/{idArticle}/addArticleTender
+    defaults: {_controller: "ReclamationBundle:Appel_d_offre:addArticle2"}
+
+articleTender_price:
+    path: /{id}/price
+    defaults: {_controller: "ReclamationBundle:Appel_d_offre:addPrice"}

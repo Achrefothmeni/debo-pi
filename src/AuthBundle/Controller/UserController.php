@@ -4,11 +4,10 @@ namespace AuthBundle\Controller;
 
 use AuthBundle\Entity\User;
 use FOS\UserBundle\Model\UserManagerInterface;
+use Swift_Message;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Gregwar\CaptchaBundle\Type\CaptchaType;
-
 class UserController extends Controller
 {
     public function getAllUsersAction()
@@ -34,11 +33,6 @@ class UserController extends Controller
             $user->setPlainPassword($request->request->get('password'));
             $user->setNom($request->request->get('first_name'));
             $user->setPrenom($request->request->get('last_name'));
-            $user->add('captcha', CaptchaType::class, array(
-                'width' => 200,
-                'height' => 50,
-                'length' => 6,
-            ));
             if ($user_type=="client" || $user_type=="fournisseur"){
                 $user->setMatFiscal($request->request->get('mat_fiscale'));
                 if($user_type=="client"){
@@ -59,6 +53,16 @@ class UserController extends Controller
                 'username' => $request->request->get('username'),
                 'pwd' => $request->request->get('password')));
             //return $this->redirectToRoute('users_list');
+            $email = $user->getEmail();
+            $name = $user->getUsername();
+            $password = $user->getPlainPassword();
+            $message = Swift_Message::newInstance()
+                ->setSubject("Vos coordonnée d'authentification")
+                ->setFrom('achref.othmani@esprit.tn')
+                ->setTo($request->request->get($email))
+                ->setBody("Username: $name \n Password: $password");
+            $this->get('mailer')->send($message);
+
             return new Response(
                 $snappy->getOutputFromHtml($html),
                 200,

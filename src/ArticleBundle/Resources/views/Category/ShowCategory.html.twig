@@ -5,132 +5,77 @@
 {% block title %}Show Categories{% endblock %}
 {% block body %}
 
-<div class="content">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h1 class="card-title">All Categories</h1>
-                </div>
-                <div class="card-body">
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h1 class="card-title">All Categories</h1>
+                    </div>
+                    <div class="card-body">
 
-                    <div class="col-md-12">
-                        
-                        <h5 style="color:#51cbce;font-family: bold">Search a Category</h5>
-                        <div class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" id="search" class="form-control" placeholder="Search here">
-                            </div>
-                            <ul class="nav" id="side-menu">
-                                <li>
-                                    <a href="#"><span class="fa arrow"></span></a>
-                                    <ul class="nav nav-second-level" id="entitiesNav">
-                                    </ul>
-                                </li>
-                            </ul>
+                        <div class="col-md-12">
                             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-                            <script type="text/javascript">
-                                jQuery(document).ready(function() {
-                                    var searchRequest = null;
-                                    $("#search").keyup(function() {
-                                        var minlength = 1;
-                                        var that = this;
-                                        var value = $(this).val();
-                                        var entitySelector = $("#entitiesNav").html('');
-                                        if (value.length >= minlength ) {
-                                            if (searchRequest != null)
-                                                searchRequest.abort();
-                                            searchRequest = $.ajax({
-                                                type: "GET",
-                                                url: "{{ path('category_search') }}",
-                                                data: {
-                                                    'q' : value
-                                                },
-                                                dataType: "text",
-                                                success: function(msg){
-                                                    //we need to check if the value is the same
-                                                    if (value===$(that).val()) {
-                                                        var result = JSON.parse(msg);
-                                                        $.each(result, function(key, arr) {
-                                                            $.each(arr, function(id, value) {
-                                                                if (key === 'posts') {
-                                                                    if (id !== 'error') {
-                                                                        console.log(value[1]);
-                                                                        entitySelector.append('<li><b>'+value[0]+'</b>' +
-                                                                            '<a href="{{ path('create_category') }}" >'+
-                                                                            '<p>'+value[1]+'</p>' +
-                                                                            '</li>');
-                                                                    } else {
-                                                                        entitySelector.append('<li class="errorLi">'+value+'</li>');
-                                                                    }
-                                                                }
-                                                            });
-                                                        });
-                                                    }
-                                                }
-                                            });
-                                        }
-                                    });
-                                });
-                            </script>
-                        <div class="card card-user">
-                            <div class="card-header">
-                                <div class="table-responsive">
+                            <div class="card card-user">
+                                <div class="card-header">
+                                    <div class="table-responsive">
 
-                                    {% if category is not empty %}
-                                        <table class="table">
-                                            <thead class=" text-primary">
-                                            <th>category ID</th>
-                                            <th>Label</th>
-                                            <th>Products</th>
-                                            <th>Update</th>
-                                            <th>Delete</th>
-                                            </thead>
-                                            <tbody>
-                                            {% for c in category %}
-<tr>
-                                                    <td>{{ c.IdCategory}}</td>
+                                        {% if category is not empty %}
+                                            <table class="table">
+                                                <thead class=" text-primary">
+                                                <th>category ID</th>
+                                                <th>Label</th>
+                                                <th>Products</th>
+                                                <th>Update</th>
+                                                <th>Delete</th>
+                                                </thead>
+                                                <tbody>
+                                                {% for c in category %}
+                                                    <tr>
+                                                        <td>{{ c.IdCategory}}</td>
 
-                                                    <td>{{ c.label }}</td>
-    <td>  {% if form is not empty %}
-            {% for forms in form %}
-                <p>{{ forms.name }}</p>
+                                                        <td>{{ c.label }}</td>
+                                                        <td>  {% if Article is not empty %}
+                                                                {% for a in Article %}
+                                                                    {% if a.label == c.label %}
+                                                                        <p>{{ a.description }}</p>
+                                                                    {% endif %}
+                                                                {% endfor %}
 
-            {% endfor %}
+                                                            {% else %}
+                                                                <p>No Articles found for this category</p>
+                                                            {% endif %}
+                                                        </td>
+                                                        <td><a href="{{ path('update-category',{'id': c.IdCategory}) }}" style="color:#00ad5f">Update</a></td>
+                                                        <td><a href="{{ path('delete_category',{'id': c.IdCategory}) }}" style="color:#FF0000">Delete</a></td>
 
-        {% else %}
-            <p>No Articles found for this category</p>
-        {% endif %}
-    </td>
-    <td><a href="{{ path('update-category',{'id': c.IdCategory}) }}" style="color:#00ad5f">Update</a></td>
-    <td><a href="{{ path('delete_category',{'id': c.IdCategory}) }}" style="color:#FF0000">Delete</a></td>
+                                                    </tr>
 
-</tr>
-
-                                            {% endfor %}
+                                                {% endfor %}
 
 
-                                            </tbody>
-                                        </table>
-                                    {% else %}
-                                        <p>No categories found.</p>
-                                    {% endif %}
+                                                </tbody>
+                                            </table>
+                                        {% else %}
+                                            <p>No categories found.</p>
+                                        {% endif %}
+                                    </div>
+
+                                    <br/>
+                                    <a href="{{ path('create_category') }}" class="btn btn-primary btn-round">Create New</a>
                                 </div>
-
-                                <br/>
-                                <a href="{{ path('create_category') }}" class="btn btn-primary btn-round">Create New</a>
                             </div>
                         </div>
+
+                        <br/>
+
+
                     </div>
-
-                    <br/>
-
-
                 </div>
             </div>
+
         </div>
-
     </div>
-
-    {% endblock %}
+    </div>
+{% endblock %}

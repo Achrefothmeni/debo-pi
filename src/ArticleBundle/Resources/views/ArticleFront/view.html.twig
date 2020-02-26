@@ -3,14 +3,14 @@
 {% block title %}View article {% endblock %}
 
 {% block body %}
-<div class="content">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h1 class="card-title">View article {{ article.name }}</h1>
-                </div>
-                <div class="card-body">
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h1 class="card-title">View article {{ article.name }}</h1>
+                    </div>
+                    <div class="card-body">
                         <div class="col-md-12">
                             <div class="card card-user">
                                 <div class="card-header">
@@ -48,27 +48,27 @@
                                                 <td>
                                                     <img src="{{ asset('images/' ~ article.image) }}" alt="" style="width: 100px;">
                                     </div>
-                                                </td>
-                                                </td>
+                                    </td>
+                                    </td>
 
 
-                                                <td>{{ article.libelle }}</td>
+                                    <td>{{ article.libelle }}</td>
 
 
-                                                <td>{{ article.description }}</td>
-                                            </tr>
+                                    <td>{{ article.description }}</td>
+                                    </tr>
 
-                                            </tbody>
-                                        </table>
+                                    </tbody>
+                                    </table>
 
-                                    </div>
-
-                                    <br/>
-                                    <a href="/article/show-articles" class="btn btn-primary btn-round">View All</a><br>
-                                    <a href="/article/Delete-article/{{ article.idArticle }}" target="_blank" class="btn btn-primary btn-round">delete this Article</a>
                                 </div>
+
+                                <br/>
+                                <a href="/article/show-articles" class="btn btn-primary btn-round">View All</a><br>
+                                <a href="/article/Delete-article/{{ article.idArticle }}" target="_blank" class="btn btn-primary btn-round">delete this Article</a>
                             </div>
                         </div>
+                    </div>
 
                     <br/>
 
@@ -79,4 +79,4 @@
 
     </div>
 
-    {% endblock %}
+{% endblock %}

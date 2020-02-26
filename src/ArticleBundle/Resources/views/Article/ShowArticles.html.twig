@@ -10,126 +10,125 @@
         }
     </style>
 
+
     <div class="content">
     <div class="row">
-        <div class="col-md-12">
-            <div class="card">
+    <div class="col-md-12">
+    <div class="card">
 
-                <div class="card-body">
-                        <h1 class="card-title">All Articles</h1>
-                    <h4>Search an article</h4>
-                    <div class="sidebar-search">
+    <div class="card-body">
+    <h1 class="card-title">All Articles</h1>
+    <h4>Search an article</h4>
+    <div class="sidebar-search">
 
-                        <div class="input-group custom-search-form">
-                            <input type="text" id="search" class="form-control" placeholder="Search here">
-                        </div>
-                        <ul class="nav" id="side-menu">
-                            <li>
-                                <a href="#"> <span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level" id="entitiesNav">
-                                </ul>
-                            </li>
-                        </ul>
-                        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <div class="input-group custom-search-form">
+            <input type="text" id="search" class="form-control" placeholder="Search here"><i class="zmdi zmdi-search"></i>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead class=" text-primary">
+                <th>Name</th>
+                <th>Price</th>
 
-                        <script type="text/javascript">
-                            jQuery(document).ready(function() {
-                                var searchRequest = null;
-                                $("#search").keyup(function() {
-                                    var minlength = 1;
-                                    var that = this;
-                                    var value = $(this).val();
-                                    var entitySelector = $("#entitiesNav").html('');
-                                    if (value.length >= minlength ) {
-                                        if (searchRequest != null)
-                                            searchRequest.abort();
-                                        searchRequest = $.ajax({
-                                            type: "GET",
-                                            url: "{{ path('article_search') }}",
-                                            data: {
-                                                'q' : value
-                                            },
-                                            dataType: "text",
-                                            success: function(msg){
-                                                //we need to check if the value is the same
-                                                if (value===$(that).val()) {
-                                                    var result = JSON.parse(msg);
-                                                    $.each(result, function(key, arr) {
-                                                        $.each(arr, function(id, value) {
-                                                            if (key === 'posts') {
-                                                                if (id !== 'error') {
-                                                                    console.log(value[1]);
-                                                                    entitySelector.append('<li><b>'+value[0]+'</b>' +
-                                                                        '<a href="/{{ path('view-article', {'id': 'x'}) }}" >'+
-                                                                        '<img src="{{ asset("images/Dell.jpeg")}}" style="width: 50px; height: 50px"/>'+'</a>' +
-                                                                        '</li>');
-                                                                } else {
-                                                                    entitySelector.append('<li class="errorLi">'+value+'</li>');
-                                                                }
-                                                            }
-                                                        });
-                                                    });
+                <th>Quantity</th>
+                <th>Label</th>
+                <th>Description</th>
+                <th>Rating</th>
+                <th>Update</th>
+                <th>Delete</th>
+                <th>View</th>
+                <th>Affect</th>
+                </thead>
+            </table>
+        </div>
+        <ul id="side-menu">
+            <li>
+                <a href="#"> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level" id="entitiesNav">
+                </ul>
+            </li>
+        </ul>
+
+
+        <script src="{{ asset('dashboard/assets/js/core/jquery.min.js') }}"></script>
+
+        <script type="text/javascript">
+            jQuery(document).ready(function() {
+                var searchRequest = null;
+                $("#search").keyup(function() {
+                    var minlength = 1;
+                    var that = this;
+                    var value = $(this).val();
+                    var entitySelector = $("#entitiesNav").html('');
+                    if (value.length >= minlength ) {
+                        if (searchRequest != null)
+                            searchRequest.abort();
+                        searchRequest = $.ajax({
+                            type: "GET",
+                            url: "{{ path('article_search') }}",
+                            data: {
+                                'q' : value
+                            },
+                            dataType: "text",
+                            success: function(msg){
+                                //we need to check if the value is the same
+                                if (value===$(that).val()) {
+                                    var result = JSON.parse(msg);
+                                    $.each(result, function(key, arr) {
+                                        $.each(arr, function(id, value) {
+                                            if (key === 'posts') {
+                                                if (id !== 'error') {
+                                                    console.log(value[1]);
+                                                    entitySelector.append('' +
+                                                        '                        {% if articles is not empty %}\n'+
+                                                        '                                <table class="table">\n'+
+                                                        '                                    <tbody>\n'+
+                                                        '                                        <tr>\n'+
+                                                        '                                            <td>'+value[0]+'</td>\n'+
+                                                        '                                            <td>'+value[1]+'</td>\n'+
+                                                        '                                            <td>'+value[2]+'</td>\n'+
+                                                        //'                                            <td><img src="{{ asset("images/value[3]")}}" alt="" width="90px"></td>\n'+
+                                                        '                                            <td>'+value[4]+'</td>\n'+
+                                                        '                                            <td>'+value[5]+'</td>\n'+
+                                                        '                                            <td>'+value[6]+'</td>\n'+
+                                                        '                                             <td><a href="/article/update/'+value[6]+'" style="color:#00ad5f">Update</a></td>\n'+
+                                                        '                                            <td><a href="/article/delete" style="color:#FF0000">Delete</a></td>\n'+
+                                                        '                                            <td><a href="/article/view" style="color:#FFD700">view</a></td>\n'+
+                                                        '                                            <td><a href="/article/affect" style="color:#40E0D0">Affect</a></td>\n'+
+
+                                                        '\n'+
+                                                        '                                        </tr>\n'+
+                                                        '\n'+
+                                                        '                                    </tbody>\n'+
+                                                        '                                </table>\n'+
+                                                        '                        {% else %}\n'+
+                                                        '                            <p>No article found.</p>\n'+
+                                                        '                        {% endif %}\n'+
+                                                        '\n'+
+                                                        '                        <br/>\n'+
+                                                        '\n'+
+                                                        '                </div>\n'+
+                                                        '            </div>\n'+
+                                                        '        </div>\n');
+                                                } else {
+                                                    entitySelector.append('<li class="errorLi">'+value+'</li>');
                                                 }
                                             }
                                         });
-                                    }
-                                });
-                            });
-                        </script>
-
-                        {% if articles is not empty %}
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead class=" text-primary">
-                                    <th>Articles ID</th>
-                                    <th>Name</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Image</th>
-                                    <th>Lablel</th>
-                                    <th>Article Description</th>
-                                    <th>Update</th>
-                                    <th>Delete</th>
-                                    </thead>
-                                    <tbody>
-                                    {% for article in articles %}
-                                        <tr>
-                                            <td>{{ article.idArticle }}</td>
-                                              <td>{{ article.name }}</td>
-                                            <td>{{ article.Price  }}</td>
-                                            <td>{{ article.quantity }}</td>
-                                            <td><img src="{{ asset('images/' ~ article.image) }}" alt="" width="90px"></td>
-                                            <td>{{ article.label }}</td>
-                                            <td>{{ article.description }}</td>
-<<<<<<< HEAD
-                                            <td><a href="{{ path('update-article', {
-                                                    'id': article.idArticle
-                                                }) }}"  style="color:#00ad5f">Update</a> </td>
-                                            <td><a href="{{ path('delete_article',{'id': article.idArticle}) }}" style="color:#FF0000">Delete</a></td>
-=======
-                                            {% if article.magazin == null %}
-                                                <td><a href="{{ path('articleAffecter',{ 'idArticle' : article.idArticle }) }}" style="color:#0000F0">affecter</a></td>
-                                            {% else %}
-                                                <td> affected to {{ article.magazin.idMag }}</td>
-                                            {% endif %}
->>>>>>> master
-
-                                        </tr>
-
-                                    {% endfor %}
-                                    </tbody>
-                                </table>
-                            </div>
-                        {% else %}
-                            <p>No article found.</p>
-                        {% endif %}
-
-                        <br/>
-                        <a href="{{ path('create_article')}}" target="_blank" class="btn btn-primary btn-round"  >Create New</a>
-
-                </div>
-            </div>
+                                    });
+                                }
+                            }
+                        });
+                    }
+                });
+            });
+        </script>
+        <a href="{{ path('create_article')}}" target="_blank" class="btn btn-primary btn-round"  >Create New</a>
+    </div>
+        <div class="card-header">
+            <h6 class="card-title"><a href="{{ path('show-articles2') }}" style="color:#0000F0">View All</a></h6>
         </div>
+        <br/>
 
     </div>
 

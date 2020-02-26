@@ -3,14 +3,14 @@
 {% block title %}View article {% endblock %}
 
 {% block body %}
-<div class="content">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h1 class="card-title">View article {{ article.name }}</h1>
-                </div>
-                <div class="card-body">
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h1 class="card-title">View article {{ article.name }}</h1>
+                    </div>
+                    <div class="card-body">
                         <div class="col-md-12">
                             <div class="card card-user">
                                 <div class="card-header">
@@ -36,6 +36,9 @@
                                             <th>
                                                 Description
                                             </th>
+                                            <th>
+                                                Rating
+                                            </th>
                                             </thead>
                                             <tbody>
 
@@ -43,7 +46,7 @@
                                                 <td>
                                                     {{ article.name }}
                                                 </td>
-                                                <td>{{ article.price }}</td>
+                                                <td>{{ article.price }}<b>TND</b></td>
                                                 <td>{{ article.quantity }}</td>
                                                 <td>
                                                     <img src="{{ asset('images/' ~ article.image) }}" alt="" style="width: 100px;">
@@ -56,6 +59,8 @@
 
 
                                                 <td>{{ article.description }}</td>
+
+                                                <td>{{ article.rating }}</td>
                                             </tr>
 
                                             </tbody>
@@ -64,19 +69,21 @@
                                     </div>
 
                                     <br/>
-                                    <a href="/article/show-articles" class="btn btn-primary btn-round">View All</a><br>
-                                    <a href="/article/Delete-article/{{ article.idArticle }}" target="_blank" class="btn btn-primary btn-round">delete this Article</a>
+                                    <a href="{{path('show-articles')}}" class="btn btn-primary btn-round">View All</a><br>
+                                    <a href="{{ path('update-article',{'id': article.idArticle}) }}" class="btn btn-primary btn-round">Update</a>
+                                    <a href="{{ path('delete_article',{'id': article.idArticle}) }}" target="_blank" class="btn btn-primary btn-round">delete</a>
+
                                 </div>
                             </div>
                         </div>
 
-                    <br/>
+                        <br/>
 
 
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
 
-    {% endblock %}
+{% endblock %}

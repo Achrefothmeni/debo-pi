@@ -6,7 +6,9 @@ parameters:
     database_user: root
     database_password: null
     mailer_transport: smtp
-    mailer_host: 127.0.0.1
-    mailer_user: null
-    mailer_password: null
+    mailer_host: smtp.gmail.com
+    mailer_encryption: ssl
+    mailer_auth_mode: login
+    mailer_username: achref.othmani@esprit.tn
+    mailer_password: 193JMT0286
     secret: ThisTokenIsNotSoSecretChangeIt

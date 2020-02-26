@@ -26,7 +26,7 @@ class Appel_d_offre
      *
      * @ORM\Column(name="status", type="string", length=255)
      */
-    private $status;
+    private $status = "Not done";
 
 
     /**

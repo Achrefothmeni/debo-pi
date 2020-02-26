@@ -15,23 +15,14 @@ use Doctrine\ORM\Query;
  */
 class ArticleRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function findEntitiesByString($str)
-    {
+    public function findEntitiesByString($str){
         return $this->getEntityManager()
             ->createQuery(
                 'SELECT p
                 FROM ArticleBundle:Article p
                 WHERE p.name LIKE :str'
             )
-            ->setParameter('str', '%' . $str . '%')
+            ->setParameter('str', '%'.$str.'%')
             ->getResult();
-    }
-    public function findArray($array)
-    {
-        $qb = $this->createQueryBuilder('u')
-            ->Select('u')
-            ->Where('u.idArticle IN (:array)')
-            ->setParameter('array', $array);
-        return $qb->getQuery()->getResult();
     }
 }

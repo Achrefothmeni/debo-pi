@@ -1,5 +1,5 @@
 {% extends 'dashboard_base.html.twig' %}
-    {% block onglet %}Fleet{% endblock %}
+    {% block onglet %}Flottes{% endblock %}
 
     {% block body %}
         <div class="content">
@@ -7,26 +7,25 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Liste des Fleets</h4>
+                            <h4 class="card-title">Liste des Flottes</h4>
                         </div>
-<<<<<<< HEAD
-=======
                         <div class="card-header">
-                            <h6 class="card-title"><a href="{{ path('ajouterFleet') }}" style="color:#0000F0">Ajouter Fleet</a></h6>
+                            <h6 class="card-title"><a href="{{ path('ajouterFleet') }}" style="color:#0000F0">Ajouter Flotte</a></h6>
                         </div>
->>>>>>> master
+                        <div class="card-header">
+                            <h6 class="card-title"><a href="{{ path('rechercherFleet') }}" style="color:#0000F0">Rechercher Flotte</a></h6>
+                        </div>
+
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead class=" text-primary">
                                     <th>matriculation</th>
-                                    <th>capacity</th>
+                                    <th>capacité</th>
                                     <th>nature</th>
-                                    <th>category</th>
-<<<<<<< HEAD
-=======
+                                    <th>categorie</th>
+
                                     <th>date de mise en circulation</th>
->>>>>>> master
                                     <th>images</th>
                                     <th>modifier</th>
                                     <th>supprimer</th>
@@ -38,11 +37,8 @@
                                             <td>{{ f.matriculation }}</td>
                                             <td>{{ f.capacity }}</td>
                                             <td>{{ f.nature.libelle }}</td>
-                                            <td>{{ f.category.libelle }}</td>
-<<<<<<< HEAD
-=======
+                                            <td>{{ f.category.label }}</td>
                                             <td>{{ f.date|date('Y-m-d') }}</td>
->>>>>>> master
                                             <td><img src="{{ asset('images/' ~ f.image) }}" alt="" width="90px"></td>
                                             <td><a href="{{ path('fleet_modif',{ 'matriculation' : f.matriculation }) }}" style="color:#00ad5f">modifier</a></td>
                                             <td><a href="{{ path('fleet_supp',{ 'matriculation' : f.matriculation }) }}" style="color:#FF0000">supprimer</a></td>

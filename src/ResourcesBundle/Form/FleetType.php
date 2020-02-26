@@ -24,7 +24,7 @@ class FleetType extends AbstractType
             )
         )->add('capacity')->add('category',EntityType::class,array(
                 'class'=>'ArticleBundle:Category',
-                'choice_label'=>'libelle',
+                'choice_label'=>'label',
                 'multiple'=>false)
             )->add('kilometrage')->add('date',DateType::class
         );

@@ -2,7 +2,9 @@
 
 namespace ArticleBundle\Entity;
 use Doctrine\Common\Collections\Collection;
+
 use Doctrine\ORM\Mapping as ORM;
+use PhpOffice\PhpSpreadsheet\Shared\Date;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -38,6 +40,50 @@ class Article
      */
     private $price;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="rating", type="integer")
+     */
+    private $rating;
+
+    /**
+     * @Assert\DateTime()
+     * @ORM\Column(type="datetime")
+     */
+    private $regDate;
+
+    /**
+     * @return mixed
+     */
+    public function getRegDate()
+    {
+        return $this->regDate;
+    }
+
+    /**
+     * @param mixed $regDate
+     */
+    public function setRegDate($regDate)
+    {
+        $this->regDate = $regDate;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * @param int $rating
+     */
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
+    }
 
 
     /**
@@ -47,11 +93,6 @@ class Article
      */
     private $image;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="ResourcesBundle\Entity\Magazin")
-     * @ORM\JoinColumn(name="magazin_id", referencedColumnName="id_mag")
-     */
-    private $magazin;
 
     public function getImage()
     {
@@ -63,7 +104,6 @@ class Article
         $this->image = $image;
         return $this;
     }
-
 
     /**
      * @var int
@@ -88,10 +128,46 @@ class Article
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="ArticleBundle\Entity\Category", inversedBy="label")
-     * @ORM\JoinColumn(name="id_article", referencedColumnName="id_category")
+     * @ORM\ManyToOne(targetEntity="ArticleBundle\Entity\Category", inversedBy="Category")
+     * @ORM\JoinColumn(name="id_category", referencedColumnName="id_category")
      */
+    private $category;
 
+    /**
+     * @return mixed
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }/**
+ * @ORM\ManyToOne(targetEntity="ResourcesBundle\Entity\Magazin")
+ * @ORM\JoinColumn(name="magazin_id", referencedColumnName="id_mag")
+ */
+    private $magazin;
+
+    /**
+     * @return mixed
+     */
+    public function getMagazin()
+    {
+        return $this->magazin;
+    }
+
+    /**
+     * @param mixed $magazin
+     */
+    public function setMagazin($magazin)
+    {
+        $this->magazin = $magazin;
+    }
+
+    /**
+     * @param mixed $category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+    }
 
     /**
      * Set name
@@ -151,29 +227,6 @@ class Article
         $this->price = $price;
 
 
-    }
-    /**
-     * Get magazin
-     *
-     * @return mixed
-     */
-    public function getMagazin()
-    {
-        return $this->magazin;
-    }
-
-    /**
-     * Set magazin
-     *
-     * @param mixed $magazin
-     *
-     * @return Article
-     */
-    public function setMagazin($magazin)
-    {
-        $this->magazin = $magazin;
-
-        return $this;
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace ReclamationBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,8 +16,14 @@ class ReclamationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('message')
-            ->add('type')
-            ->add('Envoyer', SubmitType::class);
+                ->add('type', ChoiceType::class,
+                array(
+                    'choices' => array(
+                        'Article manquant' => 'Article manquant',
+                        'Erreur' => 'Erreur',
+                        'Livraison non aboutie' => 'Livraison non aboutie',
+                        'Autre' => 'Autre', )))
+                ->add('Submit', SubmitType::class);
     }/**
      * {@inheritdoc}
      */

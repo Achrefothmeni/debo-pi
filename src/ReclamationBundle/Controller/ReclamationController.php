@@ -28,6 +28,7 @@ class ReclamationController extends Controller
         $form = $this->createForm(ReclamationType::class,$reclamation);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($reclamation);
             $em->flush();
@@ -39,23 +40,24 @@ class ReclamationController extends Controller
         ));
     }
 
-    public function editAction(Request $request, Reclamation $reclamation)
+    public function editAction(Request $request, Reclamation $reclamation, $id)
     {
-        $deleteForm = $this->createDeleteForm($reclamation);
-        $editForm = $this->createForm('ReclamationBundle\Form\ReclamationType', $reclamation);
-        $editForm->handleRequest($request);
 
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+        $status=$this->getDoctrine()->getRepository(Reclamation::class)->find($id);
+        $status->setStatus("Processed");
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($reclamation);
+        $em->flush();
 
-            return $this->redirectToRoute('reclamation_edit', array('id' => $reclamation->getId()));
+            return $this->redirectToRoute('reclamation_show', array('id' => $reclamation->getId()));
         }
-
-        return $this->render('reclamation/edit.html.twig', array(
-            'reclamation' => $reclamation,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+    public function rechercheAction (Request $request, Reclamation $reclamation, $choix)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $rech = $em->getRepository('ReclamationBundle:Reclamation')->find($choix);
+        return $this->render('@Reclamation/Reclamations/afficherReclamation.html.twig', array(
+            'choix' => $rech,
         ));
     }
-
 }
+

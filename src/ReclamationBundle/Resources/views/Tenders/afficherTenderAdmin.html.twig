@@ -15,23 +15,26 @@
                         <table class="table" id="myTable">
                             <thead class=" text-primary">
                             <th>Id tender</th>
-                            <th>status</th>
+                            <th>Article</th>
+                            <th>Quantity</th>
 
                             </thead>
                             <tbody>
                             {% for t in appel_d_offres %}
-                            <form action="{{ path('appel_d_offre_show', { 'id': t.id })}}" method="post">
-                                <tr>
-                                    <td>{{ t.id }}</td>
-                                    <td>{{ t.status }}</td>
-                                    <td><input type="submit" class="btn btn-default" value="Show"></td>
+                            <tr>
+                                    <td>{{ t.idTender }}</td>
+                                    <td>{{ t.id_article }}</td>
+                                    <td>{{ t.quantité }}</td>
                                 </tr>
-                            </form>
                             {% endfor %}
                             </tbody>
                         </table>
                     </div>
                 </div>
+                <form action="{{ path('appel_d_offre_all')}}" method="post">
+                    <input type="submit" class="btn btn-success" value="show Tender"/>
+                    <input type="submit" class="btn btn-success" value="Add price request"/>
+                </form>
             </div>
         </div>
 

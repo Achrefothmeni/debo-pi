@@ -58,7 +58,9 @@
 
                                 <br/>
                                 <a href="{{ path('show-category') }}" class="btn btn-primary btn-round">View All categories </a><br>
-                                <a href="/article/Delete-category/{{ category.idCategory }}" target="_blank" class="btn btn-primary btn-round">delete this Category</a>
+                                <a href="{{ path('delete_category',{'id': category.idCategory}) }}" target="_blank" class="btn btn-primary btn-round">Delete this Category</a>
+                                <a href="{{ path('update-category',{'id': category.idCategory}) }}" target="_blank" class="btn btn-primary btn-round">Update this Category</a>
+
                             </div>
                         </div>
                     </div>

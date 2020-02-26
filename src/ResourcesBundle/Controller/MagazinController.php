@@ -83,7 +83,7 @@ class MagazinController extends Controller
         $em=$this->getDoctrine()->getManager();
         $Form = $this->createFormBuilder($magazin)->add('category',EntityType::class,array(
                 'class'=>'ArticleBundle:Category',
-                'choice_label'=>'libelle',
+                'choice_label'=>'label',
                 'multiple'=>false)
         )->add('location')->add('search',SubmitType::class)->getForm();
         $Form->handleRequest($request);
@@ -126,15 +126,16 @@ class MagazinController extends Controller
             ->find($request->request->get('magazinier'));
         $magazin->setMagazinier($magazinier);
       $em=$this->getDoctrine()->getManager();
-        $twilio = $this->get('twilio.api');
+        //$twilio = $this->get('twilio.api');
         $msg = "vous etes le responsable du Magazin numero ".$magazin->getIdMag()." situé à ".$magazin->getLocation();
 
-
+/*
         $message = $twilio->account->messages->sendMessage(
             '+13345106423', // From a Twilio number in your account
             '+21650802348', // Text any number
             $msg
         );
+*/
         $em->flush();
         return $this->redirectToRoute('afficherMagazin');
     }
@@ -146,7 +147,7 @@ class MagazinController extends Controller
             ->find($idArticle);
 
 
-$category = null;
+$category = $article->getCategory();
         $capacity = $article->getQuantity();
 
         $magazin=$this->getDoctrine()

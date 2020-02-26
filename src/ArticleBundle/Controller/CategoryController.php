@@ -56,20 +56,18 @@ class CategoryController extends Controller
         $category = $this->getDoctrine()
             ->getRepository('ArticleBundle:Category')
             ->findAll();
+        $lib=$category[0]->getLabel();
 
-            $lib=$category[0]->getLabel();
-
-
-        $form = $this->getDoctrine()
+        $Article = $this->getDoctrine()
             ->getRepository('ArticleBundle:Article')
-            ->findBy( ['label' => $lib]);
+            ->findAll();
         return $this->render(
-            '@Article/Category/ShowCategory.html.twig', array('category' => $category,'form'=>$form));
+            '@Article/Category/ShowCategory.html.twig', array('category' => $category,'Article'=>$Article));
     }
     //---------------------------
     public function updateAction(Request $request, $id) {
         $em = $this->getDoctrine()->getManager();
-        $category = $em->getRepository('ArticleBundle:Article')->find($id);
+        $category = $em->getRepository('ArticleBundle:Category')->find($id);
         if (!$category) {
             throw $this->createNotFoundException(
                 'There are no Categories with the following id: ' . $id
@@ -83,7 +81,7 @@ class CategoryController extends Controller
         if ($form->isSubmitted()) {
             $category = $form->getData();
             $em->flush();
-            return $this->redirect('category/view-category/' . $id);
+            return $this->redirect('/debo-pi/web/app_dev.php/article/view-category/' . $id);
         }
         return $this->render(
             '@Article/Category/EditCategory.html.twig',
@@ -97,7 +95,7 @@ class CategoryController extends Controller
             ->find($id);
         if (!$category) {
             throw $this->createNotFoundException(
-                'no Categories with the following id: ' . $id
+                'No Categories with the following id: ' . $id
             );
         }
         $lib=$category->getLabel();

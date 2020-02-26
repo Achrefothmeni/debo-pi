@@ -84,7 +84,7 @@ class FleetController extends Controller
         $em=$this->getDoctrine()->getManager();
         $Form = $this->createFormBuilder($fleet)->add('category',EntityType::class,array(
                 'class'=>'ArticleBundle:Category',
-                'choice_label'=>'libelle',
+                'choice_label'=>'label',
                 'multiple'=>false)
         )->add('nature',EntityType::class,array(
                 'class'=>'ResourcesBundle:Nature',

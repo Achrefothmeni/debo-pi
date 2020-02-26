@@ -24,14 +24,14 @@ class Reclamation
     /**
      * @var string
      *
-     * @ORM\Column(name="message", type="string", length=255)
+     * @ORM\Column(name="message", type="string", length=255, nullable=false)
      */
     private $message;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="type", type="string", length=255)
+     * @ORM\Column(name="type", type="string", length=255, nullable=false)
      */
     private $type;
 
@@ -40,7 +40,7 @@ class Reclamation
      *
      * @ORM\Column(name="status", type="string", length=255)
      */
-    private $status="Non traitée";
+    private $status="Unprocessed";
 
 
     /**
@@ -111,7 +111,7 @@ class Reclamation
      */
     public function setStatus($status)
     {
-        $this->setDefault('Non traitée');
+        $this->status=$status;
 
         return $this;
     }

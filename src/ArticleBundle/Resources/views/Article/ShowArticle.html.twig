@@ -1,0 +1,65 @@
+{% extends 'dashboard_base.html.twig' %}
+    {% block onglet %}Magazin{% endblock %}
+
+    {% block body %}
+<style>
+    th, td {
+        padding: 10px;
+    }
+    th {
+        text-align: left;
+    }
+</style>
+
+<div>
+
+</div>
+<div>
+{% if articles is not empty %}
+    <table>
+        <thead>
+        <tr>
+            <th>Articles ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Label</th>
+            <th>Article Description</th>
+            <th>Update</th>
+            <th>Delete</th>
+            <th>View</th>
+            <th>Affect</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            <tr>
+
+                <td>{{ article.idArticle }}</td>
+                <td>{{ article.name }}</td>
+                <td>{{ article.price  }}</td>
+                <td>{{ article.quantity }}</td>
+                <td>{{ article.label }}</td>
+                <td>{{ article.description }}</td>
+            <td><a href="{{ path('update-article',{ 'id' : article.idArticle }) }}" style="color:#00ad5f">Update</a></td>
+            <td><a href="{{ path('delete_article',{ 'id' : article.idArticle }) }}" style="color:#FF0000">Delete</a></td>
+            {% if article.magazin == null %}
+            <td><a href="{{ path('articleAffecter',{ 'idArticle' : article.idArticle }) }}" style="color:#0000F0">Affect</a></td>
+        {% else %}
+            <td> affected to {{ article.magazin.idMag }}</td>
+        {% endif %}
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No article found.</p>
+{% endif %}
+</div>
+        <div class="card-header">
+            <h6 class="card-title"><a href="{{ path('show-articles') }}" style="color:#0000F0">Search</a></h6>
+        </div>
+<br/>
+<a href="/create-article">Create New</a>
+    {% endblock %}

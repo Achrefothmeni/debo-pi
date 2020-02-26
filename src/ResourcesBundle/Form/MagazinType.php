@@ -17,7 +17,7 @@ class MagazinType extends AbstractType
     {
         $builder->add('id_mag')->add('capacity')->add('category',EntityType::class,array(
                 'class'=>'ArticleBundle:Category',
-                'choice_label'=>'libelle',
+                'choice_label'=>'label',
                 'multiple'=>false
         ))->add('location');
     }/**

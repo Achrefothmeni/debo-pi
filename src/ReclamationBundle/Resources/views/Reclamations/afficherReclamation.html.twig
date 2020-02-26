@@ -2,16 +2,35 @@
 {% block onglet %}Reclamations{% endblock %}
 
 {% block body %}
-<div class="content">
+<div class="content" xmlns="http://www.w3.org/1999/html">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Liste des Reclamations</h4>
+                    <h4 class="card-title">Reclamations List</h4>
+
+                    <div class="row">
+                        <div class="col-md-6 pr-1">
+                            <div class="form-group">
+                                <select class="form-control" id="choix">
+                                    <option valeur="All">All</option>
+                                    <option valeur="Article manquant">Article manquant</option>
+                                    <option valeur="Erreur">Erreur</option>
+                                    <option valeur="Livraison non aboutie">Livraison non aboutie</option>
+                                    <option valeur="Autre">Autre</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 pl-1">
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-success" value="Search" onclick="myFunction()">
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table" id="myTable">
                             <thead class=" text-primary">
                             <th>Id</th>
                             <th>Message</th>
@@ -25,7 +44,7 @@
                                     <td>{{ r.id }}</td>
                                     <td>{{ r.message }}</td>
                                     <td>{{ r.type }}</td>
-                                    <td>{{ r.status }}</td>
+                                    <td><a href="{{ path('reclamation_edit', { 'id': r.id }) }}">{{ r.status }}</a></td>
                                 </tr>
                             {% endfor %}
                             </tbody>
@@ -50,4 +69,27 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>#}
-{% endblock %}
+    <script>
+        function myFunction() {
+            var e, filter, table, tr, td, i, txtValue;
+            e = document.getElementById("choix");
+            var choix = e.options[e.selectedIndex].value;
+
+            filter = e.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[2];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+
+    {% endblock %}

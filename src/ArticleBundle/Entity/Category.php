@@ -22,6 +22,11 @@ class Category
      */
     private $id_category;
 
+    public function __toString()
+    {
+        return $this->label;
+    }
+
     /**
      * @var string
      *
@@ -29,6 +34,11 @@ class Category
      */
     private $label;
 
+    /**
+     * @ORM\OneToMany(targetEntity="ArticleBundle\Entity\Article",mappedBy="Article")
+     * @ORM\JoinColumn(name="id_article", referencedColumnName="idArticle")
+     */
+    private $article;
     /**
      * @ORM\OneToMany(targetEntity="ResourcesBundle\Entity\Fleet",mappedBy="category")
      * @ORM\JoinColumn(name="fleet_id", referencedColumnName="matriculation")
@@ -45,11 +55,6 @@ class Category
      *
      * @return int
 
-     */
-
-
-    /**
-     * @ORM\OneToMany(targetEntity="ArticleBundle\Entity\Article", mappedBy="label")
      */
 
 

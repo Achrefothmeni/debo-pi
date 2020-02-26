@@ -3,51 +3,41 @@
 
 {% block body %}
 
-<div class="content">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Envoyer une Reclamation</h3>
-                </div>
-                <div class="card-body">
+    <!-- MESSAGE BOX SECTION START -->
+    <div class="message-box-section mt--50 mb-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="message-box box-shadow white-bg">
+                        <form id="contact-form" action="#" method="post">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4 class="blog-section-title border-left mb-30">Send Reclamation</h4>
+                                </div>
+                                {{ form_start(form) }}
 
-                    {{ form_start(form) }}
-                    <div class="col-md-12">
-                        <div class="card card-user">
+                                <div class="col-md-12">
+                                    <label>Subject</label>
 
-                            <div class="card-body">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-md-5 pr-1">
-                                            <div class="form-group">
-                                                <label>Message</label>
-                                                {{ form_widget(form.message, {'attr': {'class': 'form-control'}}) }}
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 px-1">
-                                            <div class="form-group">
-                                                <label>Type de reclamation</label>
-                                                {{ form_widget(form.type, {'attr': {'class': 'form-control'}}) }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="update ml-auto mr-auto">
+                                    {{ form_widget(form.type, {'attr': {'class': 'form-control'}}) }}
 
-                                            {{ form_widget(form.Envoyer, {'attr': {'class': 'btn btn-primary btn-round'}}) }}
+                                </div>
 
-                                        </div>
-                                    </div>
-                                </form>
+                                <div class="col-md-12">
+                                    <label>Message</label>
+                                    {{ form_widget(form.message, {'attr': {'class': 'form-control= textarea'}}) }}
+                                    {{ form_widget(form.Submit, {'attr': {'class': 'submit-btn-1 mt-30 btn-hover-1'}}) }}
+
+                                </div>
+                                {{ form_end(form) }}
                             </div>
-                        </div>
-
-                        {{ form_end(form) }}
+                        </form>
+                        <p class="form-messege"></p>
                     </div>
                 </div>
             </div>
-
         </div>
-
-        {% endblock %}
+    </div>
+    <!-- MESSAGE BOX SECTION END -->
+    </section>
+{% endblock %}

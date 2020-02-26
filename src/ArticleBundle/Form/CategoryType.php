@@ -21,8 +21,8 @@ class CategoryType extends AbstractType
                 'length' => 6,
             ));
     }/**
-     * {@inheritdoc}
-     */
+ * {@inheritdoc}
+ */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
