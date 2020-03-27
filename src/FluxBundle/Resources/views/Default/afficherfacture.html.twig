@@ -17,7 +17,7 @@
                             <div class="row">
                                 <p class="text-muted">Réf commande: {{commande.id}}</p>
                             </div>
-                            <p class="text-muted">{{commande.Date|date('Y-m-d')}}</p>
+                            <p class="text-muted">{{commande.dateCommande|date('Y-m-d')}}</p>
                         </div>
                     </div>
 
@@ -28,11 +28,11 @@
                             <p class="font-weight-bold mb-4">Informations Client</p>
 
                             <div class="row" style="margin-left: 1px;">
-                                <p class="mb-1" style="margin-right: 5px;">Nom: {{commande.user ? commande.user.nom}}</p>
-                                <p class="mb-1">Prénom: {{commande.user ? commande.user.prenom}}</p>
+                                <p class="mb-1" style="margin-right: 5px;">Nom: {{commande.idUser ? commande.idUser.nom}}</p>
+                                <p class="mb-1">Prénom: {{commande.idUser ? commande.idUser.prenom}}</p>
                             </div>
-                            <p class="mb-1">Adresse email: {{commande.user ? commande.user.email}}</p>
-                            <p class="mb-1">Matricule fiscale: {{commande.user ? commande.user.MatFiscal}}</p>
+                            <p class="mb-1">Adresse email: {{commande.idUser ? commande.idUser.email}}</p>
+                            <p class="mb-1">Matricule fiscale: {{commande.idUser ? commande.idUser.MatFiscal}}</p>
                         </div>
                     </div>
 
@@ -57,19 +57,19 @@
                                             {{lignecommande.id}}
                                         </td>
                                         <td>
-                                            {{lignecommande.article ? lignecommande.article.name}}
+                                            {{lignecommande.idProduit ? lignecommande.idProduit.name}}
                                         </td>
                                         <td>
-                                            {{lignecommande.article ? lignecommande.article.description}}
+                                            {{lignecommande.idProduit ? lignecommande.idProduit.description}}
                                         </td>
                                         <td>
-                                            {{lignecommande.qte}}
+                                            {{lignecommande.quntite}}
                                         </td>
                                         <td>
-                                            {{lignecommande.article ? lignecommande.article.prix}}
+                                            {{lignecommande.idProduit ? lignecommande.idProduit.price}}
                                         </td>
                                         <td>
-                                            {{lignecommande.article ? lignecommande.article.prix * lignecommande.qte}}
+                                            {{lignecommande.idProduit ? lignecommande.idProduit.price * lignecommande.quntite}}
                                         </td>
                                     </tr>
                                 {% endfor %}
@@ -83,7 +83,7 @@
                         <div class="py-3 px-5 text-right">
                             <div class="mb-2">Grand Total</div>
 
-                            <div class="h2 font-weight-light"><p class="mb-1">{{commande.sum}}</p></div>
+                            <div class="h2 font-weight-light"><p class="mb-1">{{commande.summe}}</p></div>
                         </div>
                     </div>
                 </div>

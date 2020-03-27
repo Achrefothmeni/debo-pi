@@ -1,0 +1,59 @@
+{% extends 'dashboard_base.html.twig' %}
+{% block onglet %}Commandes{% endblock %}
+
+{% block body %}
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Liste des Commandes</h4>
+                    <form method="post" action="{{ path('search_commande') }}">
+                        <div class="row">
+                            <div class="form-group">
+                                <select style="margin-left: 10px" class="form-control" name="client">
+                                    <option value=""> Choisissez..</option>
+                                    {% for c in clients %}
+                                        <option value="{{ c.id }}"> {{ c.nom }} {{ c.prenom }} </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <input type="submit" class="btn btn-success" value="chercher" style="margin-left: 15px; margin-top: -1px"/>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-primary">
+                            <th>Id</th>
+                            <th>email</th>
+                            <th>DateCommande</th>
+                            <th>DateMax</th>
+                            <th>Adresse</th>
+
+
+                            </thead>
+                            <tbody>
+                            {% for r in lcommande %}
+                                <tr>
+                                    <td>{{ r.id }}</td>
+                                    <td>{{ r.idUser ? r.idUser.nom}}</td>
+                                    <td>{{ r.dateCommande|date('Y-m-d H:i:s') }}</td>
+                                    <td>{{ r.dateMax|date('Y-m-d H:i:s') }}</td>
+                                    <td>{{ r.adresse}}</td>
+
+
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    {% endblock %}

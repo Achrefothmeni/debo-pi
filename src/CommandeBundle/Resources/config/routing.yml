@@ -13,3 +13,26 @@ validation:
     path:  /validation
     defaults: { _controller: CommandeBundle:Validation:validation }
 
+ligne_commande_aff:
+    path:     /afficherlc/{id}
+    defaults: { _controller: CommandeBundle:Commande:AfficherLigneDeCommande }
+
+commander_produit:
+    path:    /putinsession/{id}
+    defaults: { _controller: CommandeBundle:Commande:PutInSession }
+
+ajout_ligne_commande:
+    path:     /ajouterlc
+    defaults: { _controller: CommandeBundle:Commande:AjoutLigneDeCommande }
+
+afficher_commande:
+    path:     /afficherCommande
+    defaults: { _controller: CommandeBundle:Commande:afficherCommande }
+
+afficher_commande_back:
+    path:     /afficherCommandeback
+    defaults: { _controller: CommandeBundle:Commande:afficherCommandeback }
+
+search_commande:
+    path:     /search
+    defaults: { _controller: CommandeBundle:Commande:searchCommande }

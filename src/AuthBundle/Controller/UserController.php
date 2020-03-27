@@ -36,7 +36,7 @@ class UserController extends Controller
             if ($user_type=="client" || $user_type=="fournisseur"){
                 $user->setMatFiscal($request->request->get('mat_fiscale'));
                 if($user_type=="client"){
-                    $user->setRoles(array('ROLE_USER'));
+                    $user->setRoles(array('ROLE_CLIENT'));
                 }
                 else{
                     $user->setRoles(array('ROLE_FOURNISSEUR'));

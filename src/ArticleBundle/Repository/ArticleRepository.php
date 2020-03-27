@@ -25,4 +25,13 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
             ->setParameter('str', '%'.$str.'%')
             ->getResult();
     }
+
+    public function findArray($array)
+    {
+        $qb = $this->createQueryBuilder('u')
+            ->Select('u')
+            ->Where('u.idArticle IN (:array)')
+            ->setParameter('array', $array);
+        return $qb->getQuery()->getResult();
+    }
 }

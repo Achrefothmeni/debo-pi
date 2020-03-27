@@ -107,7 +107,7 @@
                                     </td>
 
                                     <td>
-                                        {{commande.date|date('Y-m-d H:i:s')}}
+                                        {{commande.dateCommande|date('Y-m-d H:i:s')}}
                                     </td>
                                     <td>
                                         <a href="{{ path('generer_facture', {id:commande.id}) }}">

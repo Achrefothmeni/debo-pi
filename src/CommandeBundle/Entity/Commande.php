@@ -21,55 +21,116 @@ class Commande
      */
     private $id;
 
-
     /**
-     * @var float
+     * @var \DateTime
      *
-     * @ORM\Column(name="sum", type="float")
+     * @ORM\Column(name="dateCommande", type="datetime")
      */
-    private $sum;
+    private $dateCommande;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AuthBundle\Entity\User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @ORM\Column(type="float", nullable=true)
      */
-    private $user;
+    private $summe;
 
     /**
      * @return mixed
      */
-    public function getUser()
+    public function getSumme()
     {
-        return $this->user;
+        return $this->summe;
     }
 
     /**
-     * @param mixed $user
+     * @param mixed $summe
      */
-    public function setUser($user)
+    public function setSumme($summe)
     {
-        $this->user = $user;
+        $this->summe = $summe;
     }
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date", type="datetime")
-     */
-    private $date;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="status", type="string", length=255)
+     * @ORM\Column(name="adresse", type="string", length=255,nullable=true)
      */
-    private $status;
+    private $adresse;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=255,nullable=true)
+     */
+    private $status = "En attente";
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param string $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+
+
+
+    /**
+     * @return string
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * @param string $adresse
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+    }
+
+
+
+    /**
+     * @ORM\Column(name="date_max", type="datetime", nullable=true)
+     */private $dateMax;
+
+    /**
+     * @return mixed
+     */
+    public function getDateMax()
+    {
+        return $this->dateMax;
+    }
+
+    /**
+     * @param mixed $dateMax
+     */
+    public function setDateMax($dateMax)
+    {
+        $this->dateMax = $dateMax;
+    }
+    /**
+     * @var int
+     * @ORM\ManyToOne(targetEntity="AuthBundle\Entity\User")
+     * @ORM\JoinColumn(name="id_user",referencedColumnName="id")
+     */
+    private $idUser;
 
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -77,75 +138,60 @@ class Commande
     }
 
     /**
-     * Set sum
+     * Set dateCommande
      *
-     * @param float $sum
+     * @param \DateTime $dateCommande
      *
      * @return Commande
      */
-    public function setSum($sum)
+    public function setDateCommande($dateCommande)
     {
-        $this->sum = $sum;
-    
+        $this->dateCommande = $dateCommande;
+
         return $this;
     }
 
     /**
-     * Get sum
-     *
-     * @return float
-     */
-    public function getSum()
-    {
-        return $this->sum;
-    }
-
-    /**
-     * Set date
-     *
-     * @param \DateTime $date
-     *
-     * @return Commande
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-    
-        return $this;
-    }
-
-    /**
-     * Get date
+     * Get dateCommande
      *
      * @return \DateTime
      */
-    public function getDate()
+    public function getDateCommande()
     {
-        return $this->date;
+        return $this->dateCommande;
     }
 
+
+
+
+
     /**
-     * Set status
+     * Set idUser
      *
-     * @param string $status
+     * @param integer $idUser
      *
      * @return Commande
      */
-    public function setStatus($status)
+    public function setIdUser($idUser)
     {
-        $this->status = $status;
-    
+        $this->idUser = $idUser;
+
         return $this;
     }
 
     /**
-     * Get status
+     * Get idUser
      *
-     * @return string
+     * @return int
      */
-    public function getStatus()
+    public function getIdUser()
     {
-        return $this->status;
+        return $this->idUser;
     }
+
+
+
+
+
 }
 

@@ -80,6 +80,7 @@ class LivraisonController extends Controller
             $livraisonCommande = new LivraisonCommande();
             $livraisonCommande->setCommande($commande);
             $livraisonCommande->setLivraison($livraison);
+            $commande->setStatus("En cours");
             $em->persist($livraisonCommande);
             $em->flush();
         }

@@ -3,6 +3,7 @@
 namespace CommandeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * lignecommande
@@ -22,63 +23,93 @@ class lignecommande
     private $id;
 
     /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $prixTotal;
+
+    /**
+     * @return mixed
+     */
+    public function getPrixTotal()
+    {
+        return $this->prixTotal;
+    }
+
+    /**
+     * @param mixed $prixTotal
+     */
+    public function setPrixTotal($prixTotal)
+    {
+        $this->prixTotal = $prixTotal;
+    }
+
+
+
+
+    /**
+     * @var int
+     * @ORM\ManyToOne(targetEntity="ArticleBundle\Entity\Article")
+     * @ORM\JoinColumn(name="id_produit",referencedColumnName="id_article")
+     */
+    private $idProduit;
+
+
+    /**
+     * @var int
+     * @ORM\ManyToOne(targetEntity="CommandeBundle\Entity\Commande")
+     * @ORM\JoinColumn(name="id_commande",referencedColumnName="id")
+     */
+    private $idCommande;
+
+    /**
+     * @return int
+     */
+    public function getIdCommande()
+    {
+        return $this->idCommande;
+    }
+
+
+    /**
+     * @param int $idCommande
+     */
+    public function setIdCommande($idCommande)
+    {
+        $this->idCommande = $idCommande;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /**
      * @var int
      *
-     * @ORM\Column(name="qte", type="integer")
+     * @ORM\Column(name="quntite", type="integer",nullable=true)
      */
-    private $qte;
+    private $quntite;
 
-
-    /**
-     * @ORM\ManyToOne(targetEntity="CommandeBundle\Entity\Commande")
-     * @ORM\JoinColumn(name="commande_id", referencedColumnName="id")
-     */
-    private $commande;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="ArticleBundle\Entity\Article")
-     * @ORM\JoinColumn(name="article_id", referencedColumnName="id_article")
-     */
-    private $article;
-
-    /**
-     * @return mixed
-     */
-    public function getArticle()
-    {
-        return $this->article;
-    }
-
-    /**
-     * @param mixed $article
-     */
-    public function setArticle($article)
-    {
-        $this->article = $article;
-    }
-
-
-    /**
-     * @return mixed
-     */
-    public function getCommande()
-    {
-        return $this->commande;
-    }
-
-    /**
-     * @param mixed $commande
-     */
-    public function setCommande($commande)
-    {
-        $this->commande = $commande;
-    }
 
 
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -86,27 +117,53 @@ class lignecommande
     }
 
     /**
-     * Set qte
+     * Set idProduit
      *
-     * @param integer $qte
+     * @param integer $idProduit
      *
      * @return lignecommande
      */
-    public function setQte($qte)
+    public function setIdProduit($idProduit)
     {
-        $this->qte = $qte;
-    
+        $this->idProduit = $idProduit;
+
         return $this;
     }
 
     /**
-     * Get qte
+     * Get idProduit
      *
-     * @return integer
+     * @return int
      */
-    public function getQte()
+    public function getIdProduit()
     {
-        return $this->qte;
+        return $this->idProduit;
     }
-}
 
+
+
+    /**
+     * Set quntite
+     *
+     * @param integer $quntite
+     *
+     * @return lignecommande
+     */
+    public function setQuntite($quntite)
+    {
+        $this->quntite = $quntite;
+
+        return $this;
+    }
+
+    /**
+     * Get quntite
+     *
+     * @return int
+     */
+    public function getQuntite()
+    {
+        return $this->quntite;
+    }
+
+}

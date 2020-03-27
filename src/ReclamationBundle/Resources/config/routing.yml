@@ -26,14 +26,6 @@ reclamation_recherche:
 
 
 
-
-
-
-
-
-
-
-
 appel_d_offre_index:
     path:     /
     defaults: { _controller: "ReclamationBundle:Appel_d_offre:index" }

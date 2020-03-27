@@ -41,7 +41,7 @@ class FluxTransactionController extends Controller
         $em=$this->getDoctrine()->getManager();
 
         $commande = $em->getRepository(Commande::class)->find($id);
-        $lignecommandes = $em->getRepository(lignecommande::class)->findBy(array('commande' => $commande));
+        $lignecommandes = $em->getRepository(lignecommande::class)->findBy(array('idCommande' => $commande));
         $html =  $this->renderView('@Flux/default/afficherfacture.html.twig', array(
             'lignecommandes' => $lignecommandes,
             'commande' => $commande
